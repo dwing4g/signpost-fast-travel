@@ -14,6 +14,7 @@ zip --must-match --recurse-paths ${file_name} \
     README.md \
     $modname.omwaddon \
     $modname.omwscripts \
+    l10n \
     scripts \
     version.txt \
     --exclude=scripts/momw_sft_timemachine_scr.mwscript
