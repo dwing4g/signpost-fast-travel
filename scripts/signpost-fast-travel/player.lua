@@ -87,7 +87,7 @@ local function findAll()
     end
     foundCount = foundMax
 end
-findAll()
+
 local function forgetAll()
 	-- For testing purposes only! Make the player "forget" all targets
     -- Use it from the console like this:
