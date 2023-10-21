@@ -5,6 +5,8 @@ local AldRuhn = {
     cell = {
         x = -3,
         y = 6,
+        name = "Ald-ruhn"
+
     },
     pos = {
         x = -22438.783203,
@@ -12,20 +14,19 @@ local AldRuhn = {
         z = 1010.697510,
         --TODO: need rotation!
     },
-    name = "Ald-ruhn"
 }
 
 local AldVelothi = {
     cell = {
         x = -11,
         y = 14,
+        name = "Ald Velothi"
     },
     pos = {
         x = -84318.250000,
         y = 122443.757812,
         z = 1058.604736,
     },
-    name = "Ald Velothi"
 }
 
 local Balmora = {
@@ -45,52 +46,52 @@ local Buckmoth = {
     cell = {
         x = -2,
         y = -5,
+        name = "Buckmoth Legion Fort"
     },
     pos = {
         x = -8431.711914,
         y = 43683.074219,
         z = 1623.352051,
     },
-    name = "Buckmoth Legion Fort"
 }
 
 local Caldera = {
     cell = {
         x = -2,
         y = 1,
+        name = "Caldera"
     },
     pos = {
         x = -10349.075195,
         y = 15887.253906,
         z = 1322.294312,
     },
-    name = "Caldera"
 }
 
 local DagonFel = {
     cell = {
         x = 7,
         y = 22,
+        name = "Dagon Fel"
     },
     pos = {
         x = 58489.394531,
         y = 181784.046875,
         z = 468.213928,
     },
-    name = "Dagon Fel"
 }
 
 local Ebonheart = {
     cell = {
         x = 2,
         y = -13,
+        name = "Ebonheart"
     },
     pos = {
         x = 18342.289062,
         y = -98469.804688,
         z = 193.000000,
     },
-    name = "Ebonheart"
 }
 
 -- There's no signposts here!
@@ -99,104 +100,104 @@ local Ghostgate = {
     cell = {
         x = 2,
         y = 4,
+        name = "Ghostgate"
     },
     pos = {
         x = 18041.654297,
         y = 33765.980469,
         z = 1089.491333,
     },
-    name = "Ghostgate"
 }
 
 local GnaarMok = {
     cell = {
         x = -7,
         y = 3,
+        name = "Gnaar Mok"
     },
     pos = {
         x = -56828.046875,
         y = 29505.292969,
         z = 212.721497,
     },
-    name = "Gnaar Mok"
 }
 
 local Gnisis = {
     cell = {
         x = -10,
         y = 11,
+        name = "Gnisis"
     },
     pos = {
         x = -77920.835938,
         y = 90538.203125,
         z = 930.434937,
     },
-    name = "Gnisis"
 }
 
 local HlaOad = {
     cell = {
         x = -6,
         y = -5,
+        name = "Hla Oad"
     },
     pos = {
         x = -44824.164062,
         y = -40334.636719,
         z = 537.000000,
     },
-    name = "Hla Oad"
 }
 
 local Khuul = {
     cell = {
         x = -8,
         y = 16,
+        name = "Khuul"
     },
     pos = {
         x = -64012.125000,
         y = 137214.609375,
         z = 762.866882,
     },
-    name = "Khuul"
 }
 
 local MaarGan = {
     cell = {
         x = -4,
         y = 12,
+        name = "Maar Gan"
     },
     pos = {
         x = -24310.771484,
         y = 101201.585938,
         z = 1540.768311,
     },
-    name = "Maar Gan"
 }
 
 local MolagMar = {
     cell = {
         x = 12,
         y = -8,
+        name = "Molag Mar"
     },
     pos = {
         x = 104974.218750,
         y = -61886.820312,
         z = 602.882568,
     },
-    name = "Molag Mar"
 }
 
 local Moonmoth = {
     cell = {
         x = -2,
         y = -3,
+        name = "Moonmoth Legion Fort"
     },
     pos = {
         x = -7239.423828,
         y = -18479.066406,
         z = 861.923401,
     },
-    name = "Moonmoth Legion Fort"
 }
 
 -- There's no signposts here!
@@ -205,13 +206,13 @@ local MountAssarnibibi = {
     cell = {
         x = 14,
         y = -4,
+        name = "Mount Assarnibibi"
     },
     pos = {
         x = 120512.453125,
         y = -29565.041016,
         z = 4527.379883,
     },
-    name = "Mount Assarnibibi"
 }
 
 -- There's no signposts here!
@@ -221,39 +222,39 @@ local MountKand = {
     cell = {
         x = 11,
         y = -5,
+        name = "Mount Kand"
     },
     pos = {
         x = 93998.921875,
         y = -37480.773438,
         z = 6532.225586,
     },
-    name = "Mount Kand"
 }
 
 local Pelagiad = {
     cell = {
         x = -1,
         y = -7,
+        name = "Pelagiad"
     },
     pos = {
         x = -1780.403564,
         y = -56699.707031,
         z = 930.644348,
     },
-    name = "Pelagiad"
 }
 
 local SeydaNeen = {
     cell = {
         x = -2,
         y = -9,
+        name = "Seyda Neen"
     },
     pos = {
         x = -11568.800781,
         y = -67680.968750,
         z = 272.521484,
     },
-    name = "Seyda Neen"
 }
 
 -- There's no signposts here!
@@ -262,57 +263,53 @@ local Suran = {
     cell = {
         x = 6,
         y = -7,
+        name = "Suran"
     },
     pos = {
         x = 56167.242188,
         y = -49766.304688,
         z = 466.586914,
     },
-    name = "Suran"
 }
 
 local TelVos = {
     cell = {
         x = 11,
         y = 14,
+        name = "Tel Vos"
     },
     pos = {
         x = 91966.351562,
         y = 116720.437500,
         z = 1593.894043,
     },
-    name = "Tel Vos"
 }
 
 local Vivec = {
     cell = {
         x = 2,
         y = -8,
+        name = "Vivec"
     },
     pos = {
         x = 24547.402344,
         y = -65813.296875,
         z = 770.025513,
     },
-    name = "Vivec"
 }
 
 local Vos = {
     cell = {
         x = 11,
         y = 14,
+        name = "Vos"
     },
     pos = {
         x = 91966.351562,
         y = 116720.437500,
         z = 1593.894043,
     },
-    name = "Vos"
 }
-
--- near Seyda Neen
--- -1x-9
--- -3x-8
 
 --
 -- END Morrowind
