@@ -31,6 +31,17 @@ Fast travel from signposts to their locations if you have already been there bef
 1. Add the appropriate data path to your `opemw.cfg` file (e.g. `data="C:\games\OpenMWMods\Travel\signpost-fast-travel"`)
 1. Add `content=signpost-fast-travel.omwscripts` and `content=signpost-fast-travel.omwaddon` to your load order in `openmw.cfg` or enable them via OpenMW-Launcher
 
+#### Testing This Mod
+
+There are console commands available to "find" all travel targets as well as to "forget" them again. To use:
+
+1. Press the \` key to open the console
+1. Type `luap` and press Enter
+1. Type `I.SignpostFastTravel.findAll()` and press Enter to find all travel targets
+1. Type `I.SignpostFastTravel.p()` and press Enter to print your list of found targets to the console (F10)
+1. Type `I.SignpostFastTravel.forgetAll()` and press Enter to forget all travel targets
+1. Type `exit()` and press Enter to exit the Lua console when done
+
 #### Report A Problem
 
 If you've found an issue with this mod, or if you simply have a question, please use one of the following ways to reach out:
