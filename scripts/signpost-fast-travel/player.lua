@@ -19,8 +19,6 @@ local foundSigns = {}
 local foundTargets = {}
 local foundAllSigns = false
 
---TODO: Localize strings
-
 -- Core logic
 local function findSignposts()
     if foundAllSigns then return end
