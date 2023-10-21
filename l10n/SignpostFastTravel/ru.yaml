@@ -1,0 +1,8 @@
+announceTeleportPlural: "Путешествие в {place} заняло {hours} часов"
+announceTeleport: "Путешествие в {place} заняло {hours} час"
+# pariah_dog_13: singular is час
+# pariah_dog_13: plural is часа and часов
+# pariah_dog_13: часа is for numbers ending in 2,3,4
+# pariah_dog_13: часов for everything else except 1
+youreThere: "Вы в {name}"
+notBeen: "Вы пока что небыли в %s"

@@ -8,6 +8,7 @@ local targets = require("scripts.signpost-fast-travel.targets")
 
 local MOD_ID = "SignpostFastTravel"
 local REVEAL_DISTANCE = 4096 -- Half a cell
+local L = core.l10n(MOD_ID)
 local interfaceVersion = 1
 local foundCount = 0
 local foundMax = 45
@@ -48,7 +49,11 @@ end
 
 -- Events for the player
 local function announceTeleport(data)
-	ui.showMessage(string.format("Traveling to %s took %.0f hours", data.name, data.hours))
+    local msg = "announceTeleportPlural"
+    if data.hours < 2 then
+        msg = "announceTeleport"
+    end
+	ui.showMessage(L(msg, { place = data.name, hours = string.format("%.0f", data.hours) }))
 end
 
 local function askForTeleport(data)
@@ -58,7 +63,7 @@ local function askForTeleport(data)
         if foundTargets[string.format("%sx%s", targetCell.x, targetCell.y)] then
             if targetCell.x == self.cell.gridX and targetCell.y == self.cell.gridY then
                 -- No need to travel
-                ui.showMessage(string.format("You're in %s", targetName))
+                ui.showMessage(L("youreThere", { name = targetName }))
                 return
             end
             core.sendGlobalEvent(
@@ -70,7 +75,7 @@ local function askForTeleport(data)
                 }
             )
         else
-            ui.showMessage(string.format("You haven't been to %s yet", targetName))
+            ui.showMessage(L("notBeen", { name = targetName }))
         end
     -- else
     --     print("TODO: Handle undefined points with randomness")

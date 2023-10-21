@@ -1,0 +1,4 @@
+announceTeleportPlural: "Traveling to {place} took {hours} hours"
+announceTeleport: "Traveling to {place} took {hours} hour"
+youreThere: "You're in {name}"
+notBeen: "You haven't been to {name} yet"
