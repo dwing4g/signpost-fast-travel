@@ -9,7 +9,6 @@ local signs = require("scripts.signpost-fast-travel.signs")
 local function doTeleport(data)
     local playerPos = data.actor.position
     local targetPos = data.pos
-
     -- https://wiki.openmw.org/index.php?title=Research:Trading_and_Services#Travel_costs
     local distance = (
         math.sqrt((playerPos.x - targetPos.x) * (playerPos.x - targetPos.x)

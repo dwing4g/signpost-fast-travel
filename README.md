@@ -50,3 +50,11 @@ If you've found an issue with this mod, or if you simply have a question, please
 * Email `signpost-fast-travel@modding-openmw.com`
 * Contact the author on Discord: `johnnyhostile#6749`
 * Contact the author on Libera.chat IRC: `johnnyhostile`
+
+#### Planned Features
+
+* Add an NPC to signpost locations to provide dialogue about the mechanic (and a gold cost to travel)
+* Teleport followers as well (use AttendMe and/or Zack's Lua Multimark as samples)
+* Random chance to stop midway and spawn an enemy encounter
+* Use pathgrid path vs a straight line
+* Make the destination a random point around the signpost if no explicit location is found
