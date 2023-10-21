@@ -19,13 +19,12 @@ records:
       var_size: 0
       variables: []
       compiled: ""
+  "Startup::momw_sft_timemachine_scr":
+    type: Startup
+    data: ""
   "Activator::momw_sft_find_mount_kand":
     type: Activator
     model: editormarker.nif
-  "Activator::momw_sft_timemachine":
-    type: Activator
-    model: editormarker.nif
-    script: momw_sft_timemachine_scr
   "cell::11x-5":
     type: Cell
     name: Mount Kand
