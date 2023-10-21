@@ -4,6 +4,18 @@ Fast travel from signposts to their locations if you have already been there bef
 
 **Requires OpenMW 0.49 or newer!**
 
+#### Credits
+
+Author: johnnyhostile
+
+Lua Assistance: Pharis, urm, kuyondo, gnounc, ZackHasACat
+
+#### Localization
+
+EN: johnnyhostile
+
+RU: pariah_dog_13
+
 #### Web
 
 [Project Home](https://modding-openmw.gitlab.io/signpost-fast-travel/)
