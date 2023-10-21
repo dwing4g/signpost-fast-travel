@@ -72,3 +72,4 @@ If you've found an issue with this mod, or if you simply have a question, please
 * Make the destination a random point around the signpost if no explicit location is found
 * Factor player stats such as speed into time cost
 * Factor timescale
+* "Menu mode" where activating a signpost will open a menu where any previously visited location can be traveled to
