@@ -1,0 +1,10 @@
+Begin momw_sft_timemachine_scr
+
+float newHour
+if newHour > 0
+    MessageBox "JAJA"
+    set gamehour to newHour
+    set newHour to 0
+endif
+
+End momw_sft_timemachine_scr

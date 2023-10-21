@@ -1,0 +1,57 @@
+---
+__esp_version__: 1.3
+__plugin_type__: 0
+transpiler_version: 0.19.0
+author: "johnnyhostile"
+desc: "TODO"
+masters:
+  - name: Morrowind.esm
+    size: 79837557
+records:
+  "Script::momw_sft_timemachine_scr":
+    type: Script
+    script: !include_str "scripts/momw_sft_timemachine_scr.mwscript"
+    preserved:
+      shorts: 0
+      longs: 0
+      floats: 0
+      data_size: 0
+      var_size: 0
+      variables: []
+      compiled: ""
+  "Activator::momw_sft_find_mount_kand":
+    type: Activator
+    model: editormarker.nif
+  "Activator::momw_sft_timemachine":
+    type: Activator
+    model: editormarker.nif
+    script: momw_sft_timemachine_scr
+  "cell::11x-5":
+    type: Cell
+    name: Mount Kand
+    region: Molag Mar Region
+    location:
+      x: 11
+      y: -5
+    traits:
+      - HasWater
+      - Unknown64
+    map_colour:
+      red: 202
+      blue: 165
+      green: 96
+      alpha: 0
+    references:
+      "::signpost-fast-travel::cellref::1":
+        object_id: momw_sft_find_mount_kand
+        scale: 1.0
+        reference_blocked: false
+        position:
+          position:
+            - 94744.04
+            - -35509.26
+            - 6773.8003
+          rotation:
+            - 0.0
+            - 0.0
+            - 0.0

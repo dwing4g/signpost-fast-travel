@@ -1,0 +1,2 @@
+GLOBAL: scripts/signpost-fast-travel/global.lua
+PLAYER: scripts/signpost-fast-travel/player.lua
