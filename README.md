@@ -58,3 +58,5 @@ If you've found an issue with this mod, or if you simply have a question, please
 * Random chance to stop midway and spawn an enemy encounter
 * Use pathgrid path vs a straight line
 * Make the destination a random point around the signpost if no explicit location is found
+* Factor player stats such as speed into time cost
+* Factor timescale
