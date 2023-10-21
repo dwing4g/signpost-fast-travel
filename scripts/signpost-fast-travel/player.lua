@@ -107,7 +107,6 @@ local function p()
     for target, name in pairs(foundTargets) do
         print(string.format("%s: %s", target, name))
     end
-    foundCount = foundMax
 end
 
 -- Engine handlers
