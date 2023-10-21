@@ -357,12 +357,12 @@ return {
     --
     -- BEGIN Morrowind
     --
-    ["active_sign_Khuul_01"] = Khuul,
-    ["active_sign_Molag_Mar_01"] = MolagMar,
-    ["active_sign_Mt_A_01"] = MountAssarnibibi,
-    ["active_sign_Mt_Kand_01"] = MountKand,
-    ["active_sign_Tel_Vos_01"] = TelVos,
-    ["active_sign_Vos_01"] = Vos,
+    ["active_sign_khuul_01"] = Khuul,
+    ["active_sign_molag_mar_01"] = MolagMar,
+    ["active_sign_mt_a_01"] = MountAssarnibibi,
+    ["active_sign_mt_kand_01"] = MountKand,
+    ["active_sign_tel_vos_01"] = TelVos,
+    ["active_sign_vos_01"] = Vos,
     ["active_sign_ald-ruhnB_01"] = AldRuhn,
     ["active_sign_ald-ruhnM_01"] = AldRuhn,
     ["active_sign_ald-ruhn_01"] = AldRuhn,

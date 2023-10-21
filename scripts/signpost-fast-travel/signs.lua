@@ -1,12 +1,12 @@
 return {
     -- grep Activator::active_sign_ Morrowind.d/Morrowind.yaml | grep -v _c_ | sort | uniq | awk -F:: '{ print $2 }' | sed "s|\":\$||g"
     morrowindSigns = {
-        ["active_sign_Khuul_01"] = true,
-        ["active_sign_Molag_Mar_01"] = true,
-        ["active_sign_Mt_A_01"] = true,
-        ["active_sign_Mt_Kand_01"] = true,
-        ["active_sign_Tel_Vos_01"] = true,
-        ["active_sign_Vos_01"] = true,
+        ["active_sign_khuul_01"] = true,
+        ["active_sign_molag_mar_01"] = true,
+        ["active_sign_mt_a_01"] = true,
+        ["active_sign_mt_kand_01"] = true,
+        ["active_sign_tel_vos_01"] = true,
+        ["active_sign_vos_01"] = true,
         ["active_sign_ald-ruhnB_01"] = true,
         ["active_sign_ald-ruhnM_01"] = true,
         ["active_sign_ald-ruhn_01"] = true,
