@@ -14,7 +14,6 @@ local function doTeleport(data)
         math.sqrt((playerPos.x - targetPos.x) * (playerPos.x - targetPos.x)
             + (playerPos.y - targetPos.y) * (playerPos.y - targetPos.y))
     )
-
     distance = distance / core.getGMST("fTravelTimeMult")
     world.mwscript.getGlobalScript("momw_sft_timemachine_scr").variables.distance = distance
     data.actor:sendEvent(

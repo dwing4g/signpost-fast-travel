@@ -124,14 +124,14 @@ local function onSave()
     }
 end
 
-local function onUpddate() findSignposts() end
+local function onUpdate() findSignposts() end
 
 -- Handoff to the engine
 return {
     engineHandlers = {
         onLoad = onLoad,
         onSave = onSave,
-        onUpdate = onUpddate
+        onUpdate = onUpdate
     },
     eventHandlers = {
         momw_sft_announceTeleport = announceTeleport,
