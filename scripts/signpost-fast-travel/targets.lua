@@ -68,6 +68,19 @@ local Caldera = {
     },
 }
 
+local CalderaMine = {
+    cell = {
+        x = -4,
+        y = 2,
+        name = "Caldera Mine"
+    },
+    pos = {
+        x = -25900.478516,
+        y = 23869.306641,
+        z = 1107.273193
+    }
+}
+
 local DagonFel = {
     cell = {
         x = 7,
@@ -336,7 +349,7 @@ return {
     ["active_sign_buckmothM_01"] = Buckmoth,
     ["active_sign_buckmoth_01"] = Buckmoth,
     ["active_sign_buckmoth_02"] = Buckmoth,
-    ["active_sign_cal_mine_02"] = nil,--TODO
+    ["active_sign_cal_mine_02"] = CalderaMine,
     ["active_sign_caldera_01"] = Caldera,
     ["active_sign_caldera_02"] = Caldera,
     ["active_sign_dagon_fel_01"] = DagonFel,
@@ -347,7 +360,8 @@ return {
     ["active_sign_gnaar _mok_01"] = GnaarMok,
     ["active_sign_gnaar_mok_02"] = GnaarMok,
     ["active_sign_gnisis_01"] = Gnisis,
-    ["active_sign_guartrail_01"] = nil,--TODO
+    -- I don't think this needs a point, it's right by the sign...
+    ["active_sign_guartrail_01"] = nil,
     ["active_sign_hla_oad_01"] = HlaOad,
     ["active_sign_hla_oad_02"] = HlaOad,
     ["active_sign_maar_ganB_02"] = MaarGan,
