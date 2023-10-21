@@ -12,6 +12,7 @@ local REVEAL_DISTANCE = 4096 -- Half a cell
 local L = core.l10n(MOD_ID)
 local interfaceVersion = 1
 
+local AttendMeInstalled = core.contentFiles.has("AttendMe.omwscripts")
 local followers = {}
 local foundCount = 0
 local foundMax = 45
@@ -157,7 +158,9 @@ end
 
 local function onUpdate()
     findSignposts()
-    teleportFollowers.update(followers)
+    if not AttendMeInstalled then
+        teleportFollowers.update(followers)
+    end
 end
 
 -- Handoff to the engine
