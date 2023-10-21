@@ -5,11 +5,14 @@ local self = require('openmw.self')
 local ui = require('openmw.ui')
 local signs = require("scripts.signpost-fast-travel.signs")
 local targets = require("scripts.signpost-fast-travel.targets")
+local teleportFollowers = require('scripts.signpost-fast-travel.teleportFollowers')
 
 local MOD_ID = "SignpostFastTravel"
 local REVEAL_DISTANCE = 4096 -- Half a cell
 local L = core.l10n(MOD_ID)
 local interfaceVersion = 1
+
+local followers = {}
 local foundCount = 0
 local foundMax = 45
 if core.contentFiles.has("TR_Mainland.esm") then
@@ -80,6 +83,27 @@ local function askForTeleport(data)
     end
 end
 
+-- From AttendMe
+local function followerAway(e)
+    teleportFollowers.followerAway(e.actor)
+end
+
+local function followerStatus(e)
+    local index
+    for i, follower in ipairs(followers) do
+        if follower == e.actor then
+            index = i
+            break
+        end
+    end
+    if e.status and not index then
+        table.insert(followers, e.actor)
+    end
+    if not e.status and index then
+        table.remove(followers, index)
+    end
+end
+
 -- Interface functions
 local function findAll()
 	-- For testing purposes only! Give the player all targets.
@@ -116,6 +140,7 @@ end
 
 -- Engine handlers
 local function onLoad(data)
+    followers = data.followers
     foundAllSigns = data.foundAllSigns
 	foundSigns = data.foundSigns
     foundTargets = data.foundTargets
@@ -123,13 +148,17 @@ end
 
 local function onSave()
 	return {
+        followers = followers,
         foundAllSigns = foundAllSigns,
         foundSigns = foundSigns,
-        foundTargets = foundTargets,
+        foundTargets = foundTargets
     }
 end
 
-local function onUpdate() findSignposts() end
+local function onUpdate()
+    findSignposts()
+    teleportFollowers.update(followers)
+end
 
 -- Handoff to the engine
 return {
@@ -140,7 +169,9 @@ return {
     },
     eventHandlers = {
         momw_sft_announceTeleport = announceTeleport,
-        momw_sft_askForTeleport = askForTeleport
+        momw_sft_askForTeleport = askForTeleport,
+        momw_sft_followerAway = followerAway,
+        momw_sft_followerStatus = followerStatus
     },
     interfaceName = MOD_ID,
     interface = {

@@ -30,6 +30,13 @@ local function doTeleport(data)
     )
 end
 
+-- From AttendMe
+local function followerTeleport(e)
+    -- if mechanicSettings:get('teleportFollowers') then
+        e.actor:teleport(e.cellName, e.position)
+    -- end
+end
+
 Activation.addHandlerForType(
     types.Activator,
     function(obj, actor)
@@ -42,4 +49,9 @@ Activation.addHandlerForType(
     end
 )
 
-return { eventHandlers = { momw_sft_doTeleport = doTeleport } }
+return {
+    eventHandlers = {
+        momw_sft_doTeleport = doTeleport,
+        momw_sft_followerTeleport = followerTeleport
+    }
+}
