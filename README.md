@@ -29,7 +29,7 @@ Fast travel from signposts to their locations if you have already been there bef
         /Users/username/games/OpenMWMods/Travel/signpost-fast-travel
 
 1. Add the appropriate data path to your `opemw.cfg` file (e.g. `data="C:\games\OpenMWMods\Travel\signpost-fast-travel"`)
-1. Add `content=signpost-fast-travel.omwscripts` to your load order in `openmw.cfg` or enable it via OpenMW-Launcher
+1. Add `content=signpost-fast-travel.omwscripts` and `content=signpost-fast-travel.omwaddon` to your load order in `openmw.cfg` or enable them via OpenMW-Launcher
 
 #### Report A Problem
 
