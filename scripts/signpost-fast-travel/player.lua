@@ -24,7 +24,7 @@ local function findSignposts()
     for _, thing in pairs(nearby.activators) do
         local recId = thing.recordId
         --TODO: check for TR signs
-        if signs.morrowindSigns[recId] then
+        if signs.morrowindSigns[recId] or signs.trSigns[recId] then
             local res = nearby.castRay(
                 self.position,
                 thing.position,
