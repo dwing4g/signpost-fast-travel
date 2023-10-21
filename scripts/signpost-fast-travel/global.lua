@@ -31,6 +31,14 @@ local function doTeleport(data)
 
             --TODO: Teleport followers; attendme does this
             --TODO: Random chance to stop midway and spawn enemies
+            --TODO: Make the destination a random point around the signpost if no explicit location is found
+            data.actor:sendEvent(
+                "momw_sft_announceTeleport",
+                {
+                    hours = gameHour,
+                    name = data.cell.name
+                }
+            )
             data.actor:teleport(
                 data.cell.name,
                 util.vector3(targetPos.x, targetPos.y, targetPos.z),

@@ -17,6 +17,8 @@ local foundSigns = {}
 local foundTargets = {}
 local foundAllSigns = false
 
+--TODO: Localize strings
+
 -- Core logic
 local function findSignposts()
     if foundAllSigns then return end
@@ -46,17 +48,20 @@ local function findSignposts()
     end
 end
 
--- Event for the player
+-- Events for the player
+local function announceTeleport(data)
+	ui.showMessage(string.format("Traveling to %s took %.0f hours", data.name, data.hours))
+end
+
 local function askForTeleport(data)
     local targetCell = targets[data.signId].cell
     local targetName = targetCell.name
     if foundTargets[string.format("%sx%s", targetCell.x, targetCell.y)] then
         if targetCell.x == self.cell.gridX and targetCell.y == self.cell.gridY then
-            --TODO: Localize strings
+            -- No need to travel
             ui.showMessage(string.format("You're in %s", targetName))
             return
         end
-        ui.showMessage(string.format("Traveling to %s...", targetName))
         core.sendGlobalEvent(
             "momw_sft_doTeleport",
             {
@@ -129,7 +134,10 @@ return {
         onSave = onSave,
         onUpdate = onUpddate
     },
-    eventHandlers = { momw_sft_askForTeleport = askForTeleport },
+    eventHandlers = {
+        momw_sft_announceTeleport = announceTeleport,
+        momw_sft_askForTeleport = askForTeleport
+    },
     interfaceName = MOD_ID,
     interface = {
         version = interfaceVersion,
