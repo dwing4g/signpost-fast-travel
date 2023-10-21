@@ -7,6 +7,7 @@ local signs = require("scripts.signpost-fast-travel.signs")
 local targets = require("scripts.signpost-fast-travel.targets")
 
 local MOD_ID = "SignpostFastTravel"
+local REVEAL_DISTANCE = 4096 -- Half a cell
 local interfaceVersion = 1
 local foundCount = 0
 local foundMax = 45
@@ -25,15 +26,12 @@ local function findSignposts()
     if foundCount >= foundMax then foundAllSigns = true end
     for _, thing in pairs(nearby.activators) do
         local recId = thing.recordId
-        --TODO: check for TR signs
-        if signs.morrowindSigns[recId] or signs.trSigns[recId] then
+        if (signs.morrowindSigns[recId] or signs.trSigns[recId])
+            and (self.position - thing.position):length() < REVEAL_DISTANCE then
             local res = nearby.castRay(
                 self.position,
                 thing.position,
-                {
-                    collisionType = nearby.COLLISION_TYPE.AnyPhysical,
-                    radius = 1
-                }
+                { collisionType = nearby.COLLISION_TYPE.AnyPhysical }
             )
             if res.hitObject and res.hitObject.name == self.name and not foundSigns[thing.id] then
                 local cell = thing.cell
@@ -54,24 +52,28 @@ local function announceTeleport(data)
 end
 
 local function askForTeleport(data)
-    local targetCell = targets[data.signId].cell
-    local targetName = targetCell.name
-    if foundTargets[string.format("%sx%s", targetCell.x, targetCell.y)] then
-        if targetCell.x == self.cell.gridX and targetCell.y == self.cell.gridY then
-            -- No need to travel
-            ui.showMessage(string.format("You're in %s", targetName))
-            return
+    if targets[data.signId] then
+        local targetCell = targets[data.signId].cell
+        local targetName = targetCell.name
+        if foundTargets[string.format("%sx%s", targetCell.x, targetCell.y)] then
+            if targetCell.x == self.cell.gridX and targetCell.y == self.cell.gridY then
+                -- No need to travel
+                ui.showMessage(string.format("You're in %s", targetName))
+                return
+            end
+            core.sendGlobalEvent(
+                "momw_sft_doTeleport",
+                {
+                    actor = self,
+                    cell = targetCell,
+                    pos = targets[data.signId].pos
+                }
+            )
+        else
+            ui.showMessage(string.format("You haven't been to %s yet", targetName))
         end
-        core.sendGlobalEvent(
-            "momw_sft_doTeleport",
-            {
-                actor = self,
-                cell = targetCell,
-                pos = targets[data.signId].pos
-            }
-        )
-    else
-        ui.showMessage(string.format("You haven't been to %s yet", targetName))
+    -- else
+    --     print("TODO: Handle undefined points with randomness")
     end
 end
 
