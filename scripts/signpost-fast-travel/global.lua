@@ -26,7 +26,7 @@ local function doTeleport(data)
     data.actor:teleport(
         data.cell.name,
         util.vector3(targetPos.x, targetPos.y, targetPos.z),
-        data.actor.rotation--TODO: set a fixed rotation for each target!
+        util.transform.rotateZ(targetPos.rotZ)
     )
 end
 
