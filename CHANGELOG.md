@@ -5,7 +5,7 @@
 * Follower features from Attend Me are disabled if that mod is also installed
 * Fixed some signs that were broken due to not being lowercase
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/19600201)
 
 #### beta2
 
