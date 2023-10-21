@@ -53,7 +53,7 @@ local function askForTeleport(data)
     if foundTargets[string.format("%sx%s", targetCell.x, targetCell.y)] then
         if targetCell.x == self.cell.gridX and targetCell.y == self.cell.gridY then
             --TODO: Localize strings
-            ui.showMessage(string.format("You have arrived at %s", targetName))
+            ui.showMessage(string.format("You're in %s", targetName))
             return
         end
         ui.showMessage(string.format("Traveling to %s...", targetName))
