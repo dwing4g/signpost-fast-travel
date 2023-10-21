@@ -64,11 +64,7 @@
   valid_html = true
 
 [widgets.prod-mode]
-  after = [
-    "highlight-active-link",
-    "highlight-code-css",
-    "highlight-code-darkmode-css"
-  ]
+  after = ["highlight-active-link"]
   widget = "prod-mode"
   profile = "prod"
   project = "signpost-fast-travel"
