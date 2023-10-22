@@ -7,7 +7,7 @@
 * Fixed some incorrect pluralizations
 * Made Attend Me options configurable if that mod is not also installed
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/19600850)
 
 #### beta3
 
