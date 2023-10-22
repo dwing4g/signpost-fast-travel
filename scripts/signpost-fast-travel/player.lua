@@ -2,12 +2,15 @@ require("scripts.signpost-fast-travel.checks")
 local core = require('openmw.core')
 local nearby = require('openmw.nearby')
 local self = require('openmw.self')
+local storage = require('openmw.storage')
 local ui = require('openmw.ui')
+local I = require("openmw.interfaces")
 local signs = require("scripts.signpost-fast-travel.signs")
 local targets = require("scripts.signpost-fast-travel.targets")
 local teleportFollowers = require('scripts.signpost-fast-travel.teleportFollowers')
 
 local MOD_ID = "SignpostFastTravel"
+local settings = storage.globalSection('SettingsGlobal' .. MOD_ID)
 local REVEAL_DISTANCE = 4096 -- Half a cell
 local L = core.l10n(MOD_ID)
 local interfaceVersion = 1
@@ -22,6 +25,13 @@ end
 local foundSigns = {}
 local foundTargets = {}
 local foundAllSigns = false
+
+I.Settings.registerPage {
+   key = MOD_ID,
+   l10n = MOD_ID,
+   name = 'name',
+   description = 'description',
+}
 
 -- Core logic
 local function findSignposts()
@@ -158,7 +168,7 @@ end
 
 local function onUpdate()
     findSignposts()
-    if not AttendMeInstalled then
+    if not AttendMeInstalled and settings:get("teleportFollowers") then
         teleportFollowers.update(followers)
     end
 end

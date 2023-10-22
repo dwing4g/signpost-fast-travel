@@ -73,6 +73,7 @@ local function updateFollowedPlayers()
    end
 end
 
+-- local updateTime = math.random() * math.max(0, mechanicSettings:get('checkFollowersEvery'))
 local updateTime = math.random() * 0.2
 
 return {

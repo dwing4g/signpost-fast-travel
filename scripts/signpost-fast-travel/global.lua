@@ -1,10 +1,31 @@
 require("scripts.signpost-fast-travel.checks")
 local core = require('openmw.core')
+local storage = require('openmw.storage')
 local types = require('openmw.types')
 local util = require('openmw.util')
 local world = require('openmw.world')
 local Activation = require('openmw.interfaces').Activation
+local I = require("openmw.interfaces")
 local signs = require("scripts.signpost-fast-travel.signs")
+local MOD_ID = "SignpostFastTravel"
+
+local settings = storage.globalSection('SettingsGlobal' .. MOD_ID)
+
+I.Settings.registerGroup {
+   key = 'SettingsGlobal' .. MOD_ID,
+   page = MOD_ID,
+   l10n = MOD_ID,
+   name = "settingsTitle",
+   permanentStorage = false,
+   settings = {
+      {
+         key = 'teleportFollowers',
+         name = "teleportFollowers_name",
+         default = true,
+         renderer = 'checkbox',
+      }
+   }
+}
 
 local function doTeleport(data)
     local playerPos = data.actor.position
@@ -32,9 +53,9 @@ end
 
 -- From AttendMe
 local function followerTeleport(e)
-    -- if mechanicSettings:get('teleportFollowers') then
+    if settings:get('teleportFollowers') then
         e.actor:teleport(e.cellName, e.position)
-    -- end
+    end
 end
 
 Activation.addHandlerForType(
