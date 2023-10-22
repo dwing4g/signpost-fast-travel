@@ -4,6 +4,7 @@
     Thanks to urm!
 ]]
 local core = require('openmw.core')
+if core.contentFiles.has("AttendMe.omwscripts") then return end
 local types = require('openmw.types')
 local self = require('openmw.self')
 -- local storage = require('openmw.storage')
@@ -13,7 +14,6 @@ local I = require('openmw.interfaces')
 
 -- local mechanicSettings = storage.globalSection('SettingsAttendMeMechanics')
 
-local AttendMeInstalled = core.contentFiles.has("AttendMe.omwscripts")
 local followingPlayers = {}
 
 local function filter(t, callback)
