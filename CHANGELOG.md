@@ -1,5 +1,12 @@
 ## Signpost Fast Travel Changelog
 
+#### beta4
+
+* Fixed some incorect pluralizations
+* Made Attend Me options configurable if that mod is not also installed
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### beta3
 
 * Follower features from Attend Me are disabled if that mod is also installed
