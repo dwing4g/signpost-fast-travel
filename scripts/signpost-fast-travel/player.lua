@@ -26,12 +26,14 @@ local foundSigns = {}
 local foundTargets = {}
 local foundAllSigns = false
 
-I.Settings.registerPage {
-   key = MOD_ID,
-   l10n = MOD_ID,
-   name = 'name',
-   description = 'description',
-}
+if not AttendMeInstalled then
+    I.Settings.registerPage {
+        key = MOD_ID,
+        l10n = MOD_ID,
+        name = 'name',
+        description = 'description',
+    }
+end
 
 -- Core logic
 local function findSignposts()

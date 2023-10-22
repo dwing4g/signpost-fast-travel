@@ -4,28 +4,29 @@ local storage = require('openmw.storage')
 local types = require('openmw.types')
 local util = require('openmw.util')
 local world = require('openmw.world')
-local Activation = require('openmw.interfaces').Activation
 local I = require("openmw.interfaces")
 local signs = require("scripts.signpost-fast-travel.signs")
 local MOD_ID = "SignpostFastTravel"
 
 local settings = storage.globalSection('SettingsGlobal' .. MOD_ID)
 
-I.Settings.registerGroup {
-   key = 'SettingsGlobal' .. MOD_ID,
-   page = MOD_ID,
-   l10n = MOD_ID,
-   name = "settingsTitle",
-   permanentStorage = false,
-   settings = {
-      {
-         key = 'teleportFollowers',
-         name = "teleportFollowers_name",
-         default = true,
-         renderer = 'checkbox',
-      }
-   }
-}
+if not core.contentFiles.has("AttendMe.omwscripts") then
+    I.Settings.registerGroup {
+        key = 'SettingsGlobal' .. MOD_ID,
+        page = MOD_ID,
+        l10n = MOD_ID,
+        name = "settingsTitle",
+        permanentStorage = false,
+        settings = {
+            {
+                key = 'teleportFollowers',
+                name = "teleportFollowers_name",
+                default = true,
+                renderer = 'checkbox',
+            }
+        }
+    }
+end
 
 local function doTeleport(data)
     local playerPos = data.actor.position
@@ -58,7 +59,7 @@ local function followerTeleport(e)
     end
 end
 
-Activation.addHandlerForType(
+I.Activation.addHandlerForType(
     types.Activator,
     function(obj, actor)
         local recordId = obj.recordId

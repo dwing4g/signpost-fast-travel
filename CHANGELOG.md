@@ -2,6 +2,8 @@
 
 #### beta4
 
+* The settings menu is now disabled if Attend Me is installed
+* Lowercased TR signpost IDs
 * Fixed some incorrect pluralizations
 * Made Attend Me options configurable if that mod is not also installed
 
