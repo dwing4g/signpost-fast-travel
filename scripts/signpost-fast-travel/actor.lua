@@ -78,7 +78,6 @@ local updateTime = math.random() * 0.2
 return {
    engineHandlers = {
       onInactive = function()
-          if AttendMeInstalled then return end
          if not isDead() then
          -- if not isDead() and mechanicSettings:get('teleportFollowers') then
             for _, player in pairs(followingPlayers) do
@@ -89,7 +88,6 @@ return {
          end
       end,
       onUpdate = function(dt)
-          if AttendMeInstalled then return end
          updateTime = updateTime + dt
          -- local checkEvery = math.max(0, mechanicSettings:get('checkFollowersEvery'))
          local checkEvery = 0.2
