@@ -52,7 +52,7 @@ end
 -- Events for the player
 local function announceTeleport(data)
     local msg = "announceTeleportPlural"
-    if data.hours < 2 then
+    if data.hours == 1 then
         msg = "announceTeleport"
     end
 	ui.showMessage(L(msg, { place = data.name, hours = string.format("%.0f", data.hours) }))
