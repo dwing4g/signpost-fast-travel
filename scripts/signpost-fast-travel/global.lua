@@ -63,7 +63,7 @@ I.Activation.addHandlerForType(
     types.Activator,
     function(obj, actor)
         local recordId = obj.recordId
-        if signs.morrowindSigns[recordId] then
+        if signs.morrowindSigns[recordId] or signs.trSigns[recordId] then
             actor:sendEvent(
                 "momw_sft_askForTeleport",
                 { signId = recordId }
