@@ -38,7 +38,7 @@ end
 -- Core logic
 local function findSignposts()
     if foundAllSigns then return end
-    if foundCount >= foundMax then foundAllSigns = true end
+    if foundCount == foundMax then foundAllSigns = true end
     for _, thing in pairs(nearby.activators) do
         local recId = thing.recordId
         if (signs.morrowindSigns[recId] or signs.trSigns[recId])
