@@ -6,7 +6,7 @@
 * Added a cost to travel, the value is configurable (0 to disable)
 * Made the passing of time and showing messages configurable
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/19697842)
 
 #### beta4
 
