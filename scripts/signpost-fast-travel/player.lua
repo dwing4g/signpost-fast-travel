@@ -171,7 +171,7 @@ end
 
 -- Interface functions
 local function findAll()
-	-- For testing purposes only! Give the player all targets.
+    -- For testing purposes only! Give the player all targets.
     -- Use it from the console like this:
     -- luap <ENTER>
     -- I.SignpostFastTravel.findAll() <ENTER>
@@ -183,7 +183,7 @@ local function findAll()
 end
 
 local function forgetAll()
-	-- For testing purposes only! Make the player "forget" all targets
+    -- For testing purposes only! Make the player "forget" all targets
     -- Use it from the console like this:
     -- luap <ENTER>
     -- I.SignpostFastTravel.forgetAll() <ENTER>
@@ -207,12 +207,12 @@ end
 local function onLoad(data)
     followers = data.followers
     foundAllSigns = data.foundAllSigns
-	foundSigns = data.foundSigns
+    foundSigns = data.foundSigns
     foundTargets = data.foundTargets
 end
 
 local function onSave()
-	return {
+    return {
         followers = followers,
         foundAllSigns = foundAllSigns,
         foundSigns = foundSigns,
