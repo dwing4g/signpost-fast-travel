@@ -14,6 +14,7 @@ zip --must-match --recurse-paths ${file_name} \
     README.md \
     $modname.omwaddon \
     $modname.omwscripts \
+    PB_SignpostsRetextured.omwaddon \
     l10n \
     scripts \
     version.txt \

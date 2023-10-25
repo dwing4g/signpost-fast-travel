@@ -1,0 +1,186 @@
+---
+__esp_version__: 1.3
+__plugin_type__: 0
+transpiler_version: 0.19.0
+author: PeterBitt
+desc: "Signposts Retextured 2.0\r\n\r\nYet another Signpost replacer! \r\n\r\nThis makes the signs in Vvardenfell readable with vanilla friendly textures. \r\nNo sign looks the same. Colors, font and resolution blend in with original MW graphics.\r\n\r\nPatched for support with Signpost Fast Travel by johnnyhostile"
+masters:
+  - name: Morrowind.esm
+    size: 79837557
+records:
+  "Activator::active_sign_pelagiad_01":
+    type: Activator
+    name: "Pelagiad"
+    model: "PB\\SR_Pelagiad2.nif"
+  "Activator::active_sign_seydaneen_01":
+    type: Activator
+    name: "Seyda Neen"
+    model: "PB\\SR_SeydaNeen2.nif"
+  "Activator::active_sign_balmora_01":
+    type: Activator
+    name: "Balmora"
+    model: "PB\\SR_Balmora2.nif"
+  "Activator::active_sign_suran_01":
+    type: Activator
+    name: "Suran"
+    model: "PB\\SR_Suran.nif"
+  "Activator::active_sign_pelagiad_02":
+    type: Activator
+    name: "Pelagiad"
+    model: "PB\\SR_Pelagiad1.nif"
+  "Activator::active_sign_vivec_01":
+    type: Activator
+    name: "Vivec"
+    model: "PB\\SR_Vivec1.nif"
+  "Activator::active_sign_seydaneen_02":
+    type: Activator
+    name: "Seyda Neen"
+    model: "PB\\SR_SeydaNeen1.nif"
+  "Activator::active_sign_caldera_01":
+    type: Activator
+    name: "Caldera"
+    model: "PB\\SR_Caldera2.nif"
+  "Activator::active_sign_balmora_02":
+    type: Activator
+    name: "Balmora"
+    model: "PB\\SR_Balmora1.nif"
+  "Activator::active_sign_gnisis_01":
+    type: Activator
+    name: "Gnisis"
+    model: "PB\\SR_Gnisis.nif"
+  "Activator::active_sign_ald-ruhn_01":
+    type: Activator
+    name: "Ald-ruhn"
+    model: "PB\\SR_Aldruhn1.nif"
+  "Activator::active_sign_caldera_02":
+    type: Activator
+    name: "Caldera"
+    model: "PB\\SR_Caldera1.nif"
+  "Activator::active_sign_ghostgate_01":
+    type: Activator
+    name: "Ghostgate"
+    model: "PB\\SR_Ghostgate.nif"
+  "Activator::active_sign_vivec_02":
+    type: Activator
+    name: "Vivec"
+    model: "PB\\SR_Vivec2.nif"
+  "Activator::active_sign_Mt_Kand_01":
+    type: Activator
+    name: "Mount Kand"
+    model: "PB\\SR_MountKand.nif"
+  "Activator::active_sign_Molag_Mar_01":
+    type: Activator
+    name: "Molag Mar"
+    model: "PB\\SR_MolagMar.nif"
+  "Activator::active_sign_Mt_A_01":
+    type: Activator
+    name: "Mount Assarnibibi"
+    model: "PB\\SR_MountAssarnibibi.nif"
+  "Activator::active_sign_ald-ruhn_02":
+    type: Activator
+    name: "Ald-ruhn"
+    model: "PB\\SR_Aldruhn2.nif"
+  "Activator::active_sign_buckmoth_02":
+    type: Activator
+    name: "Buckmoth Legion Fort"
+    model: "PB\\SR_Buckmoth2.nif"
+  "Activator::active_sign_maar_gan_01":
+    type: Activator
+    name: "Maar Gan"
+    model: "PB\\SR_MaarGan2.nif"
+  "Activator::active_sign_buckmoth_01":
+    type: Activator
+    name: "Buckmoth Legion Fort"
+    model: "PB\\SR_Buckmoth1.nif"
+  "Activator::active_sign_maar_gan_02":
+    type: Activator
+    name: "Maar Gan"
+    model: "PB\\SR_MaarGan1.nif"
+  "Activator::active_sign_ald-ruhnB_01":
+    type: Activator
+    name: "Ald-ruhn (back road)"
+    model: "PB\\SR_AldruhnBR.nif"
+  "Activator::active_sign_buckmothB_01":
+    type: Activator
+    name: "Buckmoth Fort (back road)"
+    model: "PB\\SR_BuckmothBR.nif"
+  "Activator::active_sign_maar_ganB_02":
+    type: Activator
+    name: "Maar gan (back road)"
+    model: "PB\\SR_MaarGanBR.nif"
+  "Activator::active_sign_ald-ruhnM_01":
+    type: Activator
+    name: "Ald-ruhn (main road)"
+    model: "PB\\SR_AldruhnMR.nif"
+  "Activator::active_sign_buckmothM_01":
+    type: Activator
+    name: "Buckmoth Fort (main road)"
+    model: "PB\\SR_BuckmothMR.nif"
+  "Activator::active_sign_maar_ganM_02":
+    type: Activator
+    name: "Maar gan (main road)"
+    model: "PB\\SR_MaarGanMR.nif"
+  "Activator::active_sign_ebonheart_01":
+    type: Activator
+    name: "Ebonheart"
+    model: "PB\\SR_Ebonheart2.nif"
+  "Activator::active_sign_pelagiadB_01":
+    type: Activator
+    name: "Pelagiad (back road)"
+    model: "PB\\SR_PelagiadBR.nif"
+  "Activator::active_sign_pelagiadM_01":
+    type: Activator
+    name: "Pelagiad (main road)"
+    model: "PB\\SR_PelagiadMR.nif"
+  "Activator::active_sign_moonmoth_01":
+    type: Activator
+    name: "Moonmoth Legion Fort"
+    model: "PB\\SR_Moonmoth.nif"
+  "Activator::active_sign_ebonheart_02":
+    type: Activator
+    name: "Ebonheart"
+    model: "PB\\SR_Ebonheart1.nif"
+  "Activator::active_sign_aldvelothi_01":
+    type: Activator
+    name: "Ald Velothi"
+    model: "PB\\SR_AldVelothi.nif"
+  "Activator::active_sign_Khuul_01":
+    type: Activator
+    name: "Khuul"
+    model: "PB\\SR_Khuul.nif"
+  "Activator::active_sign_guartrail_01":
+    type: Activator
+    name: "Guar Trail"
+    model: "PB\\SR_GuarTrail.nif"
+  "Activator::active_sign_gnaar _mok_01":
+    type: Activator
+    name: "Gnaar Mok"
+    model: "PB\\SR_GnaarMok1.nif"
+  "Activator::active_sign_hla_oad_01":
+    type: Activator
+    name: "Hla Oad"
+    model: "PB\\SR_HlaOad1.nif"
+  "Activator::active_sign_hla_oad_02":
+    type: Activator
+    name: "Hla Oad"
+    model: "PB\\SR_HlaOad2.nif"
+  "Activator::active_sign_gnaar_mok_02":
+    type: Activator
+    name: "Gnaar Mok"
+    model: "PB\\SR_GnaarMok2.nif"
+  "Activator::active_sign_Vos_01":
+    type: Activator
+    name: "Vos"
+    model: "PB\\SR_Vos.nif"
+  "Activator::active_sign_Tel_Vos_01":
+    type: Activator
+    name: "Tel Vos"
+    model: "PB\\SR_TelVos.nif"
+  "Activator::active_sign_cal_mine_02":
+    type: Activator
+    name: "Caldera Mining Company"
+    model: "PB\\SR_CalderaMC.nif"
+  "Activator::active_sign_dagon_fel_01":
+    type: Activator
+    name: "Dagon Fel"
+    model: "PB\\SR_DagonFel.nif"
