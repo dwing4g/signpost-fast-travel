@@ -1,5 +1,13 @@
 ## Signpost Fast Travel Changelog
 
+#### 1.0
+
+* Fixed "seeing" TR signs
+* Added a cost to travel, the value is configurable (0 to disable)
+* Made the passing of time and showing messages configurable
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### beta4
 
 * The settings menu is now disabled if Attend Me is installed

@@ -18,7 +18,7 @@ zip --must-match --recurse-paths ${file_name} \
     l10n \
     scripts \
     version.txt \
-    --exclude=scripts/momw_sft_timemachine_scr.mwscript
+    --exclude=scripts/momw_sft_scriptbridge.mwscript
 
 sha256sum ${file_name} > ${file_name}.sha256sum.txt
 sha512sum ${file_name} > ${file_name}.sha512sum.txt

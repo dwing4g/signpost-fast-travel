@@ -1,0 +1,16 @@
+Begin momw_sft_scriptbridge
+
+short cost
+float distance
+
+if cost > 0
+    player->removeitem gold_001 cost
+    set cost to 0
+endif
+
+if distance > 0
+    set gamehour to ( gamehour + distance )
+    set distance to 0
+endif
+
+End momw_sft_scriptbridge

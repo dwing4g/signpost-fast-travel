@@ -8,9 +8,9 @@ masters:
   - name: Morrowind.esm
     size: 79837557
 records:
-  "Script::momw_sft_timemachine_scr":
+  "Script::momw_sft_scriptbridge":
     type: Script
-    script: !include_str "scripts/momw_sft_timemachine_scr.mwscript"
+    script: !include_str "scripts/momw_sft_scriptbridge.mwscript"
     preserved:
       shorts: 0
       longs: 0
@@ -19,7 +19,7 @@ records:
       var_size: 0
       variables: []
       compiled: ""
-  "Startup::momw_sft_timemachine_scr":
+  "Startup::momw_sft_scriptbridge":
     type: Startup
     data: ""
   "Activator::momw_sft_find_mount_kand":

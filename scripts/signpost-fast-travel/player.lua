@@ -5,15 +5,17 @@ local self = require('openmw.self')
 local storage = require('openmw.storage')
 local ui = require('openmw.ui')
 local I = require("openmw.interfaces")
+
 local signs = require("scripts.signpost-fast-travel.signs")
 local targets = require("scripts.signpost-fast-travel.targets")
 local teleportFollowers = require('scripts.signpost-fast-travel.teleportFollowers')
 
 local MOD_ID = "SignpostFastTravel"
-local settings = storage.globalSection('SettingsGlobal' .. MOD_ID)
-local REVEAL_DISTANCE = 4096 -- Half a cell
-local L = core.l10n(MOD_ID)
 local interfaceVersion = 1
+local L = core.l10n(MOD_ID)
+local followerSettings = storage.globalSection('SettingsGlobalFollower' .. MOD_ID)
+local travelSettings = storage.globalSection('SettingsGlobalTravel' .. MOD_ID)
+local REVEAL_DISTANCE = 4096 -- Half a cell
 
 local AttendMeInstalled = core.contentFiles.has("AttendMe.omwscripts")
 local followers = {}
@@ -26,14 +28,12 @@ local foundSigns = {}
 local foundTargets = {}
 local foundAllSigns = false
 
-if not AttendMeInstalled then
-    I.Settings.registerPage {
-        key = MOD_ID,
-        l10n = MOD_ID,
-        name = 'name',
-        description = 'description',
-    }
-end
+I.Settings.registerPage {
+    key = MOD_ID,
+    l10n = MOD_ID,
+    name = 'name',
+    description = 'description'
+}
 
 -- Core logic
 local function findSignposts()
@@ -63,21 +63,73 @@ end
 
 -- Events for the player
 local function announceTeleport(data)
-    local msg = "announceTeleportPlural"
-    if data.hours == 1 then
+    local args
+    local msg
+    local cost = data.cost
+    local hours = data.hours
+
+    if data.notEnoughMoney then
+        msg = "notEnoughMoney"
+        args = { cost = cost }
+
+    elseif data.noMoney then
+        msg = "noMoney"
+
+    elseif hours == -1 and cost == -1 then
+        msg = "travelNoTimePassNoCost"
+        args = { place = data.name }
+
+    elseif hours == 1 and cost > 0 then
         msg = "announceTeleport"
+        args = {
+            cost = cost,
+            place = data.name,
+            hours = string.format("%.0f", hours)
+        }
+
+    elseif (hours > 1 or hours == 0) and cost > 0 then
+        msg = "announceTeleportPlural"
+        args = {
+            cost = cost,
+            place = data.name,
+            hours = string.format("%.0f", hours)
+        }
+
+    elseif cost == -1 then
+        msg = "announceTeleportPluralNoCost"
+        if hours == 1 then
+            msg = "announceTeleportNoCost"
+        end
+        args = {
+            place = data.name,
+            hours = string.format("%.0f", hours)
+        }
+
+    elseif hours == -1 then
+        msg = "travelNoTimePass"
+        args = {
+            cost = cost,
+            place = data.name
+        }
+
     end
-	ui.showMessage(L(msg, { place = data.name, hours = string.format("%.0f", data.hours) }))
+
+    if travelSettings:get("showMsgs") then
+        ui.showMessage(L(msg, args))
+    end
 end
 
 local function askForTeleport(data)
-    if targets[data.signId] then
-        local targetCell = targets[data.signId].cell
+    local target = targets[data.signId]
+    if target then
+        local targetCell = target.cell
         local targetName = targetCell.name
         if foundTargets[string.format("%sx%s", targetCell.x, targetCell.y)] then
             if targetCell.x == self.cell.gridX and targetCell.y == self.cell.gridY then
                 -- No need to travel
-                ui.showMessage(L("youreThere", { name = targetName }))
+                if travelSettings:get("showMsgs") then
+                    ui.showMessage(L("youreThere", { name = targetName }))
+                end
                 return
             end
             core.sendGlobalEvent(
@@ -85,14 +137,14 @@ local function askForTeleport(data)
                 {
                     actor = self,
                     cell = targetCell,
-                    pos = targets[data.signId].pos
+                    pos = target.pos
                 }
             )
         else
-            ui.showMessage(L("notBeen", { name = targetName }))
+            if travelSettings:get("showMsgs") then
+                ui.showMessage(L("notBeen", { name = targetName }))
+            end
         end
-    -- else
-    --     print("TODO: Handle undefined points with randomness")
     end
 end
 
@@ -170,7 +222,7 @@ end
 
 local function onUpdate()
     findSignposts()
-    if not AttendMeInstalled and settings:get("teleportFollowers") then
+    if not AttendMeInstalled and followerSettings:get("teleportFollowers") then
         teleportFollowers.update(followers)
     end
 end
