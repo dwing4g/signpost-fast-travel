@@ -1,9 +1,7 @@
 name: "Быстрое путешествие между указателями"
 description: "Быстрое путешествие между ранее посещенными путевыми указателями. Перемещение компаньонов автоматически выключено, если Attend Me тоже установлен"
 
-announceWhere: |
-  {parts, plural,
-  other {Путешествие в {place}}
+announceWhere: Путешествие в {place}
 
 announceLength: |-
   {hours, plural,
