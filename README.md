@@ -33,6 +33,8 @@ EN: johnnyhostile
 
 RU: pariah_dog_13
 
+SV: Lysol
+
 #### Web
 
 [Project Home](https://modding-openmw.gitlab.io/signpost-fast-travel/)
