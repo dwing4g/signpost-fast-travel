@@ -1,5 +1,5 @@
 name: "Signpost Fast Travel (Snabbresor med vägskyltar)"
-description: "Snabbres från en vägskylt till dit skylten pekar om du redan varit där tidigare. Inställningar för följare avaktiveras automatiskt om "Attend Me" också är installerat."
+description: "Snabbres från en vägskylt till dit skylten pekar om du redan varit där tidigare. Inställningar för följare avaktiveras automatiskt om 'Attend Me' också är installerat."
 
 announceTeleportPlural: "Att resa till {place} tog {hours} timmar och kostade {cost} guld"
 announceTeleport: "Att resa till {place} tog en timme och kostade {cost} guld"
