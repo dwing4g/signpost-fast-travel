@@ -1,3 +1,12 @@
+--[[
+
+    This file holds maps of IDs for signs that reside at travel target locations.
+    They are to be "seen" by the player in order to enable traveling to the
+    location; some locations don't have signposts at their target area so other
+    activators are used instead.
+
+]]
+
 return {
     -- grep Activator::active_sign_ Morrowind.d/Morrowind.yaml | grep -v _c_ | sort | uniq | awk -F:: '{ print $2 }' | sed "s|\":\$||g"
     morrowindSigns = {
