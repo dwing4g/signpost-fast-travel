@@ -1,15 +1,18 @@
 name: "Signpost Fast Travel (Snabbresor med vägskyltar)"
 description: "Snabbres från en vägskylt till dit skylten pekar om du redan varit där tidigare. Inställningar för följare avaktiveras automatiskt om 'Attend Me' också är installerat."
 
-announceTeleportPlural: "Att resa till {place} tog {hours} timmar och kostade {cost} guld"
-announceTeleport: "Att resa till {place} tog en timme och kostade {cost} guld"
-announceTeleportPluralNoCost: "Att resa till {place} tog {hours} timmar"
-announceTeleportNoCost: "Att resa till {place} tog en timme"
+announceWhere: "Att resa till {place}"
+
+announceLength: |-
+  {hours, plural,
+  one {tog {hours} timme}
+  other {tog {hours} timmar}}
+
+announceCost: "kostar {cost} guld"
+
 noMoney: "Du har inget guld"
 notBeen: "Du har inte varit till {name} ännu"
 notEnoughMoney: "Du har inte tillräckligt med guld för att resa; {cost} krävs"
-travelNoTimePass: "Att resa till {place} kostar {cost} guld"
-travelNoTimePassNoCost: "Du har rest till {place}"
 youreThere: "Du är i {name}"
 
 followerSettingsTitle: "Inställningar för följare"
