@@ -1,21 +1,24 @@
 name: "Быстрое путешествие между указателями"
 description: "Быстрое путешествие между ранее посещенными путевыми указателями. Перемещение компаньонов автоматически выключено, если Attend Me тоже установлен"
 
-announceTeleport: |-
-  {years, plural,
-    one{Путешествие в {place} заняло {hours} час и столило {gold} зол.}
-    few{Путешествие в {place} заняло {hours} часа и столило {gold} зол.}
-    other{Путешествие в {place} заняло {hours} часов и столило {gold} зол.}
-  }
+announceWhere: |
+  {parts, plural,
+  other {Путешествие в {place}}
 
-# replace announceTeleportPlural, announceTeleportPluralNoCost, announceTeleportNoCost
-# split off gold coin cost for correct pluralization
+announceLength: |-
+  {hours, plural,
+  one {заняло {hours} час}
+  few {заняло {hours} часа}
+  other {заняло {hours} часов}}
+
+announceCost: |-
+  {cost, plural,
+    one {"стоило один золотой"}
+    other {"стоило {cost} золотых"}}
 
 noMoney: "У вас нет золота"
 notBeen: "Вы еще не бывали в {name}"
 notEnoughMoney: "У вас недостаточно золота для этого путешествия, необходимо {cost} зол."
-travelNoTimePass: "Путешествие в {place} стоит {cost} зол."
-travelNoTimePassNoCost: "Путешествие в {place}"
 youreThere: "Вы в {name}"
 
 followerSettingsTitle: "Настройки компаньонов"
