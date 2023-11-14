@@ -1,0 +1,24 @@
+name: "Signpost Fast Travel (Snabbresor med vägskyltar)"
+description: "Snabbres från en vägskylt till dit skylten pekar om du redan varit där tidigare. Inställningar för följare avaktiveras automatiskt om 'Attend Me' också är installerat."
+
+announceWhere: "Att resa till {place}"
+
+announceLength: |-
+  {hours, plural,
+  one {tog {hours} timme}
+  other {tog {hours} timmar}}
+
+announceCost: "kostar {cost} guld"
+
+noMoney: "Du har inget guld"
+notBeen: "Du har inte varit till {name} ännu"
+notEnoughMoney: "Du har inte tillräckligt med guld för att resa; {cost} krävs"
+youreThere: "Du är i {name}"
+
+followerSettingsTitle: "Inställningar för följare"
+travelSettingsTitle: "Inställningar för resor"
+
+goldPerUnit_name: "Kostnad i guld per reseenhet"
+showMsgs_name: "Visa meddelanden under resa"
+teleportFollowers_name: "Teleportera följare"
+timePasses_name: "Tid passerar vid resor"
