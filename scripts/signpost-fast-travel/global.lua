@@ -94,8 +94,7 @@ local function doTeleport(data)
     end
 
     if travelSettings:get("timePasses") then
-        --TODO: Eventually just modify the gamehour global since that got added
-        world.mwscript.getGlobalScript("momw_sft_scriptbridge").variables.distance = distance
+        world.mwscript.getGlobalVariables(data.actor).gamehour = world.mwscript.getGlobalVariables(data.actor).gamehour + distance
     else
         distance = -1
     end
