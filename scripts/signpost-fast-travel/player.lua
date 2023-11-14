@@ -76,10 +76,8 @@ local function announceTeleport(data)
     elseif data.noMoney then
         msg = L("noMoney")
     else
-        local parts = 1
         local word = ""
-        if hasCost or timePasses then parts = 2 end
-        msg = L("announceWhere", { parts = parts, place = data.name })
+        msg = L("announceWhere", { place = data.name })
         if timePasses then
             msg = msg .. " " ..  L("announceLength", { hours = hours })
             word = " and"

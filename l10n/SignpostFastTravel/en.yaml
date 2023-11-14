@@ -1,10 +1,7 @@
 name: "Signpost Fast Travel"
 description: "Fast travel from signposts to their locations if you have already been there before. Follower options are automatically disabled when Attend Me is also installed"
 
-announceWhere: |
-  {parts, plural,
-  one {Traveled to {place}}
-  other {Traveling to {place}}}
+announceWhere: "Traveling to {place}"
 
 announceLength: |-
   {hours, plural,
