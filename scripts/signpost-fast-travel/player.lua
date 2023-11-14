@@ -52,6 +52,8 @@ local function findSignposts()
                 local cell = thing.cell
                 local targetKey = string.format("%sx%s", cell.gridX, cell.gridY)
                 if not foundTargets[targetKey] then
+                    --TODO: Search the cell for potential random points and store them
+                    --TODO: Check nearby doors against the pathgrid, falling back to just pathgrid maybe
                     foundTargets[targetKey] = cell.name or "No Name"
                     foundCount = foundCount + 1
                 end
@@ -63,59 +65,32 @@ end
 
 -- Events for the player
 local function announceTeleport(data)
-    local args
     local msg
     local cost = data.cost
     local hours = data.hours
+    local hasCost = cost > 0
+    local timePasses = hours > 0
 
     if data.notEnoughMoney then
-        msg = "notEnoughMoney"
-        args = { cost = cost }
-
+        msg = L("notEnoughMoney")
     elseif data.noMoney then
-        msg = "noMoney"
-
-    elseif hours == -1 and cost == -1 then
-        msg = "travelNoTimePassNoCost"
-        args = { place = data.name }
-
-    elseif hours == 1 and cost > 0 then
-        msg = "announceTeleport"
-        args = {
-            cost = cost,
-            place = data.name,
-            hours = string.format("%.0f", hours)
-        }
-
-    elseif (hours > 1 or hours == 0) and cost > 0 then
-        msg = "announceTeleportPlural"
-        args = {
-            cost = cost,
-            place = data.name,
-            hours = string.format("%.0f", hours)
-        }
-
-    elseif cost == -1 then
-        msg = "announceTeleportPluralNoCost"
-        if hours == 1 then
-            msg = "announceTeleportNoCost"
+        msg = L("noMoney")
+    else
+        local parts = 1
+        local word = ""
+        if hasCost or timePasses then parts = 2 end
+        msg = L("announceWhere", { parts = parts, place = data.name })
+        if timePasses then
+            msg = msg .. " " ..  L("announceLength", { hours = hours })
+            word = " and"
         end
-        args = {
-            place = data.name,
-            hours = string.format("%.0f", hours)
-        }
-
-    elseif hours == -1 then
-        msg = "travelNoTimePass"
-        args = {
-            cost = cost,
-            place = data.name
-        }
-
+        if hasCost then
+            msg = msg .. word .. " " .. L("announceCost", { cost = cost })
+        end
     end
 
     if travelSettings:get("showMsgs") then
-        ui.showMessage(L(msg, args))
+        ui.showMessage(msg)
     end
 end
 
@@ -128,6 +103,7 @@ local function askForTeleport(data)
             if targetCell.x == self.cell.gridX and targetCell.y == self.cell.gridY then
                 -- No need to travel
                 if travelSettings:get("showMsgs") then
+                    --TODO: Some targets have very close by signs that should count as "there"
                     ui.showMessage(L("youreThere", { name = targetName }))
                 end
                 return

@@ -1,15 +1,21 @@
 name: "Signpost Fast Travel"
 description: "Fast travel from signposts to their locations if you have already been there before. Follower options are automatically disabled when Attend Me is also installed"
 
-announceTeleportPlural: "Traveling to {place} took {hours} hours and cost {cost} gold"
-announceTeleport: "Traveling to {place} took 1 hour and cost {cost} gold"
-announceTeleportPluralNoCost: "Traveling to {place} took {hours} hours"
-announceTeleportNoCost: "Traveling to {place} took 1 hour"
+announceWhere: |
+  {parts, plural,
+  one {Traveled to {place}}
+  other {Traveling to {place}}}
+
+announceLength: |-
+  {hours, plural,
+  one {took {hours} hour}
+  other {took {hours} hours}}
+
+announceCost: "cost {cost} gold"
+
 noMoney: "You don't have any gold"
 notBeen: "You haven't been to {name} yet"
 notEnoughMoney: "You don't have enough gold to travel; {cost} is required"
-travelNoTimePass: "Traveling to {place} cost {cost} gold"
-travelNoTimePassNoCost: "Traveled to {place}"
 youreThere: "You're in {name}"
 
 followerSettingsTitle: "Follower Options"
