@@ -5,5 +5,5 @@ if core.API_REVISION < 39 then
 end
 
 if not core.contentFiles.has("signpost-fast-travel.omwaddon") then
-	error("Required plugin not found! Please be sure to load signpost-fast-travel.omwaddon")
+    error("Required plugin not found! Please be sure to load signpost-fast-travel.omwaddon")
 end
