@@ -1,0 +1,24 @@
+name: "Viagem Rápida por Placas de Sinalização"
+description: "Viagem rápida a partir de placas de sinalização para seus locais de destino, se você já esteve lá antes. As opções para Followers são desativadas automaticamente quando o 'Attend Me' também está instalado."
+
+announceWhere: "Viajando para {place}"
+
+announceLength: |-
+  {hours, plural,
+  one {levou {hours} hora}
+  other {levou {hours} horas}}
+
+announceCost: "cost {cost} gold"
+
+noMoney: "Você não tem ouro suficiente."
+notBeen: "Você não esteve em {name} ainda."
+notEnoughMoney: "Você não tem ouro o suficiente para viajar; {cost} são necessários."
+youreThere: "Você está em {name}."
+
+followerSettingsTitle: "Opções de Follower"
+travelSettingsTitle: "Configurações de Viagem"
+
+goldPerUnit_name: "Custo em ouro por cada unidade de viajem."
+showMsgs_name: "Mostrar mensagens quando viajando."
+teleportFollowers_name: "Teleportar Followers"
+timePasses_name: "Tempo passa quando viajando."
