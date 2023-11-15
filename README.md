@@ -31,9 +31,9 @@ And a big thanks to the entire OpenMW and Morrowind modding communities! I would
 
 EN: johnnyhostile
 
-RU: pariah_dog_13
-
 PT_BR: Hurdrax Custos
+
+RU: urm
 
 SV: Lysol
 
