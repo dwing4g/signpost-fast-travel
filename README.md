@@ -33,6 +33,8 @@ EN: johnnyhostile
 
 RU: pariah_dog_13
 
+PT_BR: Hurdrax Custos
+
 SV: Lysol
 
 #### Web
