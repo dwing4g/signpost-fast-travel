@@ -1,8 +1,28 @@
-announceTeleportPlural: "Путешествие в {place} заняло {hours} часов"
-announceTeleport: "Путешествие в {place} заняло {hours} час"
-# pariah_dog_13: singular is час
-# pariah_dog_13: plural is часа and часов
-# pariah_dog_13: часа is for numbers ending in 2,3,4
-# pariah_dog_13: часов for everything else except 1
+name: "Быстрое путешествие между указателями"
+description: "Быстрое путешествие между ранее посещенными путевыми указателями. Перемещение компаньонов автоматически выключено, если Attend Me тоже установлен"
+
+announceWhere: Путешествие в {place}
+
+announceLength: |-
+  {hours, plural,
+  one {заняло {hours} час}
+  few {заняло {hours} часа}
+  other {заняло {hours} часов}}
+
+announceCost: |-
+  {cost, plural,
+    one {"стоило один золотой"}
+    other {"стоило {cost} золотых"}}
+
+noMoney: "У вас нет золота"
+notBeen: "Вы еще не бывали в {name}"
+notEnoughMoney: "У вас недостаточно золота для этого путешествия, необходимо {cost} зол."
 youreThere: "Вы в {name}"
-notBeen: "Вы пока что небыли в %s"
+
+followerSettingsTitle: "Настройки компаньонов"
+travelSettingsTitle: "Настройки путешествий"
+
+goldPerUnit_name: "Стоимость в золотых за единицу расстояния"
+showMsgs_name: "Показывать сообщения во время путешествия"
+teleportFollowers_name: "Перемещать компаньонов"
+timePasses_name: "Время течет во время путешествия"
