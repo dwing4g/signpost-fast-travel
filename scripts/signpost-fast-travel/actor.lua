@@ -5,6 +5,7 @@
 ]]
 local core = require('openmw.core')
 if core.contentFiles.has("AttendMe.omwscripts") then return end
+if core.contentFiles.has("LuaMultiMark.omwaddon") then return end
 local types = require('openmw.types')
 local self = require('openmw.self')
 -- local storage = require('openmw.storage')

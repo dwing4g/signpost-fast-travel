@@ -18,6 +18,7 @@ local travelSettings = storage.globalSection('SettingsGlobalTravel' .. MOD_ID)
 local REVEAL_DISTANCE = 4096 -- Half a cell
 
 local AttendMeInstalled = core.contentFiles.has("AttendMe.omwscripts")
+local LuaMultiMarkInstalled = core.contentFiles.has("LuaMultiMark.omwaddon")
 local followers = {}
 local foundCount = 0
 local foundMax = 45
