@@ -89,7 +89,7 @@ This mod should be compatible with any replacer that preserves the "name" of the
 * [Signposts Retextured](https://www.nexusmods.com/morrowind/mods/42126)
     * A patched plugin is included with this mod, it restores the "name" which also restores the name tooltip when you mouse over the signs
 
-#### Testing This Mod
+#### Lua Console Commands
 
 There are console commands available to "find" all travel targets as well as to "forget" them again. To use:
 
