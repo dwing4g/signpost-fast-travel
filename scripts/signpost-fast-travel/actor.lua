@@ -5,7 +5,9 @@ local self = require('openmw.self')
 local combatRegistered = false
 
 local function onLoad(data)
-    combatRegistered = data.combatRegistered
+    if data then
+        combatRegistered = data.combatRegistered
+    end
 end
 
 local function onSave()

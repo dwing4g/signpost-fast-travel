@@ -459,7 +459,7 @@ end
 local function onLoad(data)
     followers = data.followers
     inCombat = data.inCombat
-    visitedCells = data.visitedCells
+    visitedCells = data.visitedCells or {}
 end
 
 local function onSave()

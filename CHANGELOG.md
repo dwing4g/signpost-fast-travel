@@ -1,5 +1,11 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.1
+
+* Fixed issues with loading a save that used version `1.0`
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 2.0
 
 * Note that this version is compatible with old saves but your existing "found" locations will not carry over!
