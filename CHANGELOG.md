@@ -17,7 +17,7 @@
 * Travel is now disallowed when in combat with a nearby enemy
 * The mod will now function without the `.omwaddon` plugin; features that require it will be auto-disabled when it's not present
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/20779514)
 
 #### 1.0
 
