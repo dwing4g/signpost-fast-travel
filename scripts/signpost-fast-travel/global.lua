@@ -183,7 +183,7 @@ local function registerIds(idsTable, ids, quiet)
                 if not quiet then
                     print(string.format("Adding object via interface: %s", id))
                 end
-                idsTable[id] = true
+                idsTable[string.lower(id)] = true
             end
         end
     end
@@ -351,8 +351,8 @@ I.Activation.addHandlerForType(
         if blackList[recordId] then return end
         if signs[recordId] then
             local name = types.Activator.record(obj).name
-            if naughtyList[types.Activator.record(obj).name] then
-                name = naughtyList[types.Activator.record(obj).name]
+            if naughtyList[name] then
+                name = naughtyList[name]
             end
             actor:sendEvent("momw_sft_askForTeleport", {signTarget = name})
         end

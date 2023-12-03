@@ -1,5 +1,11 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.2
+
+* Fixed a problem with case sensitivity of signpost IDs
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 2.1
 
 * Fixed issues with loading a save that used version `1.0`
