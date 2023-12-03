@@ -1,7 +1,6 @@
 require("scripts.signpost-fast-travel.checks")
 local ambient = require("openmw.ambient")
 local async = require("openmw.async")
-local input = require("openmw.input")
 local core = require("openmw.core")
 local nearby = require("openmw.nearby")
 local self = require("openmw.self")
@@ -399,7 +398,6 @@ local function showPoints(name)
     -- luap <ENTER>
     -- I.SignpostFastTravel.ShowPoints("Some Name") <ENTER>
     -- Results are printed to the console (F10)
-    local points = {}
     if visitedCells[name] then
         print(string.format("==== Points for %s:", name))
         for _, data in pairs(visitedCells[name]) do
