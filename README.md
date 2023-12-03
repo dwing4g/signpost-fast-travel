@@ -175,7 +175,6 @@ If you've found an issue with this mod, or if you simply have a question, please
 
 #### Planned Features
 
-* Disable traveling if a hostile enemy is nearby
 * Some way to use all the points that are generated for cells that have no corresponding sign post (A menu, perhaps?)
 * Allow adding to the cell naughty list via the interface
 * Use pathgrid path vs a straight line
