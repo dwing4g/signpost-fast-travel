@@ -16,8 +16,7 @@ end
 
 local function onUpdate()
     -- Am I still alive?
-    local health = (self.object.type).stats.dynamic.health(self.object)
-    local isDead = health.current == 0
+    local isDead = (self.object.type).stats.dynamic.health(self.object).current == 0
     if isDead and combatRegistered then
         core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self, done = true})
         combatRegistered = false
