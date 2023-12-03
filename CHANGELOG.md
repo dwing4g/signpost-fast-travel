@@ -4,7 +4,7 @@
 
 * Fixed a problem with detecting if the player is in combat
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/20782519)
 
 #### 2.2
 
