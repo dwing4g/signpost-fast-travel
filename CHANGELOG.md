@@ -4,7 +4,7 @@
 
 * Fixed a problem with case sensitivity of signpost IDs
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/20781943)
 
 #### 2.1
 
