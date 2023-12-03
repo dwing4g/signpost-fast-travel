@@ -22,35 +22,3 @@ records:
   "Startup::momw_sft_scriptbridge":
     type: Startup
     data: ""
-  "Activator::momw_sft_find_mount_kand":
-    type: Activator
-    model: editormarker.nif
-  "cell::11x-5":
-    type: Cell
-    name: Mount Kand
-    region: Molag Mar Region
-    location:
-      x: 11
-      y: -5
-    traits:
-      - HasWater
-      - Unknown64
-    map_colour:
-      red: 202
-      blue: 165
-      green: 96
-      alpha: 0
-    references:
-      "::signpost-fast-travel::cellref::1":
-        object_id: momw_sft_find_mount_kand
-        scale: 1.0
-        reference_blocked: false
-        position:
-          position:
-            - 94744.04
-            - -35509.26
-            - 6773.8003
-          rotation:
-            - 0.0
-            - 0.0
-            - 0.0

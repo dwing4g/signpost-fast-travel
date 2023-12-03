@@ -63,7 +63,7 @@ SV: Lysol
 
 1. Add the appropriate data path to your `opemw.cfg` file (e.g. `data="C:\games\OpenMWMods\Travel\signpost-fast-travel"`)
 1. Add `content=signpost-fast-travel.omwscripts` and `content=signpost-fast-travel.omwaddon` to your load order in `openmw.cfg` or enable them via OpenMW-Launcher
-    * If you're also using [Signposts Retextured](https://www.nexusmods.com/morrowind/mods/42126), activate the `PB_SignpostsRetextured.omwaddon` plugin that comes with this instead of the `PB_SignpostsRetextured.esp` plugin it comes with.
+    * If you're also using [Signposts Retextured](https://www.nexusmods.com/morrowind/mods/42126), activate the `PB_SignpostsRetextured.omwaddon` and `PB_SignpostsRetexturedTR.omwaddon` (if also using TR) plugins that come with this instead of the ones that come with it.
 
 #### Configuration
 
@@ -73,32 +73,96 @@ Various aspects of this mod are configurable via the script settings menu (ESC >
 * Time passes when traveling (**on by default**)
 * Gold cost for travel per "unit" (**5 gold by default**; set to 0 for free travel)
 * Show messages when traveling (**on by default**)
+* Play footstep sounds when traveling (**on by default**)
 
 #### Known Issues / Notes
 
+* Not all signposts have a "name" that corresponds to a named external cell that can be traveled to.
+  * Some simply don't have a related exterior and are ignored.
+  * Others do relate to an actual exterior but have extra details e.g, `Ildrim (main road)` or `Firewatch via Aranyon Pass`.
+    * In this case, an internal map is kept that points these to the appropriate name.
 * Time doesn't actually pass when traveling, so any active spells or other potentially timed things won't be affected. This can be resolved when OpenMW-Lua adds a way to pass time.
 * The engine silently turns activators with no "name" into statics. This means mods that remove the name for immersion purposes will break this mod (see [Compatibility](#compatibility) below). This can be resolved when OpenMW-Lua adds a way to see nearby statics in the same way it does activators.
 * OpenMW-Lua doesn't yet have a way to take money from the player or pass time. I achieve both via the "MWScript bridge" which is why this mod requires a global script. When I can do those things from Lua, the global script can go away.
 * Paying money to the signpost is a tad strange, but I felt that dropping NPCs at every signpost was more strange. The current implementation is a compromise that gives a cost to travel without the extra burden and potential awkwardness of NPCs.
-* Vanilla Morrowind travel target points are all hand-placed. Tamriel Rebuilt support is a work-in-progress; the plan is to take a procedural approach to those targets rather than hand-placing them. In any case this mod will remember all TR signs you see, even before support is implemented for the target.
 
 #### Compatibility
 
 This mod should be compatible with any replacer that preserves the "name" of the signpost activators. Mods known to be incompatible due to this:
 
 * [Signposts Retextured](https://www.nexusmods.com/morrowind/mods/42126)
-    * A patched plugin is included with this mod, it restores the "name" which also restores the name tooltip when you mouse over the signs
+    * Patched plugins are included with this mod, they restore the "name" field which also restores the name tooltip when you look at the signs
+
+#### Adding Support For New Signs
+
+This mod comes with an interface that can be used to add support for more signs via a third party mod. Please note that a valid sign should be an activator with a `name` field that matches some named exterior cell or cells.
+
+To do this, two files are needed:
+
+1. `YourAddonName.omwscripts` with the following contents:
+
+```
+GLOBAL: scripts/YourAddonName/global.lua
+```
+
+1. `scripts/YourAddonName/global.lua` with the following contents:
+
+```lua
+local SFT = require("openmw.interfaces").SignPostFastTravel
+
+if not SFT then
+    error("ERROR: Signpost Fast Travel is not installed!")
+end
+
+SFT.RegisterSigns({
+        "signpost_id_01",
+        "signpost_id_02",
+        ...
+})
+```
+
+File layout:
+
+```
+.
+├── YourAddonName.omwscripts
+└── scripts
+    └── YourAddonName
+        └── global.lua
+```
+
+Note you should change `YourAddonName` to match your mod's name and the IDs used to match the IDs you want to add.
+
+The `SFT` variable gives you direct access to the Signpost Fast Travel interface. You can use whatever script and path names you like, but it must be [a global script](https://openmw.readthedocs.io/en/latest/reference/lua-scripting/overview.html#format-of-omwscripts).
 
 #### Lua Console Commands
 
-There are console commands available to "find" all travel targets as well as to "forget" them again. To use:
+You can use these from the in-game console to test the functionality of this mod.
 
 1. Press the \` key to open the console
 1. Type `luap` and press Enter
-1. Type `I.SignpostFastTravel.findAll()` and press Enter to find all travel targets
-1. Type `I.SignpostFastTravel.p()` and press Enter to print your list of found targets to the console (F10)
-1. Type `I.SignpostFastTravel.forgetAll()` and press Enter to forget all travel targets
+1. Type `I.SignpostFastTravel.Forget("Some Name")` and press Enter to delete all of the stored travel points for the given location (not reversible!)
+1. Type `I.SignpostFastTravel.ForgetAll()` and press Enter to forget all travel targets (not reversible!)
+1. Type `I.SignpostFastTravel.ShowPoints("Some Name")` and press Enter to travel to a print points for the given location to the console (F10)
+1. Type `I.SignpostFastTravel.P()` and press Enter to print your list of found targets and their points to the console (F10)
+1. Type `I.SignpostFastTravel.TravelTo("Some Name")` and press Enter to travel to a random stored point in the given location
 1. Type `exit()` and press Enter to exit the Lua console when done
+
+#### Lua Interface
+
+The following may be used in another mod when installed alongside this one:
+
+* `I.SignpostFastTravel.GetPoint("Some Name")` returns a random point for the given location as a `util.vector3` if there is one, `nil` if not
+
+```lua
+if I.SignpostFastTravel then
+  local balmoraRandPoint = I.SignpostFastTravel.GetPoint("Balmora")
+  if balmoraRandPoint then
+    -- Do something with the point
+    ...
+  end
+end
+```
 
 #### Report A Problem
 
@@ -106,14 +170,14 @@ If you've found an issue with this mod, or if you simply have a question, please
 
 * [Open an issue on GitLab](https://gitlab.com/modding-openmw/signpost-fast-travel/-/issues)
 * Email `signpost-fast-travel@modding-openmw.com`
-* Contact the author on Discord: `johnnyhostile#6749`
+* Contact the author on Discord: `@johnnyhostile`
 * Contact the author on Libera.chat IRC: `johnnyhostile`
 
 #### Planned Features
 
-* Random chance to stop midway and spawn an enemy encounter
+* Disable traveling if a hostile enemy is nearby
+* Some way to use all the points that are generated for cells that have no corresponding sign post (A menu, perhaps?)
+* Allow adding to the cell naughty list via the interface
 * Use pathgrid path vs a straight line
-* Make the destination a random point around the signpost if no explicit location is found
 * Factor player stats such as speed into time cost
 * Factor timescale
-* "Menu mode" where activating a signpost will open a menu where any previously visited location can be traveled to

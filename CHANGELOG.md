@@ -1,5 +1,24 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.0
+
+* Note that this version is compatible with old saves but your existing "found" locations will not carry over!
+* Added procedurally-generated travel target points
+  * This replaces the old, hand-placed travel targets from version 1.0
+  * Up to 100 different random points will be selected for each area
+    * Named areas that span multiple cells will have up to 100 points _per cell_ (so Seyda Neen can in theory have up to 200, and so on. In reality it's closer to 100 or so across two cells for various reasons relating to terrain and etc)
+* Added an interface for adding new signpost IDs via a third party mod (see the README for instructions on how to make such a mod)
+* Added several new console interface commands for testing
+* Added footstep sounds that play when you travel (can be disabled via settings)
+* Added an ID blacklist as well as an ID "naughty list"
+  * The blacklist contains IDs that don't map to a valid named exterior cell
+  * The naughty list is a map of activator name fields to exterior cell names for things like `Ildrim (main road)` or `Firewatch via Aranyon Pass`
+* Added a patched version of the TR plugin from [Signposts Retextured](https://www.nexusmods.com/morrowind/mods/42126) by PeterBitt
+* Travel is now disallowed when in combat with a nearby enemy
+* The mod will now function without the `.omwaddon` plugin; features that require it will be auto-disabled when it's not present
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 1.0
 
 * Fixed "seeing" TR signs

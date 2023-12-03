@@ -2,3 +2,4 @@
 set -e
 delta_plugin convert signpost-fast-travel.yaml
 delta_plugin convert PB_SignpostsRetextured.yaml
+delta_plugin convert PB_SignpostsRetexturedTR.yaml

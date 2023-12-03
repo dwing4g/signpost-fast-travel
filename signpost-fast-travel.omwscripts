@@ -1,3 +1,4 @@
 GLOBAL: scripts/signpost-fast-travel/global.lua
+NPC, CREATURE: scripts/signpost-fast-travel/attendme-actor.lua
 NPC, CREATURE: scripts/signpost-fast-travel/actor.lua
 PLAYER: scripts/signpost-fast-travel/player.lua

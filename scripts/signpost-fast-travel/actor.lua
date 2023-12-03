@@ -1,115 +1,44 @@
---[[
-    Taken from AttendMe
-    https://www.nexusmods.com/morrowind/mods/51232
-    Thanks to urm!
-]]
+local AI = require("openmw.interfaces").AI
 local core = require('openmw.core')
-if core.contentFiles.has("AttendMe.omwscripts") then return end
-if core.contentFiles.has("LuaMultiMark.omwaddon") then return end
-local types = require('openmw.types')
 local self = require('openmw.self')
--- local storage = require('openmw.storage')
-local I = require('openmw.interfaces')
 
--- local Events = require('scripts.AttendMe.events')
+local combatRegistered = false
 
--- local mechanicSettings = storage.globalSection('SettingsAttendMeMechanics')
-
-local followingPlayers = {}
-
-local function filter(t, callback)
-   local result = {}
-   for k, v in pairs(t) do
-      if callback(k, v) then
-         result[k] = v
-      end
-   end
-   return result
+local function onLoad(data)
+    combatRegistered = data.combatRegistered
 end
 
-local function map(t, callback)
-   local result = {}
-   for k, v in pairs(t) do
-      local newK, newV = callback(k, v)
-      result[newK] = newV
-   end
-   return result
+local function onSave()
+    return { combatRegistered = combatRegistered }
 end
 
-local function notifyPlayer(player, status)
-   local data = {
-      actor = self.object,
-      status = status,
-   }
-   player:sendEvent('momw_sft_followerStatus', data)
+local function onUpdate()
+    -- Am I still alive?
+    local health = (self.object.type).stats.dynamic.health(self.object)
+    local isDead = health.current == 0
+    if isDead and combatRegistered then
+        core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self, done = true})
+        combatRegistered = false
+        return
+    elseif isDead then
+        return
+    end
+
+    -- Am I in combat?
+    local curPkg = AI.getActivePackage(self)
+    if curPkg and curPkg.type == "Combat" and not combatRegistered then
+        core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self})
+        combatRegistered = true
+    elseif curPkg and not curPkg.type == "Combat" and combatRegistered then
+        core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self, done = true})
+        combatRegistered = false
+    end
 end
-
-local function isDead()
-   local health = (self.object.type).stats.dynamic.health(self.object)
-   return health.current == 0
-end
-
-local function updateFollowedPlayers()
-   local playerTargets = map(
-   filter(I.AI.getTargets('Follow'), function(_, target)
-      return target and target.type == types.Player and target:isValid()
-   end),
-   function(_, target)
-      return tostring(target), target
-   end)
-
-   local newPlayers = filter(playerTargets, function(k)
-      return not followingPlayers[k]
-   end)
-   local removedPlayers = filter(followingPlayers, function(k)
-      return not playerTargets[k]
-   end)
-   for _, player in pairs(removedPlayers) do
-      followingPlayers[tostring(player)] = nil
-      notifyPlayer(player, false)
-   end
-   for _, player in pairs(newPlayers) do
-      followingPlayers[tostring(player)] = player
-      notifyPlayer(player, true)
-   end
-end
-
--- local updateTime = math.random() * math.max(0, mechanicSettings:get('checkFollowersEvery'))
-local updateTime = math.random() * 0.2
 
 return {
-   engineHandlers = {
-      onInactive = function()
-         if not isDead() then
-         -- if not isDead() and mechanicSettings:get('teleportFollowers') then
-            for _, player in pairs(followingPlayers) do
-               player:sendEvent('momw_sft_followerAway', {
-                  actor = self.object,
-               })
-            end
-         end
-      end,
-      onUpdate = function(dt)
-         updateTime = updateTime + dt
-         -- local checkEvery = math.max(0, mechanicSettings:get('checkFollowersEvery'))
-         local checkEvery = 0.2
-         if updateTime < checkEvery then return end
-         if checkEvery == 0 then
-            updateTime = 0
-         else
-            while updateTime > checkEvery do
-               updateTime = updateTime - checkEvery
-            end
-         end
-
-         if isDead() then
-            for _, player in pairs(followingPlayers) do
-               notifyPlayer(player, false)
-            end
-            followingPlayers = {}
-         else
-            updateFollowedPlayers()
-         end
-      end,
-   },
+    engineHandlers = {
+        onLoad = onLoad,
+        onSave = onSave,
+        onUpdate = onUpdate
+    }
 }

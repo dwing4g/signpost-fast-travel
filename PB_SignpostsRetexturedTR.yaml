@@ -1,0 +1,225 @@
+---
+__esp_version__: 1.3
+__plugin_type__: 0
+transpiler_version: 0.20.0
+author: PeterBitt
+desc: "Signposts Retextured 1.2 TR\r\n\r\nThis is the Tamriel Rebuilt: Sacred East addon for Signposts Retextured 1.2.\r\n\r\nPatched for support with Signpost Fast Travel by johnnyhostile"
+masters:
+  - name: Morrowind.esm
+    size: 79837557
+  - name: Tribunal.esm
+    size: 4565686
+  - name: Bloodmoon.esm
+    size: 9631798
+  - name: TR_Mainland.esm
+    size: 87271810
+  - name: Tamriel_Data.esm
+    size: 7501911
+records:
+  "Activator::T_Com_SetMw_SignAkamoraB_01":
+    type: Activator
+    name: "Akamora"
+    model: "PB\\SR_TR_AkamoraBackRoad.nif"
+  #TODO: This one doesn't exist anymore
+  # "Activator::TR_m2_KL_akamora_marker_0":
+  #   type: Activator
+  #   name: "Akamora (back road)"
+  #   model: "PB\\SR_TR_Akamora.nif"
+  "Activator::T_Com_SetMw_SignWayDunAkafel_01":
+    type: Activator
+    #TODO: Where's the point for this?
+    # name: "Dun Akafell (ruins)"
+    name: ""
+    model: "PB\\SR_TR_DunAkafellRuins.nif"
+  "Activator::T_Com_SetMw_SignWayTheInnBet_01":
+    type: Activator
+    name: "The Inn Between"
+    model: "PB\\SR_TR_TheInnBetween.nif"
+  "Activator::T_Com_SetMw_SignAkamoraE_01":
+    type: Activator
+    name: "Akamora Egg Mines"
+    model: "PB\\SR_TR_AkamoraEggMines.nif"
+  "Activator::T_Com_SetMw_SignWayTomarilMa_01":
+    type: Activator
+    name: "Tomaril Manor"
+    model: "PB\\SR_TR_TomarilManor.nif"
+  "Activator::T_Com_SetMw_SignWayMeralag_01":
+    type: Activator
+    name: "Meralag"
+    model: "PB\\SR_TR_Meralag.nif"
+  "Activator::T_Com_SetMw_SignWayHlersis_01":
+    type: Activator
+    name: "Hlersis"
+    model: "PB\\SR_TR_Hlersis.nif"
+  "Activator::T_Com_SetMw_SignWaySeitur_01":
+    type: Activator
+    name: "Seitur"
+    model: "PB\\SR_TR_Seitur.nif"
+  "Activator::T_Com_SetMw_SignWayBosmora_01":
+    type: Activator
+    name: "Bosmora"
+    model: "PB\\SR_TR_Bosmora.nif"
+  "Activator::T_Com_SetMw_SignAkamoraN_01":
+    type: Activator
+    name: "Akamora North entrance"
+    model: "PB\\SR_TR_AkamoraNorthEntr.nif"
+  "Activator::T_Com_SetMw_SignWayIdvano_01":
+    type: Activator
+    name: "Id Vano"
+    model: "PB\\SR_TR_SeydaVano.nif"
+    script: Strong1
+  "Activator::T_Com_SetMw_SignWayDreynimSp_01":
+    type: Activator
+    name: "Dreynim Spa"
+    model: "PB\\SR_TR_DreynimSpa.nif"
+  "Activator::T_Com_SetMw_SignWayDreynim_01":
+    type: Activator
+    name: "Dreynim"
+    model: "PB\\SR_TR_Dreynim.nif"
+  "Activator::T_Com_SetMw_SignWayTahvel_01":
+    type: Activator
+    name: "Tahvel"
+    model: "PB\\SR_TR_Tahvel.nif"
+  "Activator::T_Com_SetMw_SignWayFortUmber_01":
+    type: Activator
+    name: "Fort Umbermoth"
+    model: "PB\\SR_TR_FortUmbermoth.nif"
+  "Activator::T_Com_SetMw_SignWayRanyonRu_01":
+    type: Activator
+    name: "Ranyon-ruhn"
+    model: "PB\\SR_TR_Ranyon-ruhn.nif"
+  "Activator::T_Com_SetMw_SignWayTelOuada_01":
+    type: Activator
+    name: "Tel Ouada"
+    model: "PB\\SR_TR_TelOuada.nif"
+  "Activator::T_Com_SetMw_SignWayFirewat_01":
+    type: Activator
+    name: "Firewatch"
+    model: "PB\\SR_TR_Firewatch.nif"
+  "Activator::T_Com_SetMW_SignWayAegondoPo_01":
+    type: Activator
+    name: "Aegondo Point"
+    model: "PB\\SR_TR_AegondoPoint.nif"
+  "Activator::T_Com_SetMw_SignWayLlothanis_01":
+    type: Activator
+    name: "Llothanis"
+    model: "PB\\SR_TR_Llothanis.nif"
+  "Activator::T_Com_SetMw_SignWayBalOyra_01":
+    type: Activator
+    name: "Bal Oyra"
+    model: "PB\\SR_TR_BalOyra.nif"
+  "Activator::T_Com_SetMw_SignWayAshamul_01":
+    type: Activator
+    name: "Ashamul"
+    model: "PB\\SR_TR_Ashamul.nif"
+  "Activator::T_Com_SetMW_SignWayBoeLightH_01":
+    type: Activator
+    name: "Boethian Mountain Lighthouse"
+    model: "PB\\SR_TR_BoethianMountainLH.nif"
+  "Activator::T_Com_SetMw_SignWaySarvanni_01":
+    type: Activator
+    name: "Sarvanni"
+    model: "PB\\SR_TR_Sarvanni.nif"
+  "Activator::T_Com_SetMw_SignWayFirewatA_01":
+    type: Activator
+    name: "Firewatch via Aranyon Pass"
+    model: "PB\\SR_TR_FirewAranyonPass.nif"
+  "Activator::T_Com_SetMw_SignWayTelOuadaA_01":
+    type: Activator
+    name: "Tel Ouada via Aranyon Pass"
+    model: "PB\\SR_TR_TelOuadaAranyonP.nif"
+  "Activator::T_Com_SetMW_SignWayMarketStr_01":
+    type: Activator
+    #TODO: Where's the point for this?
+    # name: "Market and Strider Port"
+    name: ""
+    model: "PB\\SR_TR_MarketStriderPort.nif"
+  "Activator::T_Com_SetMw_SignWayRanyonRuE_01":
+    type: Activator
+    name: "Exit to Ranyon-ruhn"
+    model: "PB\\SR_TR_ExitToRanyon-ruhn.nif"
+  "Activator::T_Com_SetMw_SignWayTelmuthad_01":
+    type: Activator
+    name: "Tel Muthada"
+    model: "PB\\SR_TR_TelMuthada.nif"
+  "Activator::T_Com_SetMw_SignWayAltbosara_01":
+    type: Activator
+    name: "Alt Bosara"
+    model: "PB\\SR_TR_AltBosara.nif"
+  "Activator::T_Com_SetMw_SignWaySailen_01":
+    type: Activator
+    name: "Sailen"
+    model: "PB\\SR_TR_Sailen.nif"
+  "Activator::T_Com_SetMw_SignWayHelnim_01":
+    type: Activator
+    name: "Helnim"
+    model: "PB\\SR_TR_Helnim.nif"
+  "Activator::T_Com_SetMw_SignWayIldrim_01":
+    type: Activator
+    name: "Ildrim"
+    model: "PB\\SR_TR_Darnim.nif"
+  "Activator::T_Com_SetMw_SignAkamora_01":
+    type: Activator
+    name: "Akamora"
+    model: "PB\\SR_TR_Akamora.nif"
+  "Activator::T_Com_SetMw_SignWayNecrom_01":
+    type: Activator
+    name: "Necrom"
+    model: "PB\\SR_TR_Necrom.nif"
+  "Activator::T_Com_SetMw_SignWayTelmothri_02":
+    type: Activator
+    name: "Tel Mothrivra"
+    model: "PB\\SR_TR_TelMothrivra.nif"
+  "Activator::T_Com_SetMw_SignWayAltbosara_02":
+    type: Activator
+    name: "Alt Bosara"
+    model: "PB\\SR_TR_AltBosara.nif"
+  "Activator::T_Com_SetMw_SignWayLlothanis_02":
+    type: Activator
+    name: "Llothanis"
+    model: "PB\\SR_TR_Llothanis.nif"
+  "Activator::T_Com_SetMw_SignWayNecrom_02":
+    type: Activator
+    name: "Necrom"
+    model: "PB\\SR_TR_Necrom.nif"
+  "Activator::T_Com_SetMw_SignWayRanyonRu_02":
+    type: Activator
+    name: "Ranyon-ruhn"
+    model: "PB\\SR_TR_Ranyon-ruhn.nif"
+  "Activator::T_Com_SetMw_SignWayFortWindm_01":
+    type: Activator
+    name: "Fort Windmoth"
+    model: "PB\\SR_TR_FortWindmoth.nif"
+  "Activator::T_Com_SetMw_SignWayAmmar_01":
+    type: Activator
+    name: "Ammar"
+    model: "PB\\SR_TR_Ayemar.nif"
+  "Activator::T_Com_SetMw_SignWayMarog_01":
+    type: Activator
+    name: "Marog"
+    model: "PB\\SR_TR_Marog.nif"
+  "Activator::T_Com_SetMw_SignWayKemelZe_01":
+    type: Activator
+    name: "Kemel-Ze"
+    model: "PB\\SR_TR_Kemel-Ze.nif"
+  #TODO: This one doesn't exist anymore
+  # "Activator::TR_m2_altbosara_roadmarker_01":
+  #   type: Activator
+  #   name: "Alt Bosara"
+  #   model: "PB\\SR_TR_AltBosara.nif"
+  "Activator::T_Com_SetMw_SignWayAdurinOua_01":
+    type: Activator
+    name: "Andar Mok"
+    model: "PB\\SR_TR_Adurin-Ouaka.nif"
+  "Activator::T_Com_SetMw_SignWayIldrimM_01":
+    type: Activator
+    name: "Ildrim (main road)"
+    model: "PB\\SR_TR_DarnimMainRoad.nif"
+  "Activator::T_Com_SetMw_SignWayHlabulor_02":
+    type: Activator
+    name: "Hla Bulor"
+    model: "PB\\SR_TR_HlaBulor.nif"
+  "Activator::T_Com_SetMw_SignWayTelmothri_01":
+    type: Activator
+    name: "Tel Mothrivra"
+    model: "PB\\SR_TR_TelMothrivra.nif"

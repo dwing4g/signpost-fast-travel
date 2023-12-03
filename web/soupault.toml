@@ -64,7 +64,11 @@
   valid_html = true
 
 [widgets.prod-mode]
-  after = ["highlight-active-link"]
+  after = [
+    "highlight-active-link",
+    "highlight-code-css",
+    "highlight-code-darkmode-css"
+  ]
   widget = "prod-mode"
   profile = "prod"
   project = "signpost-fast-travel"
@@ -73,3 +77,20 @@
   widget = "section-link-highlight"
   selector = "nav#nav"
   active_link_class = "bold"
+
+[widgets.highlight-code]
+  widget = "preprocess_element"
+  selector = '*[class^="language-"]'
+  command = 'highlight -O html -f --syntax=$(echo $ATTR_CLASS | sed -e "s/language-//")'
+
+[widgets.highlight-code-css]
+  widget = "insert-if"
+  html = "<link rel='stylesheet' type='text/css' href='/css/highlight.css' />"
+  selector = "head"
+  check_selector = "code"
+
+[widgets.highlight-code-darkmode-css]
+  widget = "insert-if"
+  html = "<link rel='stylesheet' type='text/css' media='(prefers-color-scheme: dark)' href='/css/highlight-dark.css'/>"
+  selector = "head"
+  check_selector = "code"

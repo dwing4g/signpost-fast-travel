@@ -10,6 +10,7 @@ announceLength: |-
 
 announceCost: "cost {cost} gold"
 
+inCombat: "You can't travel while in combat"
 noMoney: "You don't have any gold"
 notBeen: "You haven't been to {name} yet"
 notEnoughMoney: "You don't have enough gold to travel; {cost} is required"
@@ -18,6 +19,7 @@ youreThere: "You're in {name}"
 followerSettingsTitle: "Follower Options"
 travelSettingsTitle: "Travel Settings"
 
+footstepVolume_name: "Footstep volume"
 goldPerUnit_name: "Gold cost per travel unit"
 showMsgs_name: "Show messages when traveling"
 teleportFollowers_name: "Teleport Followers"
