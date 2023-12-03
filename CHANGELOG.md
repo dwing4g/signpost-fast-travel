@@ -4,7 +4,7 @@
 
 * Fixed issues with loading a save that used version `1.0`
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/20781842)
 
 #### 2.0
 
