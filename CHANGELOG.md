@@ -1,5 +1,11 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.3
+
+* Fixed a problem with detecting if the player is in combat
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 2.2
 
 * Fixed a problem with case sensitivity of signpost IDs
