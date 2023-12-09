@@ -14,6 +14,10 @@ h3 {
     text-align: center;
 }
 
+.spoiler {
+    background: #4a4a4a;
+}
+
 div#dev-build {
     font-size: 0.9em;
     margin-bottom: 20px;

@@ -16,9 +16,13 @@ Lua Assistance: **Pharis, urm, kuyondo, gnounc, ZackHasACat**
 
 **Special Thanks**:
 
+* **Benjamin Winger** for making [DeltaPlugin](https://gitlab.com/bmwinger/delta-plugin/)
+* **EvilEye** for making [CS.js](https://assumeru.gitlab.io/cs.js/) (used to make the quest)
+* **Greatness7** for making [tes3conv](https://github.com/Greatness7/tes3conv)
 * **SGMonkey** for making [Andromedas Fast Travel](https://www.nexusmods.com/morrowind/mods/41542)
 * **urm** for making [Attend Me](https://www.nexusmods.com/morrowind/mods/51232) and being cool with me using his follower teleport code
 * **CDPR** for making Witcher 3
+* **The Morrowind Modding Community and the OAAB_Data Team** for making [OAAB_Data](https://www.nexusmods.com/morrowind/mods/49042) (where item assets are from)
 * **The Tamriel Rebuilt Team** for making [Tamriel Rebuilt](https://www.tamriel-rebuilt.org/)
 * **The OpenMW team, including every contributor** for making OpenMW and OpenMW-CS
 * **The Modding-OpenMW.com team** for being amazing
@@ -65,6 +69,16 @@ SV: Lysol
 1. Add `content=signpost-fast-travel.omwscripts` and `content=signpost-fast-travel.omwaddon` to your load order in `openmw.cfg` or enable them via OpenMW-Launcher
     * If you're also using [Signposts Retextured](https://www.nexusmods.com/morrowind/mods/42126), activate the `PB_SignpostsRetextured.omwaddon` and `PB_SignpostsRetexturedTR.omwaddon` (if also using TR) plugins that come with this instead of the ones that come with it.
 
+#### How It Works
+
+This mod will generate up to 100 spawn points in every named exterior cell you visit. When you activate a signpost, if you've been to the location named on the sign, you will be transported there using one of the generated points.
+
+**SPOILER ALERT BELOW!!!!** (on the website, highlight with your mouse to see)
+
+<span class="spoiler">There is a semi-hidden menu-based fast travel system that allows you to visit _any_ named exterior you've previously been to by activating _any_ signpost. Doing this brings up a menu that lists each location you can travel to. In order to use this feature, the player must find a Mage's Guild member in Nchuleftingth that can trade for a special item which enables this mode of travel. Full details will be explained by this NPC.</span>
+
+**SPOILER ALERT ENDS!!!!**
+
 #### Configuration
 
 Various aspects of this mod are configurable via the script settings menu (ESC >> Options >> Scripts):
@@ -72,8 +86,11 @@ Various aspects of this mod are configurable via the script settings menu (ESC >
 * Teleport followers (**on by default**, auto-disabled when Attend Me is installed alongside this)
 * Time passes when traveling (**on by default**)
 * Gold cost for travel per "unit" (**5 gold by default**; set to 0 for free travel)
+* Allow travel when in combat (**off by default**)
 * Show messages when traveling (**on by default**)
 * Play footstep sounds when traveling (**on by default**)
+* Using the travel menu costs an item (**on by default**)
+* Show usage help in the menu (**on by default**)
 
 #### Known Issues / Notes
 
@@ -175,8 +192,10 @@ If you've found an issue with this mod, or if you simply have a question, please
 
 #### Planned Features
 
-* Some way to use all the points that are generated for cells that have no corresponding sign post (A menu, perhaps?)
+* Random chance to interrupt travel with a fight at some location in between the travel source and destinations
 * Allow adding to the cell naughty list via the interface
+* Some (probably) Lua-based way to hide the tooltip on the signpost activators (while preserving their functionality as activators), for immersion when using mods like [Signposts Retextured](https://www.nexusmods.com/morrowind/mods/42126)
 * Use pathgrid path vs a straight line
 * Factor player stats such as speed into time cost
 * Factor timescale
+* Optional add-on to place signposts in regions where they may be scarce

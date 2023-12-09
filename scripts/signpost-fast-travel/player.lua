@@ -2,6 +2,7 @@ require("scripts.signpost-fast-travel.checks")
 local ambient = require("openmw.ambient")
 local async = require("openmw.async")
 local core = require("openmw.core")
+local input = require("openmw.input")
 local nearby = require("openmw.nearby")
 local self = require("openmw.self")
 local storage = require("openmw.storage")
@@ -10,6 +11,7 @@ local ui = require("openmw.ui")
 local util = require("openmw.util")
 local I = require("openmw.interfaces")
 local teleportFollowers = require("scripts.signpost-fast-travel.teleportFollowers")
+local sftUI = require("scripts.signpost-fast-travel.ui")
 
 local MOD_ID = "SignpostFastTravel"
 local scriptVersion = 1
@@ -21,6 +23,7 @@ local AttendMeInstalled = core.contentFiles.has("AttendMe.omwscripts")
 local followers = {}
 local inCombat = {}
 local visitedCells = {}
+local travelMenu
 
 I.Settings.registerPage {
     key = MOD_ID,
@@ -30,7 +33,7 @@ I.Settings.registerPage {
 }
 
 if AttendMeInstalled then
-    print("Auto-disabling follower teleport features because Attend Me is also installed!")
+    print(L("attendMeInstalled"))
 end
 
 -- Core logic
@@ -216,6 +219,15 @@ local function announceTeleport(data)
         end
     end
 
+    if data.token and travelSettings:get("menuCostsToken") and data.hours > 1 then
+        msg = msg .. ", " .. L("consumeToken")
+    end
+
+    -- Clean up
+    if travelMenu then
+        travelMenu = nil
+    end
+
     ui.showMessage(msg)
 end
 
@@ -223,7 +235,29 @@ local function randomFromPoints(p)
     return p[math.random(#p)]
 end
 
+local function playerInCombat()
+    if travelSettings:get("travelWhenCombat") then return end
+    for _, actor in pairs(nearby.actors) do
+        if inCombat[actor.id] then
+            if travelSettings:get("showMsgs") then
+                ui.showMessage(L("inCombat"))
+            end
+            return true
+        end
+    end
+    return false
+end
+
 local function askForTeleport(data)
+    -- Should we do the travel UI?
+    if #types.Player.inventory(self):findAll("momw_sft_travel_token") > 0
+        or not travelSettings:get("menuCostsToken")
+    then
+        if playerInCombat() then return end
+        travelMenu = sftUI.travelMenu(visitedCells)
+        return
+    end
+
     local currentCell = self.cell.name
     local targetCell = data.signTarget
 
@@ -263,30 +297,15 @@ local function askForTeleport(data)
     end
 
     -- But are we in combat?
-    for _, actor in pairs(nearby.actors) do
-        if inCombat[actor.id] then
-            if travelSettings:get("showMsgs") then
-                ui.showMessage(L("inCombat"))
-            end
-            return
-        end
-    end
+    if playerInCombat() then return end
 
     -- Do the travel
-    -- https://wiki.openmw.org/index.php?title=Research:Trading_and_Services#Travel_costs
-    local pos = strToVec3(randomFromPoints(points))
-    local distance = (
-        math.sqrt((self.position.x - pos.x) * (self.position.x - pos.x)
-            + (self.position.y - pos.y) * (self.position.y - pos.y))
-    )
-    distance = math.ceil(distance / core.getGMST("fTravelTimeMult"))
     core.sendGlobalEvent(
         "momw_sft_doTeleport",
         {
             actor = self,
             cell = targetCell,
-            distance = distance,
-            pos = pos
+            pos = strToVec3(randomFromPoints(points))
         }
     )
 end
@@ -328,13 +347,13 @@ local function forget(name)
     -- I.SignpostFastTravel.Forget("Some Name") <ENTER>
     if visitedCells[name] then
         visitedCells[name] = nil
-        local m = "You've forgotten all travel points for " .. name
+        local m = L("forgetFor") .. " " .. name
         if travelSettings:get("showMsgs") then
             ui.showMessage(m)
         end
         print(m)
     else
-        local m = "No travel points for " .. name
+        local m = L("noneFor") .. " " .. name
         if travelSettings:get("showMsgs") then
             ui.showMessage(m)
         end
@@ -348,7 +367,7 @@ local function forgetAll()
     -- luap <ENTER>
     -- I.SignpostFastTravel.ForgetAll() <ENTER>
     visitedCells = {}
-    local m = "All travel points have been forgotten!"
+    local m = L("forgetAll")
     if travelSettings:get("showMsgs") then
         ui.showMessage(m)
     end
@@ -382,7 +401,7 @@ local function p()
     -- I.SignpostFastTravel.P() <ENTER>
     -- Results are printed to the console (F10)
     for name, cells in pairs(visitedCells) do
-        print(string.format("==== Points for %s:", name))
+        print(string.format("==== " .. L("pointsFor") .. " %s:", name))
         for _, data in pairs(cells) do
             for point, _ in pairs(data.points) do
                 print(strToVec3(point))
@@ -399,7 +418,7 @@ local function showPoints(name)
     -- I.SignpostFastTravel.ShowPoints("Some Name") <ENTER>
     -- Results are printed to the console (F10)
     if visitedCells[name] then
-        print(string.format("==== Points for %s:", name))
+        print(string.format("==== " .. L("pointsFor") .. " %s:", name))
         for _, data in pairs(visitedCells[name]) do
             for point, _ in pairs(data.points) do
                 print(strToVec3(point))
@@ -407,7 +426,7 @@ local function showPoints(name)
         end
         print("===================")
     else
-        local m = "No travel points for " .. name
+        local m = L("noneFor") .. " " .. name
         if travelSettings:get("showMsgs") then
             ui.showMessage(m)
         end
@@ -439,13 +458,13 @@ local function travelTo(name)
                 targetPos = randPoint
             }
         )
-        local m = string.format("Console traveled to %s @ %s ", name, randPoint)
+        local m = string.format(L("consoleTravel") .. " %s @ %s ", name, randPoint)
         if travelSettings:get("showMsgs") then
             ui.showMessage(m)
         end
         print(m)
     else
-        local m = "No travel points for " .. name
+        local m = L("noneFor") .. " " .. name
         if travelSettings:get("showMsgs") then
             ui.showMessage(m)
         end
@@ -454,9 +473,64 @@ local function travelTo(name)
 end
 
 -- Engine handlers
+local function onControllerButtonPress(id)
+    if travelMenu then
+        if id == input.CONTROLLER_BUTTON.DPadUp then
+            travelMenu:moveUp()
+        elseif id == input.CONTROLLER_BUTTON.DPadLeft then
+            travelMenu:movePrev()
+        elseif id == input.CONTROLLER_BUTTON.DPadDown then
+            travelMenu:moveDown()
+        elseif id == input.CONTROLLER_BUTTON.DPadRight then
+            travelMenu:moveNext()
+        elseif id == input.CONTROLLER_BUTTON.A then
+            travelMenu:choose()
+        elseif id == input.CONTROLLER_BUTTON.Start or id == input.CONTROLLER_BUTTON.B then
+            travelMenu:closeMenu()
+            travelMenu = nil
+        end
+    end
+end
+
+local lastFrame
+local nilCount = 0
+-- The user has right-clicked or somehow otherwise unpaused the game outside of
+-- the menu. This is a scrappy way to close for them.
+local function onFrame()
+    if not travelMenu then return end
+    lastFrame = I.UI.getMode()
+    if travelMenu and lastFrame == nil then
+        nilCount = nilCount + 1
+        if nilCount > 2 then
+            travelMenu:closeMenu()
+            nilCount = 0
+            travelMenu = nil
+        end
+    end
+end
+
+local function onKeyPress(k)
+    if travelMenu then
+        if k.code == input.KEY.W or k.code == input.KEY.UpArrow then
+            travelMenu:moveUp()
+        elseif k.code == input.KEY.A or k.code == input.KEY.LeftArrow then
+            travelMenu:movePrev()
+        elseif k.code == input.KEY.S or k.code == input.KEY.DownArrow then
+            travelMenu:moveDown()
+        elseif k.code == input.KEY.D or k.code == input.KEY.RightArrow then
+            travelMenu:moveNext()
+        elseif k.code == input.KEY.E or k.code == input.KEY.Enter then
+            travelMenu:choose()
+        elseif k.code == input.KEY.Escape or k.code == input.KEY.Q then
+            travelMenu:closeMenu()
+            travelMenu = nil
+        end
+    end
+end
+
 local function onLoad(data)
     followers = data.followers
-    inCombat = data.inCombat
+    inCombat = data.inCombat or {}
     visitedCells = data.visitedCells or {}
 end
 
@@ -479,6 +553,9 @@ end
 -- Handoff to the engine
 return {
     engineHandlers = {
+        onControllerButtonPress = onControllerButtonPress,
+        onFrame = onFrame,
+        onKeyPress = onKeyPress,
         onLoad = onLoad,
         onSave = onSave,
         onUpdate = onUpdate

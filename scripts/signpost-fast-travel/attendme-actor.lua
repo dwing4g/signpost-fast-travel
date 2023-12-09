@@ -3,6 +3,7 @@
     https://www.nexusmods.com/morrowind/mods/51232
     Thanks to urm!
 ]]
+require("scripts.signpost-fast-travel.checks")
 local core = require('openmw.core')
 if core.contentFiles.has("AttendMe.omwscripts") then return end
 local types = require('openmw.types')

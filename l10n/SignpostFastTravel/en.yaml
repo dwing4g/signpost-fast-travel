@@ -21,6 +21,30 @@ travelSettingsTitle: "Travel Settings"
 
 footstepVolume_name: "Footstep volume"
 goldPerUnit_name: "Gold cost per travel unit"
+menuCostsToken_name: "Travel menu consumes a token"
+menuShowUsage_name: "Show usage help in the travel menu"
+travelWhenCombat_name: "Allow travel when in combat"
 showMsgs_name: "Show messages when traveling"
 teleportFollowers_name: "Teleport Followers"
 timePasses_name: "Time passes when traveling"
+
+consumeToken: "your Travel Token crumbled to dust"
+
+menuUsage1: "Dpad Left/Right or A/D to change pages"
+menuUsage2: "Dpad Up/Down or W/S to move selection"
+menuUsage3: "Double click or use A button to select"
+
+menuUsage4: "Traveling will consume one Travel Token"
+
+menuPrev: "Prev"
+menuNext: "Next"
+
+attendMeInstalled: "Auto-disabling follower teleport features because Attend Me is also installed!"
+
+forgetFor: "You've forgotten all travel points for"
+noneFor: "No travel points for"
+forgetAll: "All travel points have been forgotten!"
+pointsFor: "Points for"
+consoleTravel: "Console traveled to"
+
+needNewerOpenMW: "Signpost Fast Travel requires OpenMW 0.49.0 or newer, please update!"

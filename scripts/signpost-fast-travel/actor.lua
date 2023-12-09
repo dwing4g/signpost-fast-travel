@@ -1,3 +1,4 @@
+require("scripts.signpost-fast-travel.checks")
 local AI = require("openmw.interfaces").AI
 local core = require('openmw.core')
 local self = require('openmw.self')
@@ -16,7 +17,7 @@ end
 
 local function onUpdate()
     -- Am I still alive?
-    local isDead = (self.object.type).stats.dynamic.health(self.object).current == 0
+    local isDead = (self.object.type).isDead(self.object)
     if isDead and combatRegistered then
         core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self, done = true})
         combatRegistered = false

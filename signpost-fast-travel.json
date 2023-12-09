@@ -1,0 +1,968 @@
+[
+  {
+    "type": "Header",
+    "flags": [
+      0,
+      0
+    ],
+    "version": 1.3,
+    "file_type": "Esp",
+    "author": "johnnyhostile",
+    "description": "Fast travel from signposts to their locations if you have already been there before.",
+    "num_objects": 28,
+    "masters": [
+      [
+        "Morrowind.esm",
+        79837557
+      ]
+    ]
+  },
+  {
+    "type": "Script",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "momw_sft_scriptbridge",
+    "header": {
+      "num_shorts": 0,
+      "num_longs": 0,
+      "num_floats": 0,
+      "bytecode_length": 0,
+      "variables_length": 0
+    },
+    "bytecode": "KLUv/QBYIQAAAAAAAA==",
+    "text": "Begin momw_sft_scriptbridge\n\nshort cost\nshort deductToken\n\nif cost > 0\n    player->removeitem gold_001 cost\n    set cost to 0\nendif\n\nif deductToken > 0\n    player->removeitem momw_sft_travel_token 1\n    set deductToken to 0\nendif\n\nEnd momw_sft_scriptbridge\n"
+  },
+  {
+    "type": "StartScript",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "",
+    "script": "momw_sft_scriptbridge"
+  },
+  {
+    "type": "MiscItem",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "momw_sft_travel_token",
+    "data": {
+      "weight": 0.0,
+      "value": 0,
+      "flags": 0
+    },
+    "name": "Fast Travel Token",
+    "mesh": "OAAB/m/coin_triune.nif",
+    "icon": "oaab/m/coin_triune.tga"
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "momw_sft_tt_salesman",
+    "name": "Kelkemmelian Adorin",
+    "race": "High Elf",
+    "class": "Warlock",
+    "faction": "",
+    "head": "B_N_High Elf_M_Head_06",
+    "hair": "b_n_high elf_m_hair_01",
+    "npc_flags": 0,
+    "data": {
+      "level": 23,
+      "stats": {
+        "attributes": [
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75
+        ],
+        "skills": [
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75
+        ],
+        "health": 145,
+        "magicka": 150,
+        "fatigue": 140
+      },
+      "disposition": 15,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_shoes_05"
+      ],
+      [
+        1,
+        "expensive_robe_03"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 0,
+      "fight": 0,
+      "flee": 0,
+      "alarm": 0,
+      "services": 0
+    },
+    "ai_packages": [],
+    "travel_destinations": []
+  },
+  {
+    "type": "Cell",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "Nchuleftingth, Upper Levels",
+    "data": {
+      "flags": 1,
+      "grid": [
+        663080,
+        1065353216
+      ]
+    },
+    "water_height": 0.0,
+    "atmosphere_data": {
+      "ambient_color": [
+        10,
+        10,
+        10,
+        0
+      ],
+      "sunlight_color": [
+        30,
+        20,
+        10,
+        0
+      ],
+      "fog_color": [
+        40,
+        30,
+        10,
+        0
+      ],
+      "fog_density": 1.0
+    },
+    "references": [
+      {
+        "mast_index": 0,
+        "refr_index": 1,
+        "id": "momw_sft_tt_salesman",
+        "temporary": false,
+        "translation": [
+          3744.7664,
+          95.84183,
+          259.96878
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Dialogue",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "momw_sft_quest",
+    "dialogue_type": "Journal"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "12130845091082550736",
+    "prev_id": "",
+    "next_id": "7544703285970989971",
+    "data": {
+      "dialogue_type": "Journal",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "text": "Signpost Fast Travel",
+    "quest_name": 1,
+    "filters": []
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "7544703285970989971",
+    "prev_id": "12130845091082550736",
+    "next_id": "5026646113796703446",
+    "data": {
+      "dialogue_type": "Journal",
+      "disposition": 10,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "text": "While exploring Nchuleftingth I found an Altmer, Kelkemmelian Adorin. He seemed to be avoiding the other Mage's Guild members and complained about the Guild in general. He made a cryptic reference to Fast Travel Tokens and seemed to offer to sell or trade for them.",
+    "filters": []
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "5026646113796703446",
+    "prev_id": "7544703285970989971",
+    "next_id": "6726281563209715271",
+    "data": {
+      "dialogue_type": "Journal",
+      "disposition": 20,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "text": "Kelkemmelian Adorin says he has enchanted \"Fast Travel Tokens\" that would allow me to quickly travel to almost any location I've been to previously by simply touching any signpost. He's charging either one Dwemer coin or 5000 gold for each.. could be worth it. I should find him in Nchuleftingth if I need any.",
+    "filters": []
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "6726281563209715271",
+    "prev_id": "5026646113796703446",
+    "next_id": "",
+    "data": {
+      "dialogue_type": "Journal",
+      "disposition": 30,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "text": "I've used one of the Fast Travel Tokens I got from Kelkemmelian Adorin. They do work as intended and should allow me to move about much more quickly.",
+    "quest_finish": 1,
+    "filters": []
+  },
+  {
+    "type": "Dialogue",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "Greeting 5",
+    "dialogue_type": "Greeting"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "16784905021402712788",
+    "prev_id": "27518247831477521212",
+    "next_id": "10266514201200066960",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "You see, I was able to divine the recipe to craft a special token.. Using what I believe is a forgotten Dwemer technique, I've been able to create these special Fast Travel Tokens. With these, you'd be able to instantly travel to many previous locations that you've already been to by touching a signpost. I might be willing to part with some, for a cost...",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "Equal",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 0
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00\u0000",
+        "value": {
+          "Integer": 1
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 2
+        }
+      }
+    ],
+    "result": "AddTopic \"Fast Travel Tokens\"\r\nJournal momw_sft_quest 10"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "10266514201200066960",
+    "prev_id": "16784905021402712788",
+    "next_id": "11264526852615315829",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "As you probably guessed, I'm with the Mage's Guild. I'm honestly pretty bored, none of these people seem to have any real magical ability to speak of nor do they have access to any interesting knowledge. I was assigned here, to this pit, and while I was trying to slip away to a quiet place I came across a gem that was unlike anything I've ever seen before. After studying this gem for some time I was able to divine some incredible knowledge from it...",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "Equal",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 0
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00\u0000",
+        "value": {
+          "Integer": 1
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 1
+        }
+      }
+    ],
+    "result": "Choice Continue 2"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "11264526852615315829",
+    "prev_id": "10266514201200066960",
+    "next_id": "323200121739082798",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "You again?! I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Maye you can be useful, maybe we can come to an agreement?",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "Equal",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 0
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00\u0000",
+        "value": {
+          "Integer": 1
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "TalkedToPc",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 1
+        }
+      }
+    ],
+    "result": "Choice Continue 1"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "323200121739082798",
+    "prev_id": "11264526852615315829",
+    "next_id": "14977645236198792681",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "... And who exactly are you? I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Perhaps you can be useful, maybe we can come to an agreement?",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "Equal",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 0
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00\u0000",
+        "value": {
+          "Integer": 1
+        }
+      }
+    ],
+    "result": "Choice Continue 1"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "14977645236198792681",
+    "prev_id": "323200121739082798",
+    "next_id": "",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "... And who exactly are you? I'm not sure why you're up here or if I should be worried that you are.. Just go away, we have nothing to discuss.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "Equal",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 0
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "Equal",
+        "id": "misc_dwrv_coin00\u0000",
+        "value": {
+          "Integer": 0
+        }
+      }
+    ],
+    "result": "GoodBye"
+  },
+  {
+    "type": "Dialogue",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "Fast Travel Tokens",
+    "dialogue_type": "Topic"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "4153967078973295017",
+    "prev_id": "",
+    "next_id": "11870580646052703776",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "Yes. I am willing to trade you for them. I'll give you one for one Dwemer coin. Don't worry, I've got plenty tokens and can produce more, but I need those Dwemer coins. If you don't have any, I suppose I could part with the tokens for say... 5000 gold for each? I think that's a fair price. I do have to keep a lid on this enterprise somehow, you know. Imagine everyone in Tamriel blinking about by touching a map! Hah! Anyways: just find me here any time. Did you want to trade now?",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "Equal",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 10
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00\u0000",
+        "value": {
+          "Integer": 1
+        }
+      }
+    ],
+    "result": "Journal momw_sft_quest 20\r\nChoice \"Give me one token for one Dwemer coin\" 1 \"Give me ten tokens for ten Dwemer coins\" 2 \"Give me one token for 5000 gold\" 3 \"Give me ten tokens for 50000 gold\" 4 \"No thanks, not right now\" 5"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "11870580646052703776",
+    "prev_id": "4153967078973295017",
+    "next_id": "9634205049713896219",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "Okay then, fine. If you don't mind I was thinking about taking a nap, so just run along. Come by when you want some Fast Travel Tokens and can trade for them.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "GreaterEqual",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 20
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 5
+        }
+      }
+    ],
+    "result": "GoodBye"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "9634205049713896219",
+    "prev_id": "11870580646052703776",
+    "next_id": "15871995330525769422",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "Sure. But come back when you've got something to trade.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "GreaterEqual",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "Equal",
+        "id": "misc_dwrv_coin00\u0000",
+        "value": {
+          "Integer": 0
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 1
+        }
+      }
+    ],
+    "result": "GoodBye"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "15871995330525769422",
+    "prev_id": "9634205049713896219",
+    "next_id": "16755875721298612688",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "Sure. But come back when you've got enough coins to trade.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "GreaterEqual",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "Less",
+        "id": "misc_dwrv_coin00\u0000",
+        "value": {
+          "Integer": 10
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 2
+        }
+      }
+    ],
+    "result": "GoodBye"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "16755875721298612688",
+    "prev_id": "15871995330525769422",
+    "next_id": "9296350147733768029",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "Sure. But come back when you've got something to trade.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "GreaterEqual",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 20
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 3
+        }
+      },
+      {
+        "slot": "Slot3",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "Less",
+        "id": "Gold_001\u0000",
+        "value": {
+          "Integer": 5000
+        }
+      }
+    ],
+    "result": "GoodBye"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "9296350147733768029",
+    "prev_id": "16755875721298612688",
+    "next_id": "6781568104691766090",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "Sure. But come back when you've got enough gold to trade.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "GreaterEqual",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 20
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 4
+        }
+      },
+      {
+        "slot": "Slot3",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "Less",
+        "id": "Gold_001\u0000",
+        "value": {
+          "Integer": 50000
+        }
+      }
+    ],
+    "result": "GoodBye"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "6781568104691766090",
+    "prev_id": "9296350147733768029",
+    "next_id": "11888140134914224931",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "One Travel Token for one Dwemer coin. Thank you very much.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "GreaterEqual",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "Greater",
+        "id": "misc_dwrv_coin00\u0000",
+        "value": {
+          "Integer": 0
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 1
+        }
+      }
+    ],
+    "result": "Player->RemoveItem misc_dwrv_coin00 1\r\nPlayer->AddItem momw_sft_travel_token 1"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "11888140134914224931",
+    "prev_id": "6781568104691766090",
+    "next_id": "4931086643902559180",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "Ten Travel Tokens for ten Dwemer coin. Thank you very much!",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "GreaterEqual",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00\u0000",
+        "value": {
+          "Integer": 10
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 2
+        }
+      }
+    ],
+    "result": "Player->RemoveItem misc_dwrv_coin00 10\r\nPlayer->AddItem momw_sft_travel_token 10"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "4931086643902559180",
+    "prev_id": "11888140134914224931",
+    "next_id": "4600985328156200882",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "One Travel Token for 5000 gold. Thank you very much hahaha!",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "GreaterEqual",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "GreaterEqual",
+        "id": "Gold_001\u0000",
+        "value": {
+          "Integer": 5000
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 3
+        }
+      }
+    ],
+    "result": "Player->RemoveItem gold_001 5000\r\nPlayer->AddItem momw_sft_travel_token 1"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "4600985328156200882",
+    "prev_id": "4931086643902559180",
+    "next_id": "3637674414576096955",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "Ten Travel Tokens for 50000 gold. Thank you very much hohoho!",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "GreaterEqual",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "filter_function": "ItemType",
+        "filter_comparison": "GreaterEqual",
+        "id": "Gold_001\u0000",
+        "value": {
+          "Integer": 50000
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "filter_function": "Choice",
+        "filter_comparison": "Equal",
+        "id": "\u0000",
+        "value": {
+          "Integer": 4
+        }
+      }
+    ],
+    "result": "Player->RemoveItem gold_001 50000\r\nPlayer->AddItem momw_sft_travel_token 10"
+  },
+  {
+    "type": "Info",
+    "flags": [
+      0,
+      0
+    ],
+    "info_id": "3637674414576096955",
+    "prev_id": "4600985328156200882",
+    "next_id": "",
+    "speaker_id": "momw_sft_tt_salesman",
+    "text": "Sure, did you want to trade for some tokens? Once you use them you won't want to walk everywhere again! Ahahaha!",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "filter_function": "JournalType",
+        "filter_comparison": "GreaterEqual",
+        "id": "momw_sft_quest\u0000",
+        "value": {
+          "Integer": 20
+        }
+      }
+    ],
+    "result": "Choice \"Give me one token for one Dwemer coin\" 1 \"Give me ten tokens for ten Dwemer coins\" 2 \"Give me one token for 5000 gold\" 3 \"Give me ten tokens for 50000 gold\" 4 \"No thanks, not right now\" 5"
+  }
+]

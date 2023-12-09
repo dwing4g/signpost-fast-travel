@@ -1,9 +1,9 @@
 ---
 __esp_version__: 1.3
 __plugin_type__: 0
-transpiler_version: 0.19.0
-author: "johnnyhostile"
-desc: "Fast travel from signposts to their locations if you have already been there before."
+transpiler_version: 0.20.0
+author: johnnyhostile
+desc: Fast travel from signposts to their locations if you have already been there before.
 masters:
   - name: Morrowind.esm
     size: 79837557
@@ -22,3 +22,625 @@ records:
   "Startup::momw_sft_scriptbridge":
     type: Startup
     data: ""
+  "Misc::momw_sft_travel_token":
+    type: Misc
+    name: Fast Travel Token
+    model: OAAB/m/coin_triune.nif
+    weight: 0.0
+    value: 0
+    is_key: false
+    icon: oaab/m/coin_triune.tga
+  "NPC::momw_sft_tt_salesman":
+    type: NPC
+    name: Kelkemmelian Adorin
+    race: High Elf
+    faction: ""
+    class: Warlock
+    hair: b_n_high elf_m_hair_01
+    head: B_N_High Elf_M_Head_06
+    level: 23
+    attributes:
+      Strength: 75
+      Intelligence: 75
+      Willpower: 75
+      Agility: 75
+      Speed: 75
+      Endurance: 75
+      Personality: 75
+      Luck: 75
+    stats:
+      Health: 145
+      Mana: 150
+      Fatigue: 140
+    skills:
+      Block: 75
+      Armorer: 75
+      MediumArmor: 75
+      HeavyArmor: 75
+      BluntWeapon: 75
+      LongBlade: 75
+      Axe: 75
+      Spear: 75
+      Athletics: 75
+      Enchant: 75
+      Destruction: 75
+      Alteration: 75
+      Illusion: 75
+      Conjuration: 75
+      Mysticism: 75
+      Restoration: 75
+      Alchemy: 75
+      Unarmored: 75
+      Security: 75
+      Sneak: 75
+      Acrobatics: 75
+      LightArmor: 75
+      ShortBlade: 75
+      Marksman: 75
+      Mercantile: 75
+      Speechcraft: 75
+      HandToHand: 75
+    disposition: 15
+    reputation: 0
+    rank: 0
+    unknown1: 0
+    unknown2: 0
+    gold: 0
+    inventory:
+      common_shoes_05: 1
+      expensive_robe_03: 1
+    spells: []
+    ai:
+      greeting_distance: 0
+      fight_chance: 0.0
+      flee_chance: 0.0
+      alarm_chance: 0.0
+      unknown:
+        - 0
+        - 0
+        - 0
+  "Cell::Nchuleftingth, Upper Levels":
+    type: Cell
+    name: "Nchuleftingth, Upper Levels"
+    location:
+      x: 663080
+      y: 1065353216
+    traits:
+      - Interior
+    ambient_light:
+      red: 10
+      blue: 10
+      green: 10
+      alpha: 0
+    sunlight:
+      red: 30
+      blue: 20
+      green: 10
+      alpha: 0
+    fog:
+      red: 40
+      blue: 30
+      green: 10
+      alpha: 0
+    fog_density: 1.0
+    water_level: 0.0
+    references:
+      "::signpost-fast-travel::cellref::1":
+        object_id: momw_sft_tt_salesman
+        scale: 1.0
+        reference_blocked: false
+        position:
+          position:
+            - 3744.7664
+            - 95.84183
+            - 259.96878
+          rotation:
+            - 0.0
+            - 0.0
+            - 0.0
+  "Dialogue::momw_sft_quest":
+    type: Dialogue
+    dialogue_type: Journal
+    info:
+      "12130845091082550736":
+        next: "7544703285970989971"
+        prev: ""
+        unknown1: 4
+        disposition: 0
+        rank: 255
+        gender: None
+        pc_rank: 255
+        unknown2: 0
+        response: Signpost Fast Travel
+        quest_status: Name
+        select_rules: []
+      "7544703285970989971":
+        next: "5026646113796703446"
+        prev: "12130845091082550736"
+        unknown1: 4
+        disposition: 10
+        rank: 255
+        gender: None
+        pc_rank: 255
+        unknown2: 0
+        response: "While exploring Nchuleftingth I found an Altmer, Kelkemmelian Adorin. He seemed to be avoiding the other Mage's Guild members and complained about the Guild in general. He made a cryptic reference to Fast Travel Tokens and seemed to offer to sell or trade for them."
+        select_rules: []
+      "5026646113796703446":
+        next: "6726281563209715271"
+        prev: "7544703285970989971"
+        unknown1: 4
+        disposition: 20
+        rank: 255
+        gender: None
+        pc_rank: 255
+        unknown2: 0
+        response: "Kelkemmelian Adorin says he has enchanted \"Fast Travel Tokens\" that would allow me to quickly travel to almost any location I've been to previously by simply touching any signpost. He's charging either one Dwemer coin or 5000 gold for each.. could be worth it. I should find him in Nchuleftingth if I need any."
+        select_rules: []
+      "6726281563209715271":
+        next: ""
+        prev: "5026646113796703446"
+        unknown1: 4
+        disposition: 30
+        rank: 255
+        gender: None
+        pc_rank: 255
+        unknown2: 0
+        response: "I've used one of the Fast Travel Tokens I got from Kelkemmelian Adorin. They do work as intended and should allow me to move about much more quickly."
+        quest_status: Finished
+        select_rules: []
+  "Dialogue::Greeting 5":
+    type: Dialogue
+    dialogue_type: Greeting
+    info:
+      "16784905021402712788":
+        next: "10266514201200066960"
+        prev: "27518247831477521212"
+        actor: momw_sft_tt_salesman
+        response: "You see, I was able to divine the recipe to craft a special token.. Using what I believe is a forgotten Dwemer technique, I've been able to create these special Fast Travel Tokens. With these, you'd be able to instantly travel to many previous locations that you've already been to by touching a signpost. I might be willing to part with some, for a cost..."
+        result_script: "AddTopic \"Fast Travel Tokens\"\r\nJournal momw_sft_quest 10"
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Eq
+            var_name: momw_sft_quest
+            result: 0
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Ge
+            var_name: misc_dwrv_coin00
+            result: 1
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 2
+      "10266514201200066960":
+        next: "11264526852615315829"
+        prev: "16784905021402712788"
+        actor: momw_sft_tt_salesman
+        response: "As you probably guessed, I'm with the Mage's Guild. I'm honestly pretty bored, none of these people seem to have any real magical ability to speak of nor do they have access to any interesting knowledge. I was assigned here, to this pit, and while I was trying to slip away to a quiet place I came across a gem that was unlike anything I've ever seen before. After studying this gem for some time I was able to divine some incredible knowledge from it..."
+        result_script: Choice Continue 2
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Eq
+            var_name: momw_sft_quest
+            result: 0
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Ge
+            var_name: misc_dwrv_coin00
+            result: 1
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 1
+      "11264526852615315829":
+        next: "323200121739082798"
+        prev: "10266514201200066960"
+        actor: momw_sft_tt_salesman
+        response: "You again?! I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Maye you can be useful, maybe we can come to an agreement?"
+        result_script: Choice Continue 1
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Eq
+            var_name: momw_sft_quest
+            result: 0
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Ge
+            var_name: misc_dwrv_coin00
+            result: 1
+          - index: 2
+            rule_type: Function
+            function:
+              - "6"
+              - "3"
+            op: Eq
+            var_name: ""
+            result: 1
+      "323200121739082798":
+        next: "14977645236198792681"
+        prev: "11264526852615315829"
+        actor: momw_sft_tt_salesman
+        response: "... And who exactly are you? I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Perhaps you can be useful, maybe we can come to an agreement?"
+        result_script: Choice Continue 1
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Eq
+            var_name: momw_sft_quest
+            result: 0
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Ge
+            var_name: misc_dwrv_coin00
+            result: 1
+      "14977645236198792681":
+        next: ""
+        prev: "323200121739082798"
+        actor: momw_sft_tt_salesman
+        response: "... And who exactly are you? I'm not sure why you're up here or if I should be worried that you are.. Just go away, we have nothing to discuss."
+        result_script: GoodBye
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Eq
+            var_name: momw_sft_quest
+            result: 0
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Eq
+            var_name: misc_dwrv_coin00
+            result: 0
+  "Dialogue::Fast Travel Tokens":
+    type: Dialogue
+    dialogue_type: Topic
+    info:
+      "4153967078973295017":
+        next: "11870580646052703776"
+        prev: ""
+        actor: momw_sft_tt_salesman
+        response: "Yes. I am willing to trade you for them. I'll give you one for one Dwemer coin. Don't worry, I've got plenty tokens and can produce more, but I need those Dwemer coins. If you don't have any, I suppose I could part with the tokens for say... 5000 gold for each? I think that's a fair price. I do have to keep a lid on this enterprise somehow, you know. Imagine everyone in Tamriel blinking about by touching a map! Hah! Anyways: just find me here any time. Did you want to trade now?"
+        result_script: "Journal momw_sft_quest 20\r\nChoice \"Give me one token for one Dwemer coin\" 1 \"Give me ten tokens for ten Dwemer coins\" 2 \"Give me one token for 5000 gold\" 3 \"Give me ten tokens for 50000 gold\" 4 \"No thanks, not right now\" 5"
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Eq
+            var_name: momw_sft_quest
+            result: 10
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Ge
+            var_name: misc_dwrv_coin00
+            result: 1
+      "11870580646052703776":
+        next: "9634205049713896219"
+        prev: "4153967078973295017"
+        actor: momw_sft_tt_salesman
+        response: "Okay then, fine. If you don't mind I was thinking about taking a nap, so just run along. Come by when you want some Fast Travel Tokens and can trade for them."
+        result_script: GoodBye
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Ge
+            var_name: momw_sft_quest
+            result: 20
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 5
+      "9634205049713896219":
+        next: "15871995330525769422"
+        prev: "11870580646052703776"
+        actor: momw_sft_tt_salesman
+        response: "Sure. But come back when you've got something to trade."
+        result_script: GoodBye
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Ge
+            var_name: momw_sft_quest
+            result: 20
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Eq
+            var_name: misc_dwrv_coin00
+            result: 0
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 1
+      "15871995330525769422":
+        next: "16755875721298612688"
+        prev: "9634205049713896219"
+        actor: momw_sft_tt_salesman
+        response: "Sure. But come back when you've got enough coins to trade."
+        result_script: GoodBye
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Ge
+            var_name: momw_sft_quest
+            result: 20
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Lt
+            var_name: misc_dwrv_coin00
+            result: 10
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 2
+      "16755875721298612688":
+        next: "9296350147733768029"
+        prev: "15871995330525769422"
+        actor: momw_sft_tt_salesman
+        response: "Sure. But come back when you've got something to trade."
+        result_script: GoodBye
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Ge
+            var_name: momw_sft_quest
+            result: 20
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 3
+          - index: 3
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Lt
+            var_name: Gold_001
+            result: 5000
+      "9296350147733768029":
+        next: "6781568104691766090"
+        prev: "16755875721298612688"
+        actor: momw_sft_tt_salesman
+        response: "Sure. But come back when you've got enough gold to trade."
+        result_script: GoodBye
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Ge
+            var_name: momw_sft_quest
+            result: 20
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 4
+          - index: 3
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Lt
+            var_name: Gold_001
+            result: 50000
+      "6781568104691766090":
+        next: "11888140134914224931"
+        prev: "9296350147733768029"
+        actor: momw_sft_tt_salesman
+        response: One Travel Token for one Dwemer coin. Thank you very much.
+        result_script: "Player->RemoveItem misc_dwrv_coin00 1\r\nPlayer->AddItem momw_sft_travel_token 1"
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Ge
+            var_name: momw_sft_quest
+            result: 20
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Gt
+            var_name: misc_dwrv_coin00
+            result: 0
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 1
+      "11888140134914224931":
+        next: "4931086643902559180"
+        prev: "6781568104691766090"
+        actor: momw_sft_tt_salesman
+        response: Ten Travel Tokens for ten Dwemer coin. Thank you very much!
+        result_script: "Player->RemoveItem misc_dwrv_coin00 10\r\nPlayer->AddItem momw_sft_travel_token 10"
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Ge
+            var_name: momw_sft_quest
+            result: 20
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Ge
+            var_name: misc_dwrv_coin00
+            result: 10
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 2
+      "4931086643902559180":
+        next: "4600985328156200882"
+        prev: "11888140134914224931"
+        actor: momw_sft_tt_salesman
+        response: One Travel Token for 5000 gold. Thank you very much hahaha!
+        result_script: "Player->RemoveItem gold_001 5000\r\nPlayer->AddItem momw_sft_travel_token 1"
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Ge
+            var_name: momw_sft_quest
+            result: 20
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Ge
+            var_name: Gold_001
+            result: 5000
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 3
+      "4600985328156200882":
+        next: "3637674414576096955"
+        prev: "4931086643902559180"
+        actor: momw_sft_tt_salesman
+        response: Ten Travel Tokens for 50000 gold. Thank you very much hohoho!
+        result_script: "Player->RemoveItem gold_001 50000\r\nPlayer->AddItem momw_sft_travel_token 10"
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Ge
+            var_name: momw_sft_quest
+            result: 20
+          - index: 1
+            rule_type: Item
+            function:
+              - I
+              - X
+            op: Ge
+            var_name: Gold_001
+            result: 50000
+          - index: 2
+            rule_type: Function
+            function:
+              - "5"
+              - "0"
+            op: Eq
+            var_name: ""
+            result: 4
+      "3637674414576096955":
+        next: ""
+        prev: "4600985328156200882"
+        actor: momw_sft_tt_salesman
+        response: "Sure, did you want to trade for some tokens? Once you use them you won't want to walk everywhere again! Ahahaha!"
+        result_script: "Choice \"Give me one token for one Dwemer coin\" 1 \"Give me ten tokens for ten Dwemer coins\" 2 \"Give me one token for 5000 gold\" 3 \"Give me ten tokens for 50000 gold\" 4 \"No thanks, not right now\" 5"
+        select_rules:
+          - index: 0
+            rule_type: Journal
+            function:
+              - J
+              - X
+            op: Ge
+            var_name: momw_sft_quest
+            result: 20

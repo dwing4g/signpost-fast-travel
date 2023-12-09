@@ -16,8 +16,11 @@ zip --must-match --recurse-paths ${file_name} \
     $modname.omwscripts \
     PB_SignpostsRetextured.omwaddon \
     PB_SignpostsRetexturedTR.omwaddon \
+    icons \
     l10n \
+    meshes \
     scripts \
+    textures \
     version.txt \
     --exclude=scripts/momw_sft_scriptbridge.mwscript
 

@@ -1,5 +1,17 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.4
+
+* Added a menu-based fast travel system that lets you go to _any_ named exterior you've previously visited via the click of a menu entry
+  * Traveling in this way costs a special "travel token" (can be disabled and made free)
+  * The token icon, mesh, and texture are from [OAAB_Data](https://www.nexusmods.com/morrowind/mods/49042)
+  * **SPOILER**: These tokens can be gotten from <span class="spoiler">a semi-hidden NPC who is a member of the Mage's Guild out in the field on an expedition with others (the README says which specific location this is)</span>
+  * The menu fully supoprts controller and keyboard inputs
+* Fixed a bug with loading 2.X on a save that played with 1.0
+* All Lua-based strings including console commands are now localized
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 2.3
 
 * Fixed a problem with detecting if the player is in combat

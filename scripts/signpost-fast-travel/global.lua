@@ -78,7 +78,14 @@ I.Settings.registerGroup {
             key = 'goldPerUnit',
             name = "goldPerUnit_name",
             default = 5,
-            renderer = 'number'
+            renderer = 'number',
+            min = 0,
+        },
+        {
+            key = 'travelWhenCombat',
+            name = "travelWhenCombat_name",
+            default = false,
+            renderer = 'checkbox'
         },
         {
             key = 'showMsgs',
@@ -93,15 +100,35 @@ I.Settings.registerGroup {
             renderer = "number",
             min = 0,
             max = 1
+        },
+        {
+            key = 'menuCostsToken',
+            name = "menuCostsToken_name",
+            default = true,
+            renderer = 'checkbox'
+        },
+        {
+            key = 'menuShowUsage',
+            name = "menuShowUsage_name",
+            default = true,
+            renderer = 'checkbox'
         }
     }
 }
 
+local function getDistance(src, dst)
+    -- https://wiki.openmw.org/index.php?title=Research:Trading_and_Services#Travel_costs
+    local d = math.sqrt((src.x - dst.x) * (src.x - dst.x)
+        + (src.y - dst.y) * (src.y - dst.y))
+    return math.ceil(d / core.getGMST("fTravelTimeMult"))
+end
+
 local function doTeleport(data)
     local cost
-    local distance = data.distance
     local goldPerUnit = math.max(0, travelSettings:get("goldPerUnit"))
+    local actorPos = data.actor.position
     local targetPos = data.pos
+    local distance = getDistance(actorPos, targetPos)
 
     if distance > 1 then
         if haveOmwaddon and goldPerUnit > 0 then
@@ -135,13 +162,23 @@ local function doTeleport(data)
         distance = -1
     end
 
+    if haveOmwaddon
+        and data.token
+        and travelSettings:get("menuCostsToken")
+        and distance > 1
+    then
+        -- Consume one Travel Token if we can
+        world.mwscript.getGlobalScript("momw_sft_scriptbridge").variables.deductToken = 1
+    end
+
     if travelSettings:get("showMsgs") then
         data.actor:sendEvent(
             "momw_sft_announceTeleport",
             {
                 cost = cost,
                 hours = distance,
-                name = data.cell
+                name = data.cell,
+                token = data.token
             }
         )
     end
@@ -169,6 +206,11 @@ end
 -- From AttendMe
 local function followerTeleport(e)
     if followerSettings:get('teleportFollowers') then
+        --TODO: Summon a creature, let it expire, get this traceback:
+        -- Global[scripts/signpost-fast-travel/global.lua] eventHandler[momw_sft_followerTeleport] failed. Lua error: Object is either removed or already in the process of teleporting
+        -- stack traceback:
+        --        [C]: in function 'teleport'
+        --        [string "scripts/signpost-fast-travel/global.lua"]:205: in function <[string "scripts/signpost-fast-travel/global.lua"]:201>
         e.actor:teleport(e.cellName, e.position)
     end
 end
