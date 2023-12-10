@@ -1,6 +1,6 @@
 # Signpost Fast Travel
 
-Fast travel from signposts to their locations if you have already been there before.
+Fast travel from signposts to their locations if you have already been there before, using procedurally-generated target points. Includes an optional menu-based travel UI.
 
 Inspired by the Witcher 3 fast travel system and [Andromedas Fast Travel](https://www.nexusmods.com/morrowind/mods/41542), automatically supports [Tamriel Rebuilt](https://www.tamriel-rebuilt.org/) if that's installed as well, and borrows NPC travel features from [Attend Me](https://www.nexusmods.com/morrowind/mods/51232).
 
