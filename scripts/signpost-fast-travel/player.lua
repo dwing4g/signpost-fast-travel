@@ -497,23 +497,6 @@ local function onControllerButtonPress(id)
     end
 end
 
-local lastFrame
-local nilCount = 0
--- The user has right-clicked or somehow otherwise unpaused the game outside of
--- the menu. This is a scrappy way to close for them.
-local function onFrame()
-    if not travelMenu then return end
-    lastFrame = I.UI.getMode()
-    if travelMenu and lastFrame == nil then
-        nilCount = nilCount + 1
-        if nilCount > 2 then
-            travelMenu:closeMenu()
-            nilCount = 0
-            travelMenu = nil
-        end
-    end
-end
-
 local function onKeyPress(k)
     if travelMenu then
         if k.code == input.KEY.W or k.code == input.KEY.UpArrow then
@@ -555,11 +538,17 @@ local function onUpdate()
     end
 end
 
+local function UiModeChanged(data)
+    if not data.newMode and travelMenu then
+        travelMenu:closeMenu()
+        travelMenu = nil
+    end
+end
+
 -- Handoff to the engine
 return {
     engineHandlers = {
         onControllerButtonPress = onControllerButtonPress,
-        onFrame = onFrame,
         onKeyPress = onKeyPress,
         onLoad = onLoad,
         onSave = onSave,
@@ -570,7 +559,8 @@ return {
         momw_sft_askForTeleport = askForTeleport,
         momw_sft_followerAway = followerAway,
         momw_sft_followerStatus = followerStatus,
-        momw_sft_playerRegisterCombat = registerCombat
+        momw_sft_playerRegisterCombat = registerCombat,
+        UiModeChanged = UiModeChanged
     },
     interfaceName = MOD_ID,
     interface = {
