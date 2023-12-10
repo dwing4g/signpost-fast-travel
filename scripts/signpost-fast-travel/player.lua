@@ -64,6 +64,11 @@ local function scanCell()
         return
     end
 
+    -- Don't try to generate points if the player is underwater; this would
+    -- cause the 2 attempts we allow to be misspent on bunk origin points.
+    -- Also, the player's feet should be on the ground too.
+    if self.position.z < 1 or not types.Player.isOnGround(self) then return end
+
     local count = 0
     local cellName = c.name
     local cellX = c.gridX
