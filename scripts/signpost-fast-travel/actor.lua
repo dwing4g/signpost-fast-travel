@@ -3,19 +3,25 @@ local AI = require("openmw.interfaces").AI
 local core = require('openmw.core')
 local self = require('openmw.self')
 
+local amDead = false
 local combatRegistered = false
 
 local function onLoad(data)
     if data then
+        amDead = data.amDead
         combatRegistered = data.combatRegistered
     end
 end
 
 local function onSave()
-    return { combatRegistered = combatRegistered }
+    return {
+        amDead = amDead,
+        combatRegistered = combatRegistered
+    }
 end
 
 local function onUpdate()
+    if amDead then return end
     -- Am I still alive?
     local isDead = (self.object.type).isDead(self.object)
     if isDead and combatRegistered then
@@ -23,6 +29,9 @@ local function onUpdate()
         combatRegistered = false
         return
     elseif isDead then
+        -- One last attempt at signalling that I am dead.
+        core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self, done = true})
+        amDead = true
         return
     end
 

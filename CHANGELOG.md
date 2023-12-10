@@ -9,6 +9,7 @@
   * The menu fully supoprts controller and keyboard inputs
 * Fixed a bug with loading 2.X on a save that played with 1.0
 * All Lua-based strings including console commands are now localized
+* More safeguards around code that checks if the player is in combat or not
 
 <!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
 
