@@ -6,6 +6,11 @@ local self = require('openmw.self')
 local amDead = false
 local combatRegistered = false
 
+local function deRegisterCombat()
+    combatRegistered = false
+    core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self, done = true})
+end
+
 local function onLoad(data)
     if data then
         amDead = data.amDead
@@ -21,19 +26,8 @@ local function onSave()
 end
 
 local function onUpdate()
+    -- Bail if I'm already dead
     if amDead then return end
-    -- Am I still alive?
-    local isDead = (self.object.type).isDead(self.object)
-    if isDead and combatRegistered then
-        core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self, done = true})
-        combatRegistered = false
-        return
-    elseif isDead then
-        -- One last attempt at signalling that I am dead.
-        core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self, done = true})
-        amDead = true
-        return
-    end
 
     -- Am I in combat?
     local curPkg = AI.getActivePackage(self)
@@ -42,9 +36,13 @@ local function onUpdate()
         core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self})
         combatRegistered = true
     elseif curPkg and not curPkg.type == "Combat" and combatRegistered then
-        core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self, done = true})
-        combatRegistered = false
+        deRegisterCombat()
     end
+end
+
+local function Died()
+	amDead = true
+    deRegisterCombat()
 end
 
 return {
@@ -52,5 +50,6 @@ return {
         onLoad = onLoad,
         onSave = onSave,
         onUpdate = onUpdate
-    }
+    },
+    eventHandlers = {Died = Died}
 }
