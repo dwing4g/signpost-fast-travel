@@ -11,6 +11,10 @@ local function deRegisterCombat()
     core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self, done = true})
 end
 
+local function onInactive()
+    deRegisterCombat()
+end
+
 local function onLoad(data)
     if data then
         amDead = data.amDead
@@ -49,6 +53,7 @@ end
 
 return {
     engineHandlers = {
+        onInactive = onInactive,
         onLoad = onLoad,
         onSave = onSave,
         onUpdate = onUpdate
