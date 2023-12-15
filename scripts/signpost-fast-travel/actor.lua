@@ -42,7 +42,9 @@ end
 
 local function Died()
 	amDead = true
-    deRegisterCombat()
+    if combatRegistered then
+        deRegisterCombat()
+    end
 end
 
 return {
