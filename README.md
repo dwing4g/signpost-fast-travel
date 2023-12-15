@@ -23,6 +23,7 @@ Lua Assistance: **Pharis, urm, kuyondo, gnounc, ZackHasACat**
 * **urm** for making [Attend Me](https://www.nexusmods.com/morrowind/mods/51232) and being cool with me using his follower teleport code
 * **CDPR** for making Witcher 3
 * **The Morrowind Modding Community and the OAAB_Data Team** for making [OAAB_Data](https://www.nexusmods.com/morrowind/mods/49042) (where item assets are from)
+* **The OAAB_Data Team** for making [Tamriel Rebuilt](https://www.nexusmods.com/morrowind/mods/49042)
 * **The Tamriel Rebuilt Team** for making [Tamriel Rebuilt](https://www.tamriel-rebuilt.org/)
 * **The OpenMW team, including every contributor** for making OpenMW and OpenMW-CS
 * **The Modding-OpenMW.com team** for being amazing
