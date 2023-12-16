@@ -6,3 +6,4 @@ web/site/*.md
 web/sha256sums
 web/soupault-*-linux-x86_64*
 *.omwaddon
+*~
