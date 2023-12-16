@@ -12,7 +12,7 @@
 * More safeguards around code that checks if the player is in combat or not
 * Travel points will now only be generated if the player is on solid ground
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/21213259)
 
 #### 2.3
 
