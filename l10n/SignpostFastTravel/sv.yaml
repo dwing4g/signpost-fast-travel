@@ -10,6 +10,7 @@ announceLength: |-
 
 announceCost: "kostar {cost} guld"
 
+inCombat: "Du kan inte resa när du är i strid"
 noMoney: "Du har inget guld"
 notBeen: "Du har inte varit till {name} ännu"
 notEnoughMoney: "Du har inte tillräckligt med guld för att resa; {cost} krävs"
@@ -18,7 +19,32 @@ youreThere: "Du är i {name}"
 followerSettingsTitle: "Inställningar för följare"
 travelSettingsTitle: "Inställningar för resor"
 
+footstepVolume_name: "Fotstegsvolym"
 goldPerUnit_name: "Kostnad i guld per reseenhet"
+menuCostsToken_name: "Resemenyn kostar en pollett"
+menuShowUsage_name: "Visa användarhjälp i resemenyn"
+travelWhenCombat_name: "Tillåt resor under strid"
 showMsgs_name: "Visa meddelanden under resa"
 teleportFollowers_name: "Teleportera följare"
 timePasses_name: "Tid passerar vid resor"
+
+consumeToken: "din resepollett smulades sönder till stoft"
+
+menuUsage1: "Kontroll vänster/Höger eller A/D för att byta sidor"
+menuUsage2: "Kontroll upp/ner eller W/S för att flytta markering"
+menuUsage3: "Dubbelklicka eller använd A-knappen för att välja"
+
+menuUsage4: "Resa kommer kosta en resepollett"
+
+menuPrev: "Föreg."
+menuNext: "Nästa"
+
+attendMeInstalled: "Auto-inaktiverar följarteleporteringfunktioner eftersom 'Attend Me' är installerat!"
+
+forgetFor: "Du har glömt alla resepunkter för"
+noneFor: "Inga resepunkter för"
+forgetAll: "Alla resepunkter har glömts bort!"
+pointsFor: "Punkter för"
+consoleTravel: "Konsollen reste till"
+
+needNewerOpenMW: "Signpost Fast Travel kräver OpenMW 0.49.0 eller nyare, vänligen uppdatera!"
