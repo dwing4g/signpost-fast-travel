@@ -1,14 +1,14 @@
 name: "Signpost Fast Travel (Snabbresor med vägskyltar)"
 description: "Snabbres från en vägskylt till dit skylten pekar om du redan varit där tidigare. Inställningar för följare avaktiveras automatiskt om 'Attend Me' också är installerat."
 
-announceWhere: "Att resa till {place}"
+announceWhere: "Resa till {place}"
 
 announceLength: |-
   {hours, plural,
   one {tog {hours} timme}
   other {tog {hours} timmar}}
 
-announceCost: "kostar {cost} guld"
+announceCost: "kostade {cost} guld"
 
 inCombat: "Du kan inte resa när du är i strid"
 noMoney: "Du har inget guld"
