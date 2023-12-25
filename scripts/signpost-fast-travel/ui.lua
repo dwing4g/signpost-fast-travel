@@ -221,15 +221,15 @@ local function createMenu(win, cellData, selected)
         rows = rows + 1
     end
 
-    win.pages = #names / pageMax
+    win.pages = math.ceil(#names / pageMax)
     if win.pages > 1 then
         table.insert(body, pad(0, 15))
         local footerContent = {}
 
-        if win.pages >= 3 and win.currentPage > 1 then
+        if win.pages >= 2 and win.currentPage > 1 then
             table.insert(footerContent, nextPrev(win, L("menuPrev")))
         end
-        if (win.pages >= 3 and win.currentPage > 1)
+        if (win.pages >= 2 and win.currentPage > 1)
             and (win.pages > 1 and win.currentPage < win.pages)
         then
             table.insert(footerContent, justText(" | "))
