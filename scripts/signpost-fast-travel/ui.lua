@@ -249,14 +249,14 @@ local function createMenu(win, cellData, selected)
     local xFactor = .25
     local yFactor = .45
     local screenSize = ui.screenSize()
-    local maxHeight = 446
-    local minHeight = 446
+    local defaultHeight = 446
+    local defaultWidth = 480
     if travelSettings:get("menuShowUsage") then
         -- 486 is how tall the window is with pageMax entries at 1080p
-        maxHeight = 486
-        minHeight = 486
+        defaultHeight = 486
     end
-    local width, height = screenSize.x * xFactor, math.max(math.min(screenSize.y * yFactor, maxHeight), minHeight)
+    local width, height = math.max(math.min(screenSize.x * xFactor, defaultWidth), defaultWidth),
+        math.max(math.min(screenSize.y * yFactor, defaultHeight), defaultHeight)
 
     win.reDraw = function(w)
         Menu:destroy()
