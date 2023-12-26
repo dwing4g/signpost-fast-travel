@@ -6,7 +6,7 @@
 * Updated the SV localization
 * Added support for [Skyrim Home Of The Nords](https://www.nexusmods.com/morrowind/mods/44921) (automatically enabled if it's installed)
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/21429927)
 
 #### 2.4
 
