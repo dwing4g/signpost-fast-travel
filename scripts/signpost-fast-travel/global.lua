@@ -385,6 +385,23 @@ if core.contentFiles.has("Tamriel_Data.esm") then
     )
 end
 
+if core.contentFiles.has("Sky_Main.esm") then
+    print("Registering support for Sky_Main.esm")
+    registerIds(
+        signs,
+        {
+            "T_Com_SetSky_SignWayBeorinh_01",
+            "T_Com_SetSky_SignWayDragonst_01",
+            "T_Com_SetSky_SignWayFalkirst_01",
+            "T_Com_SetSky_SignWayHaafing_01",
+            "T_Com_SetSky_SignWayKarthg_01",
+            "T_Com_SetSky_SignWayKarthw_01",
+            "T_Com_SetSky_SignWayLainalt_01",
+            "T_Com_SetSky_SignWayMarkarth_01"        },
+        true
+    )
+end
+
 -- Handoff to the engine
 I.Activation.addHandlerForType(
     types.Activator,

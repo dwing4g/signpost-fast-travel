@@ -1,5 +1,13 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.5
+
+* Some UI sizing consistency fixes
+* Updated the SV localization
+* Added support for [Skyrim Home Of The Nords](https://www.nexusmods.com/morrowind/mods/44921) (automatically enabled if it's installed)
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 2.4
 
 * Added a menu-based fast travel system that lets you go to _any_ named exterior you've previously visited via the click of a menu entry
