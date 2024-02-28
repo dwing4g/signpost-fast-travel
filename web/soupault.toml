@@ -98,6 +98,6 @@
 [widgets.tracking-js]
   profile = "prod"
   widget = "insert_html"
-  html = '<script data-goatcounter="https://stats.gitlab.modding-openmw.com/count" async src="//stats.gitlab.modding-openmw.com/count.js"></script>'
+  html = '<script data-goatcounter="https://stats.gitlab.modding-openmw.com/count" async src="https://stats.gitlab.modding-openmw.com/count.js"></script>'
   selector = "body"
   parse = true
