@@ -36,7 +36,7 @@ local function onUpdate()
     -- Am I in combat?
     local curPkg = AI.getActivePackage(self)
     if curPkg and curPkg.type == "Combat" and not combatRegistered then
-        if curPkg.target.recordId ~= "player" then return end
+        if curPkg.target and curPkg.target.recordId ~= "player" then return end
         core.sendGlobalEvent('momw_sft_globalRegisterCombat', {entity = self})
         combatRegistered = true
     elseif curPkg and not curPkg.type == "Combat" and combatRegistered then
