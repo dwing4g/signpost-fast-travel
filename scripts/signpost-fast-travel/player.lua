@@ -532,6 +532,8 @@ local function onSave()
 end
 
 local function onUpdate()
+    -- Don't scan cells until we're off the chargen boat
+    if not input.getControlSwitch(input.CONTROL_SWITCH.ViewMode) then return end
     scanCell()
     if not AttendMeInstalled and followerSettings:get("teleportFollowers") then
         teleportFollowers.update(followers)

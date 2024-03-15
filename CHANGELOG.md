@@ -2,6 +2,7 @@
 
 #### 2.6
 
+* Fixed a bug where Seyda Need travel points where generated on the chargen boat ([#1](https://gitlab.com/modding-openmw/signpost-fast-travel/-/issues/1))
 * Fixed a bug in the combat detection code
 
 <!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
