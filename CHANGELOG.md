@@ -1,5 +1,11 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.6
+
+* Fixed a bug in the combat detection code
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 2.5
 
 * Some UI sizing consistency fixes
