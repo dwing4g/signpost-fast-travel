@@ -45,7 +45,7 @@
 [widgets.other-toc-html]
   widget = "insert_html"
   html = '<div id="toc"></div>'
-  page = ["events_and_interface.md", "readme.md"]
+  page = ["index.md", "readme.md"]
   selector = "h4"
   action = "insert_before"
 

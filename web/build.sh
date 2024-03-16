@@ -23,7 +23,11 @@ if ! [ -f ${soupault_path}/soupault ]; then
     grep linux sha256sums | sha256sum -c -
 fi
 
-cp ../CHANGELOG.md site/changelog.md
 cp ../README.md site/readme.md
+echo "Releases without a download link can be downloaded as a dev build from the link above." > site/changelog.md
+grep -v "## Signpost Fast Travel" ../CHANGELOG.md >> site/changelog.md
+echo '<div class="center"><a href="/img/signpost-fast-travel.gif"><img src="/img/signpost-fast-travel.gif" title="A short gif of the mod in action" /></a></div>' > site/index.md
+echo '<div class="center"><a href="/img/signpost-fast-travel-menu.png"><img src="/img/signpost-fast-travel-menu.png" title="The travel menu" /></a></div>' >> site/index.md
+grep -v "# Signpost Fast Travel" ../README.md >> site/index.md
 
 PATH=${soupault_path}:$PATH soupault "$@"
