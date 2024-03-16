@@ -3,7 +3,7 @@
 #### 2.6
 
 * Optimization: the mod no longer operates in `onUpdate` (meaning every frame when the game's not paused) but now works every two seconds (configurable via the script menu)
-* Fixed a bug where Seyda Need travel points where generated on the chargen boat ([#1](https://gitlab.com/modding-openmw/signpost-fast-travel/-/issues/1))
+* Fixed a bug where Seyda Neen travel points where generated on the chargen boat ([#1](https://gitlab.com/modding-openmw/signpost-fast-travel/-/issues/1))
   * Once the player receives their first mission, this mod's cell scanning will begin after a two minute delay (configurable via the script menu)
 * Fixed a bug in the combat detection code
 
