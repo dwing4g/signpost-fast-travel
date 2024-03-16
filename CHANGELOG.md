@@ -7,7 +7,7 @@
   * Once the player receives their first mission, this mod's cell scanning will begin after a two minute delay (configurable via the script menu)
 * Fixed a bug in the combat detection code
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/23717207)
 
 #### 2.5
 
