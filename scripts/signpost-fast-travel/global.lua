@@ -55,6 +55,7 @@ I.Settings.registerGroup {
         {
             key = 'teleportFollowers',
             name = "teleportFollowers_name",
+            description = "teleportFollowers_desc",
             default = true,
             renderer = 'checkbox'
         }
@@ -71,12 +72,14 @@ I.Settings.registerGroup {
         {
             key = 'timePasses',
             name = "timePasses_name",
+            description = "timePasses_desc",
             default = true,
             renderer = 'checkbox'
         },
         {
             key = 'goldPerUnit',
             name = "goldPerUnit_name",
+            description = "goldPerUnit_desc",
             default = 5,
             renderer = 'number',
             min = 0,
@@ -84,6 +87,7 @@ I.Settings.registerGroup {
         {
             key = 'travelWhenCombat',
             name = "travelWhenCombat_name",
+            description = "travelWhenCombat_desc",
             default = false,
             renderer = 'checkbox'
         },
@@ -96,6 +100,7 @@ I.Settings.registerGroup {
         {
             key = "footstepVolume",
             name = "footstepVolume_name",
+            description = "footstepVolume_desc",
             default = .1,
             renderer = "number",
             min = 0,
@@ -104,6 +109,7 @@ I.Settings.registerGroup {
         {
             key = 'menuCostsToken',
             name = "menuCostsToken_name",
+            description = "menuCostsToken_desc",
             default = true,
             renderer = 'checkbox'
         },
@@ -112,6 +118,24 @@ I.Settings.registerGroup {
             name = "menuShowUsage_name",
             default = true,
             renderer = 'checkbox'
+        },
+        {
+            key = 'scanInterval',
+            name = "scanInterval_name",
+            description = "scanInterval_desc",
+            default = 2,
+            renderer = 'number',
+            max = 10,
+            min = 1,
+        },
+        {
+            key = 'initialDelay',
+            name = "initialDelay_name",
+            description = "initialDelay_desc",
+            default = 120,
+            renderer = 'number',
+            max = 240,
+            min = 1,
         }
     }
 }

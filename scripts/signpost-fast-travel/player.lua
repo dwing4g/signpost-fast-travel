@@ -6,15 +6,17 @@ local input = require("openmw.input")
 local nearby = require("openmw.nearby")
 local self = require("openmw.self")
 local storage = require("openmw.storage")
+local time = require("openmw_aux.time")
 local types = require("openmw.types")
 local ui = require("openmw.ui")
 local util = require("openmw.util")
+-- local aux_util = require("openmw_aux.util")
 local I = require("openmw.interfaces")
 local teleportFollowers = require("scripts.signpost-fast-travel.teleportFollowers")
 local sftUI = require("scripts.signpost-fast-travel.ui")
 
 local MOD_ID = "SignpostFastTravel"
-local scriptVersion = 1
+local scriptVersion = 2
 local L = core.l10n(MOD_ID)
 local followerSettings = storage.globalSection("SettingsGlobalFollower" .. MOD_ID)
 local travelSettings = storage.globalSection("SettingsGlobalTravel" .. MOD_ID)
@@ -24,6 +26,8 @@ local followers = {}
 local inCombat = {}
 local visitedCells = {}
 local travelMenu
+local chargenDone = false
+local chargenChecked = false
 
 I.Settings.registerPage {
     key = MOD_ID,
@@ -48,6 +52,7 @@ local function strToVec3(str)
 end
 
 local function scanCell()
+    -- print(aux_util.deepToString(visitedCells, 4))
     local c = self.cell
 
     -- Try to bail out if there's nothing to do
@@ -517,6 +522,8 @@ local function onKeyPress(k)
 end
 
 local function onLoad(data)
+    chargenDone = data.chargenDone or false
+    chargenChecked = data.chargenChecked or false
     followers = data.followers
     inCombat = data.inCombat or {}
     visitedCells = data.visitedCells or {}
@@ -524,6 +531,8 @@ end
 
 local function onSave()
     return {
+        chargenChecked = chargenChecked,
+        chargenDone = chargenDone,
         followers = followers,
         inCombat = inCombat,
         scriptVersion = scriptVersion,
@@ -531,14 +540,47 @@ local function onSave()
     }
 end
 
-local function onUpdate()
-    -- Don't scan cells until we're off the chargen boat
-    if not input.getControlSwitch(input.CONTROL_SWITCH.ViewMode) then return end
-    scanCell()
-    if not AttendMeInstalled and followerSettings:get("teleportFollowers") then
-        teleportFollowers.update(followers)
+local function beginScanningCallback()
+	return async:registerTimerCallback(
+        "beginScanning",
+        function()
+            chargenDone = true
+    end)
+end
+local bscb = beginScanningCallback()
+
+local function chargenCheck()
+    -- Has the player been instructed to see Caius yet?
+	if types.Player.quests(self)["A1_1_FindSpymaster"].stage == 1 and not chargenChecked then
+        chargenChecked = true
+        async:newSimulationTimer(travelSettings:get("initialDelay"), bscb)
     end
 end
+
+local function runScan()
+	return time.runRepeatedly(
+        function()
+            if not chargenDone then
+                chargenCheck()
+                return
+            end
+            scanCell()
+            if not AttendMeInstalled and followerSettings:get("teleportFollowers") then
+                teleportFollowers.update(followers)
+            end
+        end,
+        travelSettings:get("scanInterval")
+    )
+end
+local stopScan = runScan()
+
+local function restartScan(_, key)
+	if key == "scanInterval" then
+        stopScan()
+        stopScan = runScan()
+    end
+end
+travelSettings:subscribe(async:callback(restartScan))
 
 local function UiModeChanged(data)
     if not data.newMode and travelMenu then
@@ -553,8 +595,7 @@ return {
         onControllerButtonPress = onControllerButtonPress,
         onKeyPress = onKeyPress,
         onLoad = onLoad,
-        onSave = onSave,
-        onUpdate = onUpdate
+        onSave = onSave
     },
     eventHandlers = {
         momw_sft_announceTeleport = announceTeleport,

@@ -20,13 +20,31 @@ followerSettingsTitle: "Follower Options"
 travelSettingsTitle: "Travel Settings"
 
 footstepVolume_name: "Footstep volume"
+footstepVolume_desc: "Set to zero to disable altogether"
 goldPerUnit_name: "Gold cost per travel unit"
+goldPerUnit_desc: |
+  Set to zero to disable.
+  Min: 0
+initialDelay_name: "Initial delay before scannning"
+initialDelay_desc: |
+  How long in seconds to wait before beginning scanning cells for updates, after you've gotten orders from Sellus Gravius
+  Max: 240
+  Min: 1
 menuCostsToken_name: "Travel menu consumes a token"
+menuCostsToken_desc: "When enabled, traveling via the menu costs a special token. When disabled, you get the menu every time you activate a supported sign"
 menuShowUsage_name: "Show usage help in the travel menu"
 travelWhenCombat_name: "Allow travel when in combat"
+travelWhenCombat_desc: "When this is enabled you won't be able to fast travel while in combat"
+scanInterval_name: "Cell scan interval"
+scanInterval_desc: |
+  How often will the mod scan for cell changes?
+  Max: 10
+  Min: 1
 showMsgs_name: "Show messages when traveling"
 teleportFollowers_name: "Teleport Followers"
+teleportFollowers_desc: "If enabled, followers will be teleported to you when they get too far away."
 timePasses_name: "Time passes when traveling"
+timePasses_desc: "Disable to stop time from passing when you travel"
 
 consumeToken: "your Travel Token crumbled to dust"
 

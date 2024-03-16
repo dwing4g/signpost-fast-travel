@@ -92,6 +92,8 @@ Various aspects of this mod are configurable via the script settings menu (ESC >
 * Play footstep sounds when traveling (**on by default**)
 * Using the travel menu costs an item (**on by default**)
 * Show usage help in the menu (**on by default**)
+* Cell scan interval in seconds (**2 by default**)
+* Initial scan delay in seconds (**120 by default**)
 
 #### Known Issues / Notes
 
