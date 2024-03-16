@@ -1,7 +1,7 @@
 ---
 __esp_version__: 1.3
 __plugin_type__: 0
-transpiler_version: 0.20.0
+transpiler_version: 0.21.0
 author: johnnyhostile
 desc: Fast travel from signposts to their locations if you have already been there before.
 masters:
@@ -30,7 +30,7 @@ records:
       data_size: 0
       var_size: 0
       variables: []
-      compiled: ""
+      compiled: ~
   "Startup::momw_sft_scriptbridge":
     type: Startup
     data: ""
@@ -46,7 +46,6 @@ records:
     type: NPC
     name: Kelkemmelian Adorin
     race: High Elf
-    faction: ""
     class: Warlock
     hair: b_n_high elf_m_hair_01
     head: B_N_High Elf_M_Head_06
@@ -207,6 +206,12 @@ records:
       "16784905021402712788":
         next: "10266514201200066960"
         prev: "27518247831477521212"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "You see, I was able to divine the recipe to craft a special token.. Using what I believe is a forgotten Dwemer technique, I've been able to create these special Fast Travel Tokens. With these, you'd be able to instantly travel to many previous locations that you've already been to by touching a signpost. I might be willing to part with some, for a cost..."
         result_script: "AddTopic \"Fast Travel Tokens\"\r\nJournal momw_sft_quest 10"
@@ -238,6 +243,12 @@ records:
       "10266514201200066960":
         next: "11264526852615315829"
         prev: "16784905021402712788"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "As you probably guessed, I'm with the Mage's Guild. I'm honestly pretty bored, none of these people seem to have any real magical ability to speak of nor do they have access to any interesting knowledge. I was assigned here, to this pit, and while I was trying to slip away to a quiet place I came across a gem that was unlike anything I've ever seen before. After studying this gem for some time I was able to divine some incredible knowledge from it..."
         result_script: Choice Continue 2
@@ -269,6 +280,12 @@ records:
       "11264526852615315829":
         next: "323200121739082798"
         prev: "10266514201200066960"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "You again?! I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Maye you can be useful, maybe we can come to an agreement?"
         result_script: Choice Continue 1
@@ -300,6 +317,12 @@ records:
       "323200121739082798":
         next: "14977645236198792681"
         prev: "11264526852615315829"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "... And who exactly are you? I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Perhaps you can be useful, maybe we can come to an agreement?"
         result_script: Choice Continue 1
@@ -323,6 +346,12 @@ records:
       "14977645236198792681":
         next: ""
         prev: "323200121739082798"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "... And who exactly are you? I'm not sure why you're up here or if I should be worried that you are.. Just go away, we have nothing to discuss."
         result_script: GoodBye
@@ -350,6 +379,12 @@ records:
       "4153967078973295017":
         next: "11870580646052703776"
         prev: ""
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "Yes. I am willing to trade you for them. I'll give you one for one Dwemer coin. Don't worry, I've got plenty tokens and can produce more, but I need those Dwemer coins. If you don't have any, I suppose I could part with the tokens for say... 5000 gold for each? I think that's a fair price. I do have to keep a lid on this enterprise somehow, you know. Imagine everyone in Tamriel blinking about by touching a map! Hah! Anyways: just find me here any time. Did you want to trade now?"
         result_script: "Journal momw_sft_quest 20\r\nChoice \"Give me one token for one Dwemer coin\" 1 \"Give me ten tokens for ten Dwemer coins\" 2 \"Give me one token for 5000 gold\" 3 \"Give me ten tokens for 50000 gold\" 4 \"No thanks, not right now\" 5"
@@ -373,6 +408,12 @@ records:
       "11870580646052703776":
         next: "9634205049713896219"
         prev: "4153967078973295017"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "Okay then, fine. If you don't mind I was thinking about taking a nap, so just run along. Come by when you want some Fast Travel Tokens and can trade for them."
         result_script: GoodBye
@@ -396,6 +437,12 @@ records:
       "9634205049713896219":
         next: "15871995330525769422"
         prev: "11870580646052703776"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "Sure. But come back when you've got something to trade."
         result_script: GoodBye
@@ -427,6 +474,12 @@ records:
       "15871995330525769422":
         next: "16755875721298612688"
         prev: "9634205049713896219"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "Sure. But come back when you've got enough coins to trade."
         result_script: GoodBye
@@ -458,6 +511,12 @@ records:
       "16755875721298612688":
         next: "9296350147733768029"
         prev: "15871995330525769422"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "Sure. But come back when you've got something to trade."
         result_script: GoodBye
@@ -489,6 +548,12 @@ records:
       "9296350147733768029":
         next: "6781568104691766090"
         prev: "16755875721298612688"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "Sure. But come back when you've got enough gold to trade."
         result_script: GoodBye
@@ -520,6 +585,12 @@ records:
       "6781568104691766090":
         next: "11888140134914224931"
         prev: "9296350147733768029"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: One Travel Token for one Dwemer coin. Thank you very much.
         result_script: "Player->RemoveItem misc_dwrv_coin00 1\r\nPlayer->AddItem momw_sft_travel_token 1"
@@ -551,6 +622,12 @@ records:
       "11888140134914224931":
         next: "4931086643902559180"
         prev: "6781568104691766090"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: Ten Travel Tokens for ten Dwemer coin. Thank you very much!
         result_script: "Player->RemoveItem misc_dwrv_coin00 10\r\nPlayer->AddItem momw_sft_travel_token 10"
@@ -582,6 +659,12 @@ records:
       "4931086643902559180":
         next: "4600985328156200882"
         prev: "11888140134914224931"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: One Travel Token for 5000 gold. Thank you very much hahaha!
         result_script: "Player->RemoveItem gold_001 5000\r\nPlayer->AddItem momw_sft_travel_token 1"
@@ -613,6 +696,12 @@ records:
       "4600985328156200882":
         next: "3637674414576096955"
         prev: "4931086643902559180"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: Ten Travel Tokens for 50000 gold. Thank you very much hohoho!
         result_script: "Player->RemoveItem gold_001 50000\r\nPlayer->AddItem momw_sft_travel_token 10"
@@ -644,6 +733,12 @@ records:
       "3637674414576096955":
         next: ""
         prev: "4600985328156200882"
+        unknown1: 0
+        disposition: 0
+        rank: 0
+        gender: None
+        pc_rank: 0
+        unknown2: 0
         actor: momw_sft_tt_salesman
         response: "Sure, did you want to trade for some tokens? Once you use them you won't want to walk everywhere again! Ahahaha!"
         result_script: "Choice \"Give me one token for one Dwemer coin\" 1 \"Give me ten tokens for ten Dwemer coins\" 2 \"Give me one token for 5000 gold\" 3 \"Give me ten tokens for 50000 gold\" 4 \"No thanks, not right now\" 5"
