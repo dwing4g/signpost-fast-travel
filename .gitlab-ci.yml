@@ -4,7 +4,7 @@ stages:
   - site
 
 variables:
-  build_img: "$CI_REGISTRY/modding-openmw/mockmw:21"
+  build_img: "$CI_REGISTRY/modding-openmw/mockmw:24"
   curl_img: curlimages/curl:7.83.0
   pkg_name: "${CI_PROJECT_NAME}.zip"
   pkg_url:
