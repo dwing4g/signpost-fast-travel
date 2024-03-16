@@ -14,7 +14,7 @@ make:
   image: ${build_img}
   stage: build
   script:
-  - apk add git zip
+  - apt-get install -y git zip
   - ./build.sh
   - ./pkg.sh
   artifacts:
