@@ -29,7 +29,7 @@ pages:
   artifacts:
     paths:
       - public
-  image: ${build_img}
+  image: alpine:3.15.4
   script:
     - apk add bash cmark git highlight
     - git submodule init
