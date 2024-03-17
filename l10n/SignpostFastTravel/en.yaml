@@ -28,6 +28,8 @@ goldPerUnit_desc: |
 initialDelay_name: "Initial delay before scannning"
 initialDelay_desc: |
   How long in seconds to wait before beginning scanning cells for updates, after you've gotten orders from Sellus Gravius
+
+  Default: 120
   Max: 240
   Min: 1
 menuCostsToken_name: "Travel menu consumes a token"
@@ -38,6 +40,8 @@ travelWhenCombat_desc: "When this is enabled you won't be able to fast travel wh
 scanInterval_name: "Cell scan interval"
 scanInterval_desc: |
   How often will the mod scan for cell changes?
+
+  Default: 2
   Max: 10
   Min: 1
 showMsgs_name: "Show messages when traveling"
@@ -45,6 +49,24 @@ teleportFollowers_name: "Teleport Followers"
 teleportFollowers_desc: "If enabled, followers will be teleported to you when they get too far away."
 timePasses_name: "Time passes when traveling"
 timePasses_desc: "Disable to stop time from passing when you travel"
+
+maxPointsPerCell_name: "Max Points Per Cell"
+maxPointsPerCell_desc: |
+  The maximum number of travel points to be collecter per cell.
+
+  Default: 100
+  Max: 500
+  Min: 1
+
+maxTriesPerCell_name: "Max Tries Per Cell"
+maxTriesPerCell_desc: |
+  The maximum number of attempts this mod makes to scan a cell in order to reach the max points per cell.
+
+  There is at least one named cell in vanilla Morrowind that likely won't spawn any travel points, this setting prevents infinitely attempting for that cell and others like it.
+
+  Default: 10
+  Max: 50
+  Min: 1
 
 consumeToken: "your Travel Token crumbled to dust"
 

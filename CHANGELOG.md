@@ -1,5 +1,11 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.7
+
+* The number of points generated per cell as well as the number of times the cell scanning code tries to reach that count is now configurable
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 2.6
 
 * Optimization: the mod no longer operates in `onUpdate` (meaning every frame when the game's not paused) but now works every two seconds (configurable via the script menu)

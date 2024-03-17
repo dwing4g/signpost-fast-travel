@@ -80,11 +80,7 @@ local function scanCell()
     local cellY = c.gridY
     local cellStr = string.format("%s_%s", cellX, cellY)
     local tries = 0
-
-    -- Two was chosen because realistically any place with valid points will
-    -- find _some_ on the first try. If by the second try there's nothing then
-    -- the sensible thing is to bail out and just quit trying.
-    local max_tries = 2
+    local points = {}
 
     -- More special handling for Vivec city; all exterior "Vivec, *" cells are "Vivec" internally
     if string.match(cellName, "Vivec, ") then
@@ -96,9 +92,10 @@ local function scanCell()
         -- Never visited, fresh data
         visitedCells[cellName] = {}
         visitedCells[cellName][cellStr] = {count=count, points = {}}
-    elseif visitedCells[cellName][cellStr] then
+    elseif visitedCells[cellName][cellStr] ~= nil then
         -- Previously visited named cell and X/Y grid
         count = visitedCells[cellName][cellStr].count
+        points = visitedCells[cellName][cellStr].points
         tries = visitedCells[cellName][cellStr].tries
     else
         -- Previously visited named cell but different X/Y grid
@@ -106,33 +103,29 @@ local function scanCell()
     end
 
     -- Try to bail out again
-    if visitedCells[cellName][cellStr].count > 0 or tries == max_tries then return end
+    if visitedCells[cellName][cellStr].count >= travelSettings:get("maxPointsPerCell")
+        or tries >= travelSettings:get("maxTriesPerCell")
+    then
+        return
+    end
 
     -- Use the player position as a starting point to search for random points from
     local navOptions = {includeFlags = nearby.NAVIGATOR_FLAGS.Walk}
     local navPos = nearby.findNearestNavMeshPosition(self.position, navOptions)
 
-    -- Now try to find up to maxProceduralTargets points
-    -- around a half cell radius and save them
-    local points = {}
-
     -- Try to find a random walkable point above 0 (water level).
-    -- Do it 100 times so we have a nice pool of good results. In Seyda Neen
-    -- I can usually end up with 60-75 good, usable points out of 100.
-    for _ = 1, 100 do
+    local newCount = 0 + count
+    for _ = 1, travelSettings:get("maxPointsPerCell") - count do
         local p = nearby.findRandomPointAroundCircle(navPos, HALF_CELL / 2, navOptions)
         if p.z > 0 then
             -- Only take points that are above water level..
             points[vec3ToStr(p)] = true
+            newCount = newCount + 1
         end
     end
 
-    -- Get a fresh count
-    count = 0
-    for _ in pairs(points) do count = count + 1 end
-
     -- Save the data
-    visitedCells[cellName][cellStr].count = count
+    visitedCells[cellName][cellStr].count = newCount
     visitedCells[cellName][cellStr].points = points
     visitedCells[cellName][cellStr].region = c.region
     visitedCells[cellName][cellStr].tries = tries + 1

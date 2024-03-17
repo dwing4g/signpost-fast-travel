@@ -136,6 +136,24 @@ I.Settings.registerGroup {
             renderer = 'number',
             max = 240,
             min = 1,
+        },
+        {
+            key = 'maxPointsPerCell',
+            name = "maxPointsPerCell_name",
+            description = "maxPointsPerCell_desc",
+            default = 100,
+            renderer = 'number',
+            max = 500,
+            min = 1,
+        },
+        {
+            key = 'maxTriesPerCell',
+            name = "maxTriesPerCell_name",
+            description = "maxTriesPerCell_desc",
+            default = 10,
+            renderer = 'number',
+            max = 50,
+            min = 1,
         }
     }
 }

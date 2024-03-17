@@ -94,6 +94,8 @@ Various aspects of this mod are configurable via the script settings menu (ESC >
 * Show usage help in the menu (**on by default**)
 * Cell scan interval in seconds (**2 by default**)
 * Initial scan delay in seconds (**120 by default**)
+* Max Points Per Cell (**100 by default**)
+* Max Tries Per Cell (**10 by defualt**)
 
 #### Known Issues / Notes
 
