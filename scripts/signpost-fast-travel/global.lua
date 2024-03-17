@@ -181,7 +181,7 @@ local function doTeleport(data)
                     data.actor:sendEvent("momw_sft_announceTeleport", {cost = cost, notEnoughMoney = true})
                     return
                 end
-                world.mwscript.getGlobalScript("momw_sft_scriptbridge").variables.cost = cost
+                data.actor.type.inventory(data.actor):find("gold_001"):remove(cost)
             else
                 data.actor:sendEvent(
                     "momw_sft_announceTeleport",
@@ -210,7 +210,7 @@ local function doTeleport(data)
         and distance > 1
     then
         -- Consume one Travel Token if we can
-        world.mwscript.getGlobalScript("momw_sft_scriptbridge").variables.deductToken = 1
+        data.actor.type.inventory(data.actor):find("momw_sft_travel_token"):remove(1)
     end
 
     if travelSettings:get("showMsgs") then

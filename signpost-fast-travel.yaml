@@ -8,32 +8,6 @@ masters:
   - name: Morrowind.esm
     size: 79837557
 records:
-  "Script::momw_sft_scriptbridge":
-    type: Script
-    script: |
-      Begin momw_sft_scriptbridge
-      short cost
-      short deductToken
-      if cost > 0
-        player->removeitem gold_001 cost
-        set cost to 0
-      endif
-      if deductToken > 0
-        player->removeitem momw_sft_travel_token 1
-        set deductToken to 0
-      endif
-      End momw_sft_scriptbridge
-    preserved:
-      shorts: 0
-      longs: 0
-      floats: 0
-      data_size: 0
-      var_size: 0
-      variables: []
-      compiled: ~
-  "Startup::momw_sft_scriptbridge":
-    type: Startup
-    data: ""
   "Misc::momw_sft_travel_token":
     type: Misc
     name: Fast Travel Token

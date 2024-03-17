@@ -6,34 +6,13 @@
     "file_type": "Esp",
     "author": "johnnyhostile",
     "description": "Fast travel from signposts to their locations if you have already been there before.",
-    "num_objects": 28,
+    "num_objects": 26,
     "masters": [
       [
         "Morrowind.esm",
         79837557
       ]
     ]
-  },
-  {
-    "type": "Script",
-    "flags": "",
-    "id": "momw_sft_scriptbridge",
-    "header": {
-      "num_shorts": 0,
-      "num_longs": 0,
-      "num_floats": 0,
-      "bytecode_length": 0,
-      "variables_length": 0
-    },
-    "variables": "AAAAAA==",
-    "bytecode": "AAAAAA==",
-    "text": "Begin momw_sft_scriptbridge\n\nshort cost\nshort deductToken\n\nif cost > 0\n    player->removeitem gold_001 cost\n    set cost to 0\nendif\n\nif deductToken > 0\n    player->removeitem momw_sft_travel_token 1\n    set deductToken to 0\nendif\n\nEnd momw_sft_scriptbridge\n"
-  },
-  {
-    "type": "StartScript",
-    "flags": "",
-    "id": "",
-    "script": "momw_sft_scriptbridge"
   },
   {
     "type": "MiscItem",

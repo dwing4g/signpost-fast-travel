@@ -105,7 +105,6 @@ Various aspects of this mod are configurable via the script settings menu (ESC >
     * In this case, an internal map is kept that points these to the appropriate name.
 * Time doesn't actually pass when traveling, so any active spells or other potentially timed things won't be affected. This can be resolved when OpenMW-Lua adds a way to pass time.
 * The engine silently turns activators with no "name" into statics. This means mods that remove the name for immersion purposes will break this mod (see [Compatibility](#compatibility) below). This can be resolved when OpenMW-Lua adds a way to see nearby statics in the same way it does activators.
-* OpenMW-Lua doesn't yet have a way to take money from the player or pass time. I achieve both via the "MWScript bridge" which is why this mod requires a global script. When I can do those things from Lua, the global script can go away.
 * Paying money to the signpost is a tad strange, but I felt that dropping NPCs at every signpost was more strange. The current implementation is a compromise that gives a cost to travel without the extra burden and potential awkwardness of NPCs.
 
 #### Compatibility
