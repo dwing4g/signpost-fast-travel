@@ -24,6 +24,8 @@ footstepVolume_desc: "Set to zero to disable altogether"
 goldPerUnit_name: "Gold cost per travel unit"
 goldPerUnit_desc: |
   Set to zero to disable.
+
+  Default: 5
   Min: 0
 initialDelay_name: "Initial delay before scannning"
 initialDelay_desc: |
