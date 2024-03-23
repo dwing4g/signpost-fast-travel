@@ -72,7 +72,7 @@ SV: Lysol
 
 #### How It Works
 
-This mod will generate up to 100 spawn points in every named exterior cell you visit. When you activate a signpost, if you've been to the location named on the sign, you will be transported there using one of the generated points.
+This mod will generate up to 100 spawn points (configurable, see below) in every named exterior cell you visit. When you activate a signpost, if you've been to the location named on the sign, you will be transported there using one of the generated points.
 
 **SPOILER ALERT BELOW!!!!** (on the website, highlight with your mouse to see)
 

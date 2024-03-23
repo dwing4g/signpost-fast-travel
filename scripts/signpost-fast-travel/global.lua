@@ -181,7 +181,7 @@ local function doTeleport(data)
                     data.actor:sendEvent("momw_sft_announceTeleport", {cost = cost, notEnoughMoney = true})
                     return
                 end
-                data.actor.type.inventory(data.actor):find("gold_001"):remove(cost)
+                playerMoney:remove(cost)
             else
                 data.actor:sendEvent(
                     "momw_sft_announceTeleport",
