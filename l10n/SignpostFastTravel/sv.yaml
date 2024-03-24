@@ -20,13 +20,53 @@ followerSettingsTitle: "Inställningar för följare"
 travelSettingsTitle: "Inställningar för resor"
 
 footstepVolume_name: "Fotstegsvolym"
+footstepVolume_desc: "Ange noll för att inaktivera helt"
 goldPerUnit_name: "Kostnad i guld per reseenhet"
+goldPerUnit_desc: |
+  Ange noll för att inaktiera.
+  Min: 0
+initialDelay_name: "Initial fördröjning innan scannning"
+initialDelay_desc: |
+  Tid i sekunder att vänta före påbörjan av scanning av celler för uppdateringar, efter att du fått order från Sellus Gravius
+
+  Förvalt: 120
+  Max: 240
+  Min: 1
 menuCostsToken_name: "Resemenyn kostar en pollett"
+menuCostsToken_desc: "Om aktiv kostar resor via menyn en särskild polett. Om inaktiv får du menyn varje gång du aktiverar en skylt"
 menuShowUsage_name: "Visa användarhjälp i resemenyn"
 travelWhenCombat_name: "Tillåt resor under strid"
+travelWhenCombat_desc: "När den här är aktiverad kan du inte resa under strid"
+scanInterval_name: "Cellscanningsintervall"
+scanInterval_desc: |
+  Hur ofta  ska modden scanna efter cellförändringar?
+
+  Förvalt: 2
+  Max: 10
+  Min: 1
 showMsgs_name: "Visa meddelanden under resa"
 teleportFollowers_name: "Teleportera följare"
+teleportFollowers_desc: "Om aktiverad kommer följare teleporteras till dig om de hamnar för långt bort."
 timePasses_name: "Tid passerar vid resor"
+timePasses_desc: "Inaktivera för att stoppa tiden under resor"
+
+maxPointsPerCell_name: "Max antal punkter per cell"
+maxPointsPerCell_desc: |
+  Maximala antalet resepunkter som samlas per cell.
+
+  Förvalt: 100
+  Max: 500
+  Min: 1
+
+maxTriesPerCell_name: "Max antal försök per cell"
+maxTriesPerCell_desc: |
+  Maximala antalet försök modden gör för att scanna en cell för att nå maximala antalet punkter per cell.
+
+  Det finns minst en namngiven cell i Morrowind som troligen inte kommer skapa några resepunkter; denna inställning motverkar oändliga försök på den cellen och andra lik den.
+
+  Default: 10
+  Max: 50
+  Min: 1
 
 consumeToken: "din resepollett smulades sönder till stoft"
 
