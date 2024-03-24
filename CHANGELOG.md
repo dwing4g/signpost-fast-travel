@@ -5,7 +5,7 @@
 * The number of points generated per cell as well as the number of times the cell scanning code tries to reach that count is now configurable
 * The MWScript bridge global script has been removed, its functionality implemented in pure Lua
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/23926813)
 
 #### 2.6
 
