@@ -4,7 +4,7 @@
 
 * Fixed a bug that prevented the mod from working if it was enabled after the first quest was given
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/24046621)
 
 #### 2.7
 
