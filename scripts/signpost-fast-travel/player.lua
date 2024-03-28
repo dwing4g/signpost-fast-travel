@@ -545,7 +545,7 @@ local bscb = beginScanningCallback()
 
 local function chargenCheck()
     -- Has the player been instructed to see Caius yet?
-	if types.Player.quests(self)["A1_1_FindSpymaster"].stage == 1 and not chargenChecked then
+	if types.Player.quests(self)["A1_1_FindSpymaster"].stage >= 1 and not chargenChecked then
         chargenChecked = true
         async:newSimulationTimer(travelSettings:get("initialDelay"), bscb)
     end
