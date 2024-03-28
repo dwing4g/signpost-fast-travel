@@ -1,5 +1,11 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.8
+
+* Fixed a bug that prevented the mod from working if it was enabled after the first quest was given
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 2.7
 
 * The number of points generated per cell as well as the number of times the cell scanning code tries to reach that count is now configurable
