@@ -318,7 +318,7 @@ local function registerCombat(data)
     if data.done then
         inCombat[data.entity.id] = nil
     else
-        inCombat[data.entity.id] = true
+        inCombat[data.entity.id] = data.entity
     end
 end
 
@@ -411,6 +411,18 @@ local function p()
                 print(strToVec3(point))
             end
         end
+    end
+    print("===================")
+end
+
+local function showInCombat()
+    if next(inCombat) == nil then
+        print("The player is not currently in combat")
+        return
+    end
+    print("The player is in combat with the following actors:")
+    for _, actor in pairs(inCombat) do
+        print(actor)
     end
     print("===================")
 end
@@ -606,6 +618,7 @@ return {
         ForgetAll = forgetAll,
         GetPoint = getPoint,
         P = p,
+        ShowInCombat = showInCombat,
         ShowPoints = showPoints,
         TravelTo = travelTo
     }
