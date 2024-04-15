@@ -1,0 +1,103 @@
+# Meta Data
+name: "Signpost Fast Travel"
+description: "Eine Mod, die es dem Spielercharakter ermöglicht, zum Zielort von Wegweisern schnellzureisen, falls dieser bereits besucht worden ist. Teleport-Optionen für Gefolgsleute werden automatisch deaktiviert, falls die Mod „Attend Me“ ebenfals installiert ist."
+
+# Mod Messages
+# Error
+needNewerOpenMW: "„Signpost Fast Travel“ benötigt OpenMW Version 0.49.0 oder höher; bitte aktualisieren Sie Ihre OpenMW-Installation!"
+# Info
+attendMeInstalled: "Der Teleport von Gefolgsleuten ist automatisch deaktiviert worden, weil die Mod „Attend Me“ ebenfalls installiert ist!"
+
+# Settings: Follower
+# Meta
+followerSettingsTitle: "Gefolgsleute"
+# Settings
+teleportFollowers_name: "Gefolgsleute teleportieren"
+teleportFollowers_desc: "Falls aktiviert, werden Gefolgsleute automatisch zurück zum Spielercharakter teleportiert, falls sie zu weit von ihm entfernt sind."
+
+# Settings: Travel
+# Meta
+travelSettingsTitle: "Reisen"
+# Settings
+footstepVolume_name: "Fußstapfen-Lautstärke"
+footstepVolume_desc: |
+  Ein Wert von Null deaktiviert Fußstapfen vollständig.
+
+  Default: 0.1
+  Max: 1
+  Min: 0
+goldPerUnit_name: "Kosten pro Reiseeinheit"
+goldPerUnit_desc: |
+  Ein Wert von Null deaktiviert dieses Feature. Die Berechnung der gereisten Entfernung berücksichtigt neben der tatsächlichen Länge der Strecke auch Zeitmultiplikatoren, so dass eine genaue Abschätzung schwierig ist. Die Formel entspricht der Kostenberechnung für Schnellreisen aus dem Originalspiel.
+
+  Default: 5
+  Min: 0
+initialDelay_name: "Initiale Verzögerung des Zell-Scans"
+initialDelay_desc: |
+  Legt fest, wie lange die Mod nach Übergabe der Befehle durch Sellus Gravius wartet, bevor Zellen regelmäßig auf Änderungen hin untersucht werden (Einheit: Sekunden).
+
+  Default: 120
+  Max: 240
+  Min: 1
+maxPointsPerCell_name: "Maximalwert für Reisepunkte pro Zelle"
+maxPointsPerCell_desc: |
+  Legt fest, wie viele Reisepunkte maximal pro Zelle berücksichtigt werden.
+
+  Default: 100
+  Max: 500
+  Min: 1
+maxTriesPerCell_name: "Maximale Scan-Versuche pro Zelle"
+maxTriesPerCell_desc: |
+  Legt fest, wie oft die Mod maximal versucht, eine Zelle nach Reisepunkten zu durchsuchen, um die maximale Anzahl von Reisepunkten zu finden.
+
+  Es gibt mindestens eine benannte Zelle im Originalspiel, die mit hoher Wahrscheinlichkeit keine Reisepunkte generiert. Diese Einstellung verhindert in solchen Fällen endlose Scan-Versuche.
+
+  Default: 10
+  Max: 50
+  Min: 1
+menuCostsToken_name: "Reisen via Reisemenü kostet Reisemarke"
+menuCostsToken_desc: "Falls aktiviert, kostet das Reisen via Reisemenü eine spezielle Marke; falls deaktiviert, öffnet sich das Reisemenü jedes Mal, wenn Sie einen von der Mod unterstützten Wegweiser anklicken."
+menuShowUsage_name: "Bedienhinweise direkt im Reisemenü anzeigen"
+scanInterval_name: "Scan-Intervall für Zellen"
+scanInterval_desc: |
+  Legt fest, wie oft die Mod die aktiven Zellen auf Änderungen untersucht (Einheit: Sekunden).
+
+  Default: 2
+  Max: 10
+  Min: 1
+showMsgs_name: "Nachrichten beim Reisen anzeigen"
+timePasses_name: "Beim Reisen vergeht Zeit"
+timePasses_desc: "Falls aktiviert, vergeht beim Reisen In-Game-Zeit, deren Länge abhängig von der zurückgelegten Route ist."
+travelWhenCombat_name: "Reisen im Kampf erlauben"
+travelWhenCombat_desc: "Falls aktiviert, kann der Spielercharakter auch reisen, während er sich im Kampf befindet."
+
+# UI
+# Travel Menu
+menuPrev: "Zurück"
+menuNext: "Weiter"
+menuUsage1: "D-Pad links/rechts oder A/D zum Umblättern"
+menuUsage2: "D-Pad hoch/runter oder W/S zum Navigieren der Liste"
+menuUsage3: "A-Knopf oder Doppelklick zum Auswählen der Option"
+menuUsage4: "Reisen kostet eine Reisemarke."
+
+# In-Game Messages
+# Travel
+announceWhere: "Die Reise nach {place}"
+announceLength: |-
+  {hours, plural,
+  one {dauerte eine Stunde}
+  other {dauerte {hours} Stunden}}
+announceCost: "kostete {cost} Draken."
+consumeToken: "Eure Reisemarke zerfällt zu Staub."
+# Console
+consoleTravel: "Kommandokonsolen-Reise nach"
+forgetAll: "Alle Reisepunkte wurden „vergessen“."
+forgetFor: "Alle Reisepunkte „vergessen“ für"
+noneFor: "Keine Reisepunkte für"
+pointsFor: "Reisepunkte für"
+# Misc
+inCombat: "Ihr könnt während eines Kampfes nicht reisen!"
+noMoney: "Ihr habt kein Geld zum Reisen dabei!"
+notBeen: "Ihr seid noch nicht in {name} gewesen!"
+notEnoughMoney: "Ihr habt nicht genug Geld zum Reisen dabei; {cost} Draken werden benötigt!"
+youreThere: "Ihr seid in {name}."

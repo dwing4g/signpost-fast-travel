@@ -1,92 +1,103 @@
+# Meta Data
 name: "Signpost Fast Travel"
-description: "Fast travel from signposts to their locations if you have already been there before. Follower options are automatically disabled when Attend Me is also installed"
+description: "A mod that allows the player character to fast-travel to a signpost's target location if you have already been there before. Teleport options for followers are automatically disabled when Attend Me is also installed."
 
-announceWhere: "Traveling to {place}"
+# Mod Messages
+# Error
+needNewerOpenMW: "Signpost Fast Travel requires OpenMW 0.49.0 or newer; please update!"
+# Info
+attendMeInstalled: "Follower teleport features have been auto-disabled because Attend Me is also installed!"
 
-announceLength: |-
-  {hours, plural,
-  one {took {hours} hour}
-  other {took {hours} hours}}
+# Settings: Follower
+# Meta
+followerSettingsTitle: "Followers"
+# Settings
+teleportFollowers_name: "Teleport followers"
+teleportFollowers_desc: "If enabled, followers will be teleported to your character when they get too far away."
 
-announceCost: "cost {cost} gold"
-
-inCombat: "You can't travel while in combat"
-noMoney: "You don't have any gold"
-notBeen: "You haven't been to {name} yet"
-notEnoughMoney: "You don't have enough gold to travel; {cost} is required"
-youreThere: "You're in {name}"
-
-followerSettingsTitle: "Follower Options"
-travelSettingsTitle: "Travel Settings"
-
+# Settings: Travel
+# Meta
+travelSettingsTitle: "Travel"
+# Settings
 footstepVolume_name: "Footstep volume"
-footstepVolume_desc: "Set to zero to disable altogether"
+footstepVolume_desc: |
+  Set to zero to disable altogether.
+
+  Default: 0.1
+  Max: 1
+  Min: 0
 goldPerUnit_name: "Gold cost per travel unit"
 goldPerUnit_desc: |
-  Set to zero to disable.
+  Set to zero to disable this feature. The calculation of the travel distance also considers a time multiplier which makes estimating the actual cost difficult. The used formula is identical to the one used to calculate travel costs in the original game.
 
   Default: 5
   Min: 0
 initialDelay_name: "Initial delay before scannning"
 initialDelay_desc: |
-  How long in seconds to wait before beginning scanning cells for updates, after you've gotten orders from Sellus Gravius
+  Determines how long the mod will wait after you've gotten orders from Sellus Gravius before beginning scanning cells for updates (unit: seconds).
 
   Default: 120
   Max: 240
   Min: 1
-menuCostsToken_name: "Travel menu consumes a token"
-menuCostsToken_desc: "When enabled, traveling via the menu costs a special token. When disabled, you get the menu every time you activate a supported sign"
-menuShowUsage_name: "Show usage help in the travel menu"
-travelWhenCombat_name: "Allow travel when in combat"
-travelWhenCombat_desc: "When this is enabled you won't be able to fast travel while in combat"
-scanInterval_name: "Cell scan interval"
-scanInterval_desc: |
-  How often will the mod scan for cell changes?
-
-  Default: 2
-  Max: 10
-  Min: 1
-showMsgs_name: "Show messages when traveling"
-teleportFollowers_name: "Teleport Followers"
-teleportFollowers_desc: "If enabled, followers will be teleported to you when they get too far away."
-timePasses_name: "Time passes when traveling"
-timePasses_desc: "Disable to stop time from passing when you travel"
-
-maxPointsPerCell_name: "Max Points Per Cell"
+maxPointsPerCell_name: "Maximum travel points per cell"
 maxPointsPerCell_desc: |
-  The maximum number of travel points to be collecter per cell.
+  Determines the maximum number of travel points to be collected per cell.
 
   Default: 100
   Max: 500
   Min: 1
-
-maxTriesPerCell_name: "Max Tries Per Cell"
+maxTriesPerCell_name: "Maximum tries per cell"
 maxTriesPerCell_desc: |
-  The maximum number of attempts this mod makes to scan a cell in order to reach the max points per cell.
+  Determines the maximum number of attempts this mod makes to scan a cell in order to reach the max points per cell.
 
-  There is at least one named cell in vanilla Morrowind that likely won't spawn any travel points, this setting prevents infinitely attempting for that cell and others like it.
+  There is at least one named cell in vanilla Morrowind that likely won't spawn any travel points at all. This setting prevents infinitely attempting for that cell and others like it.
 
   Default: 10
   Max: 50
   Min: 1
+menuCostsToken_name: "Travel via menu consumes a token"
+menuCostsToken_desc: "If enabled, travelling via the travel menu costs a special token; if disabled, the menu is opened each time you activate a supported signpost."
+menuShowUsage_name: "Show usage help in the travel menu"
+scanInterval_name: "Cell scan interval"
+scanInterval_desc: |
+  Determines how often the mod will scan a cell for changes (unit: seconds).
 
-consumeToken: "your Travel Token crumbled to dust"
+  Default: 2
+  Max: 10
+  Min: 1
+showMsgs_name: "Show messages when travelling"
+timePasses_name: "Time passes when travelling"
+timePasses_desc: "If enabled, travelling takes in-game time depending on the length of the trip."
+travelWhenCombat_name: "Allow travel when in combat"
+travelWhenCombat_desc: "If enabled, your character can travel even while in combat."
 
-menuUsage1: "Dpad Left/Right or A/D to change pages"
-menuUsage2: "Dpad Up/Down or W/S to move selection"
-menuUsage3: "Double click or use A button to select"
-
-menuUsage4: "Traveling will consume one Travel Token"
-
+# UI
+# Travel Menu
 menuPrev: "Prev"
 menuNext: "Next"
+menuUsage1: "Dpad left/right or A/D to change pages"
+menuUsage2: "Dpad up/down or W/S to navigate list"
+menuUsage3: "A-button or double-click to select"
+menuUsage4: "Travelling will consume one travel token."
 
-attendMeInstalled: "Auto-disabling follower teleport features because Attend Me is also installed!"
-
+# In-Game Messages
+# Travel
+announceWhere: "Travelling to {place}"
+announceLength: |-
+  {hours, plural,
+  one {took one hour}
+  other {took {hours} hours}}
+announceCost: "cost {cost} gold."
+consumeToken: "Your travel token crumbles to dust."
+# Console
+consoleTravel: "Console-travelled to"
+forgetAll: "All travel points have been forgotten."
 forgetFor: "You've forgotten all travel points for"
 noneFor: "No travel points for"
-forgetAll: "All travel points have been forgotten!"
-pointsFor: "Points for"
-consoleTravel: "Console traveled to"
-
-needNewerOpenMW: "Signpost Fast Travel requires OpenMW 0.49.0 or newer, please update!"
+pointsFor: "Travel points for"
+# Misc
+inCombat: "You can't travel while in combat!"
+noMoney: "You don't have any gold!"
+notBeen: "You haven't been to {name} yet!"
+notEnoughMoney: "You don't have enough gold to travel; {cost} is required!"
+youreThere: "You're in {name}."
