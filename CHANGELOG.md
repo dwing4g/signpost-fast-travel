@@ -3,6 +3,8 @@
 #### 2.9
 
 * Added an interface command for seeing who the player is in combat with, as well as an explanation about that mechanic to the README
+* Added DE localization
+* Updated EN localization
 
 <!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
 

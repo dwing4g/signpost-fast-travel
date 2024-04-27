@@ -34,7 +34,9 @@ And a big thanks to the entire OpenMW and Morrowind modding communities! I would
 
 #### Localization
 
-EN: johnnyhostile
+DE: Atahualpa
+
+EN: johnnyhostile, Atahualpa
 
 PT_BR: Hurdrax Custos
 
