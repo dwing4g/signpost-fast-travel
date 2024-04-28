@@ -2,7 +2,8 @@
 
 #### 2.9
 
-* Added an interface command for seeing who the player is in combat with, as well as an explanation about that mechanic to the README
+* Combat checks are more accurate, now checking the distance between the actor and the player
+* Added an interface command for seeing who the player is in combat with
 * Added DE localization
 * Updated EN localization
 

@@ -1,4 +1,4 @@
-require("scripts.signpost-fast-travel.checks")
+require("scripts.signpost-fast-travel.common")
 local core = require('openmw.core')
 local storage = require('openmw.storage')
 local types = require('openmw.types')

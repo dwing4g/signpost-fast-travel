@@ -1,4 +1,3 @@
-require("scripts.signpost-fast-travel.checks")
 local ambient = require("openmw.ambient")
 local async = require("openmw.async")
 local core = require("openmw.core")
@@ -14,6 +13,7 @@ local util = require("openmw.util")
 local I = require("openmw.interfaces")
 local teleportFollowers = require("scripts.signpost-fast-travel.teleportFollowers")
 local sftUI = require("scripts.signpost-fast-travel.ui")
+local common = require("scripts.signpost-fast-travel.common")
 
 local MOD_ID = "SignpostFastTravel"
 local scriptVersion = 2
@@ -547,7 +547,7 @@ local function onSave()
 end
 
 local function beginScanningCallback()
-	return async:registerTimerCallback(
+    return async:registerTimerCallback(
         "beginScanning",
         function()
             chargenDone = true
@@ -557,14 +557,14 @@ local bscb = beginScanningCallback()
 
 local function chargenCheck()
     -- Has the player been instructed to see Caius yet?
-	if types.Player.quests(self)["A1_1_FindSpymaster"].stage >= 1 and not chargenChecked then
+    if types.Player.quests(self)["A1_1_FindSpymaster"].stage >= 1 and not chargenChecked then
         chargenChecked = true
         async:newSimulationTimer(travelSettings:get("initialDelay"), bscb)
     end
 end
 
 local function runScan()
-	return time.runRepeatedly(
+    return time.runRepeatedly(
         function()
             if not chargenDone then
                 chargenCheck()
@@ -581,7 +581,7 @@ end
 local stopScan = runScan()
 
 local function restartScan(_, key)
-	if key == "scanInterval" then
+    if key == "scanInterval" then
         stopScan()
         stopScan = runScan()
     end
@@ -594,6 +594,19 @@ local function UiModeChanged(data)
         travelMenu = nil
     end
 end
+
+local COMBAT_CHECK_INTERVAL = 1
+time.runRepeatedly(
+    function()
+        for _, actor in pairs(inCombat) do
+            if (actor.position - self.position):length() >= common.COMBAT_END_DISTANCE then
+                inCombat[actor.id] = nil
+                actor:sendEvent("momw_sft_distanceEndCombat")
+            end
+        end
+    end,
+    COMBAT_CHECK_INTERVAL
+)
 
 -- Handoff to the engine
 return {

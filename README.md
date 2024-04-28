@@ -101,9 +101,6 @@ Various aspects of this mod are configurable via the script settings menu (ESC >
 
 #### Known Issues / Notes
 
-* It's possible for the mod to think the player is still in combat with an enemy even if the battle music isn't playing
-    * There's no direct way to ask the engine who's in combat with the player, so this mod takes the approach of reading actor AI to see who is in combat and who is also targeting the player
-    * The distance at which the combat music stops and at which an enemy becomes unloaded (this causing this mod to see combat as "stopped") aren't the same, which is what causes this awkward situation
 * Not all signposts have a "name" that corresponds to a named external cell that can be traveled to.
   * Some simply don't have a related exterior and are ignored.
   * Others do relate to an actual exterior but have extra details e.g, `Ildrim (main road)` or `Firewatch via Aranyon Pass`.
