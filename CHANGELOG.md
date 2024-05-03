@@ -7,7 +7,7 @@
 * Added DE localization
 * Updated EN localization
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/25127976)
 
 #### 2.8
 
