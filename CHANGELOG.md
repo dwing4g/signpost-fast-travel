@@ -2,6 +2,7 @@
 
 #### 2.10
 
+* Moved remaining inline timer callbacks to the script body
 * Handled an error that could occur when a summoned creature expires
 
 <!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->

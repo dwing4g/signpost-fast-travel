@@ -158,6 +158,13 @@ local function armorKind(obj)
     end
 end
 
+local footstepCallback = async:registerTimerCallback(
+    "momw_sft_footstep",
+    function(data)
+        ambient.playSound(string.format("Foot%s%s", data.kind, data.which), data.params)
+    end
+)
+
 local function asyncFootSteps(count, volume)
     local delay = .25
     local increment = .3
@@ -174,21 +181,15 @@ local function asyncFootSteps(count, volume)
     for _ = 1, count do
         async:newSimulationTimer(
             delay,
-            async:registerTimerCallback(
-                "momw_sft_footstep_right",
-                function()
-                    ambient.playSound(string.format("Foot%sLeft", kind), params)
-                end
-        ))
+            footstepCallback,
+            {kind = kind, which = "Left", params = params}
+        )
         delay = delay + increment
         async:newSimulationTimer(
             delay,
-            async:registerTimerCallback(
-                "momw_sft_footstep_right",
-                function()
-                    ambient.playSound(string.format("Foot%sRight", kind), params)
-                end
-        ))
+            footstepCallback,
+            {kind = kind, which = "Right", params = params}
+        )
         delay = delay + increment
     end
 end
@@ -595,18 +596,16 @@ local function UiModeChanged(data)
     end
 end
 
-local COMBAT_CHECK_INTERVAL = 1
-time.runRepeatedly(
-    function()
-        for _, actor in pairs(inCombat) do
-            if (actor.position - self.position):length() >= common.COMBAT_END_DISTANCE then
-                inCombat[actor.id] = nil
-                actor:sendEvent("momw_sft_distanceEndCombat")
-            end
+local function combatCheck()
+    for _, actor in pairs(inCombat) do
+        if (actor.position - self.position):length() >= common.COMBAT_END_DISTANCE then
+            inCombat[actor.id] = nil
+            actor:sendEvent("momw_sft_distanceEndCombat")
         end
-    end,
-    COMBAT_CHECK_INTERVAL
-)
+    end
+end
+local COMBAT_CHECK_INTERVAL = 1
+time.runRepeatedly(combatCheck, COMBAT_CHECK_INTERVAL)
 
 -- Handoff to the engine
 return {
