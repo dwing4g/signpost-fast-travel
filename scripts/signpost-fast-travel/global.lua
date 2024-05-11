@@ -248,12 +248,13 @@ end
 -- From AttendMe
 local function followerTeleport(e)
     if followerSettings:get('teleportFollowers') then
-        --TODO: Summon a creature, let it expire, get this traceback:
-        -- Global[scripts/signpost-fast-travel/global.lua] eventHandler[momw_sft_followerTeleport] failed. Lua error: Object is either removed or already in the process of teleporting
-        -- stack traceback:
-        --        [C]: in function 'teleport'
-        --        [string "scripts/signpost-fast-travel/global.lua"]:205: in function <[string "scripts/signpost-fast-travel/global.lua"]:201>
-        e.actor:teleport(e.cellName, e.position)
+        local stat, err = pcall(function()
+                e.actor:teleport(e.cellName, e.position)
+        end)
+        -- if not stat then
+        --     print("WARNING: couldn't teleport the follower because they were already gone or teleported")
+        --     print(err)
+        -- end
     end
 end
 

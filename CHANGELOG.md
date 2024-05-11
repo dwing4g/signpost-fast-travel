@@ -1,5 +1,11 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.10
+
+* Handled an error that could occur when a summoned creature expires
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 2.9
 
 * Combat checks are more accurate, now checking the distance between the actor and the player
