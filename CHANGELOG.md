@@ -1,5 +1,11 @@
 ## Signpost Fast Travel Changelog
 
+#### 2.11
+
+* Support when mods change the `Ald-ruhn` sign to `Ald'ruhn`
+
+<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+
 #### 2.10
 
 * Moved remaining inline timer callbacks to the script body

@@ -29,6 +29,7 @@ local naughtyList = {
     -- Vanilla Morrowind
     ["Ald-ruhn (back road)"] = "Ald-ruhn",
     ["Ald-ruhn (main road)"] = "Ald-ruhn",
+    ["Ald'ruhn"] = "Ald-ruhn",
     ["Buckmoth Fort (back road)"] = "Buckmoth Legion Fort",
     ["Buckmoth Fort (main road)"] = "Buckmoth Legion Fort",
     ["Maar gan (back road)"] = "Maar gan",
@@ -194,6 +195,7 @@ local function doTeleport(data)
         end
 
         if travelSettings:get("timePasses") then
+            --TODO: Timescale
             world.mwscript.getGlobalVariables(data.actor).gamehour = world.mwscript.getGlobalVariables(data.actor).gamehour + distance
         else
             distance = -1
