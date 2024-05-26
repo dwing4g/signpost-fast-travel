@@ -205,3 +205,4 @@ If you've found an issue with this mod, or if you simply have a question, please
 * Factor player stats such as speed into time cost
 * Factor timescale
 * Optional add-on to place signposts in regions where they may be scarce
+* Reset travel points in cells that are changed by quests when they reach a certain point in the quests' progress
