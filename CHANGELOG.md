@@ -4,7 +4,7 @@
 
 * Support when mods change the `Ald-ruhn` sign to `Ald'ruhn`
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/25780770)
 
 #### 2.10
 
