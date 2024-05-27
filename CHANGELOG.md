@@ -4,7 +4,7 @@
 
 * Fixed a dialogue issue that made the quest inaccessible (safe to update an in-progress game, no re-merge should be needed for this)
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/25803725)
 
 #### 2.11
 
