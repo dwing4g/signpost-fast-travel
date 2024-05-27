@@ -6,7 +6,7 @@
     "file_type": "Esp",
     "author": "johnnyhostile",
     "description": "Fast travel from signposts to their locations if you have already been there before.",
-    "num_objects": 26,
+    "num_objects": 3,
     "masters": [
       [
         "Morrowind.esm",
@@ -169,6 +169,880 @@
   {
     "type": "Dialogue",
     "flags": "",
+    "id": "Greeting 5",
+    "dialogue_type": "Greeting"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "16784905021402712788",
+    "prev_id": "21101133601380211667",
+    "next_id": "10266514201200066960",
+    "data": {
+      "dialogue_type": "Greeting",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "You see, I was able to divine the recipe to craft a special token.. Using what I believe is a forgotten Dwemer technique, I've been able to create these special Fast Travel Tokens. With these, you'd be able to instantly travel to many previous locations that you've already been to by touching a signpost. I might be willing to part with some, for a cost...",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "Equal",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 0
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00",
+        "value": {
+          "type": "Integer",
+          "data": 1
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 2
+        }
+      }
+    ],
+    "script_text": "AddTopic \"Fast Travel Tokens\"\nJournal momw_sft_quest 10"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "10266514201200066960",
+    "prev_id": "16784905021402712788",
+    "next_id": "11264526852615315829",
+    "data": {
+      "dialogue_type": "Greeting",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "As you probably guessed, I'm with the Mage's Guild. I'm honestly pretty bored, none of these people seem to have any real magical ability to speak of nor do they have access to any interesting knowledge. I was assigned here, to this pit, and while I was trying to slip away to a quiet place I came across a gem that was unlike anything I've ever seen before. After studying this gem for some time I was able to divine some incredible knowledge from it...",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "Equal",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 0
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00",
+        "value": {
+          "type": "Integer",
+          "data": 1
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 1
+        }
+      }
+    ],
+    "script_text": "Choice Continue 2"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "11264526852615315829",
+    "prev_id": "10266514201200066960",
+    "next_id": "323200121739082798",
+    "data": {
+      "dialogue_type": "Greeting",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "You again?! I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Maye you can be useful, maybe we can come to an agreement?",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "Equal",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 0
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00",
+        "value": {
+          "type": "Integer",
+          "data": 1
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "TalkedToPc",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 1
+        }
+      }
+    ],
+    "script_text": "Choice Continue 1"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "323200121739082798",
+    "prev_id": "11264526852615315829",
+    "next_id": "14977645236198792681",
+    "data": {
+      "dialogue_type": "Greeting",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "... And who exactly are you? I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Perhaps you can be useful, maybe we can come to an agreement?",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "Equal",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 0
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00",
+        "value": {
+          "type": "Integer",
+          "data": 1
+        }
+      }
+    ],
+    "script_text": "Choice Continue 1"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "14977645236198792681",
+    "prev_id": "323200121739082798",
+    "next_id": "",
+    "data": {
+      "dialogue_type": "Greeting",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "... And who exactly are you? I'm not sure why you're up here or if I should be worried that you are.. Just go away, we have nothing to discuss.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "Equal",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 0
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "Equal",
+        "id": "misc_dwrv_coin00",
+        "value": {
+          "type": "Integer",
+          "data": 0
+        }
+      }
+    ],
+    "script_text": "GoodBye"
+  },
+  {
+    "type": "Dialogue",
+    "flags": "",
+    "id": "Fast Travel Tokens",
+    "dialogue_type": "Topic"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "4153967078973295017",
+    "prev_id": "",
+    "next_id": "11870580646052703776",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "Yes. I am willing to trade you for them. I'll give you one for one Dwemer coin. Don't worry, I've got plenty tokens and can produce more, but I need those Dwemer coins. If you don't have any, I suppose I could part with the tokens for say... 5000 gold for each? I think that's a fair price. I do have to keep a lid on this enterprise somehow, you know. Imagine everyone in Tamriel blinking about by touching a map! Hah! Anyways: just find me here any time. Did you want to trade now?",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "Equal",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 10
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00",
+        "value": {
+          "type": "Integer",
+          "data": 1
+        }
+      }
+    ],
+    "script_text": "Journal momw_sft_quest 20\nChoice \"Give me one token for one Dwemer coin\" 1 \"Give me ten tokens for ten Dwemer coins\" 2 \"Give me one token for 5000 gold\" 3 \"Give me ten tokens for 50000 gold\" 4 \"No thanks, not right now\" 5"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "11870580646052703776",
+    "prev_id": "4153967078973295017",
+    "next_id": "9634205049713896219",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "Okay then, fine. If you don't mind I was thinking about taking a nap, so just run along. Come by when you want some Fast Travel Tokens and can trade for them.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "GreaterEqual",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 20
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 5
+        }
+      }
+    ],
+    "script_text": "GoodBye"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "9634205049713896219",
+    "prev_id": "11870580646052703776",
+    "next_id": "15871995330525769422",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "Sure. But come back when you've got something to trade.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "GreaterEqual",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "Equal",
+        "id": "misc_dwrv_coin00",
+        "value": {
+          "type": "Integer",
+          "data": 0
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 1
+        }
+      }
+    ],
+    "script_text": "GoodBye"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "15871995330525769422",
+    "prev_id": "9634205049713896219",
+    "next_id": "16755875721298612688",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "Sure. But come back when you've got enough coins to trade.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "GreaterEqual",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "Less",
+        "id": "misc_dwrv_coin00",
+        "value": {
+          "type": "Integer",
+          "data": 10
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 2
+        }
+      }
+    ],
+    "script_text": "GoodBye"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "16755875721298612688",
+    "prev_id": "15871995330525769422",
+    "next_id": "9296350147733768029",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "Sure. But come back when you've got something to trade.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "GreaterEqual",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 20
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 3
+        }
+      },
+      {
+        "slot": "Slot3",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "Less",
+        "id": "Gold_001",
+        "value": {
+          "type": "Integer",
+          "data": 5000
+        }
+      }
+    ],
+    "script_text": "GoodBye"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "9296350147733768029",
+    "prev_id": "16755875721298612688",
+    "next_id": "6781568104691766090",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "Sure. But come back when you've got enough gold to trade.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "GreaterEqual",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 20
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 4
+        }
+      },
+      {
+        "slot": "Slot3",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "Less",
+        "id": "Gold_001",
+        "value": {
+          "type": "Integer",
+          "data": 50000
+        }
+      }
+    ],
+    "script_text": "GoodBye"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "6781568104691766090",
+    "prev_id": "9296350147733768029",
+    "next_id": "11888140134914224931",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "One Travel Token for one Dwemer coin. Thank you very much.",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "GreaterEqual",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "Greater",
+        "id": "misc_dwrv_coin00",
+        "value": {
+          "type": "Integer",
+          "data": 0
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 1
+        }
+      }
+    ],
+    "script_text": "Player->RemoveItem misc_dwrv_coin00 1\nPlayer->AddItem momw_sft_travel_token 1"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "11888140134914224931",
+    "prev_id": "6781568104691766090",
+    "next_id": "4931086643902559180",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "Ten Travel Tokens for ten Dwemer coin. Thank you very much!",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "GreaterEqual",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "GreaterEqual",
+        "id": "misc_dwrv_coin00",
+        "value": {
+          "type": "Integer",
+          "data": 10
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 2
+        }
+      }
+    ],
+    "script_text": "Player->RemoveItem misc_dwrv_coin00 10\nPlayer->AddItem momw_sft_travel_token 10"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "4931086643902559180",
+    "prev_id": "11888140134914224931",
+    "next_id": "4600985328156200882",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "One Travel Token for 5000 gold. Thank you very much hahaha!",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "GreaterEqual",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "GreaterEqual",
+        "id": "Gold_001",
+        "value": {
+          "type": "Integer",
+          "data": 5000
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 3
+        }
+      }
+    ],
+    "script_text": "Player->RemoveItem gold_001 5000\nPlayer->AddItem momw_sft_travel_token 1"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "4600985328156200882",
+    "prev_id": "4931086643902559180",
+    "next_id": "3637674414576096955",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "Ten Travel Tokens for 50000 gold. Thank you very much hohoho!",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "GreaterEqual",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 20
+        }
+      },
+      {
+        "slot": "Slot1",
+        "filter_type": "Item",
+        "function": "ItemType",
+        "comparison": "GreaterEqual",
+        "id": "Gold_001",
+        "value": {
+          "type": "Integer",
+          "data": 50000
+        }
+      },
+      {
+        "slot": "Slot2",
+        "filter_type": "Function",
+        "function": "Choice",
+        "comparison": "Equal",
+        "id": "",
+        "value": {
+          "type": "Integer",
+          "data": 4
+        }
+      }
+    ],
+    "script_text": "Player->RemoveItem gold_001 50000\nPlayer->AddItem momw_sft_travel_token 10"
+  },
+  {
+    "type": "DialogueInfo",
+    "flags": "",
+    "id": "3637674414576096955",
+    "prev_id": "4600985328156200882",
+    "next_id": "",
+    "data": {
+      "dialogue_type": "Topic",
+      "disposition": 0,
+      "speaker_rank": -1,
+      "speaker_sex": "Any",
+      "player_rank": -1
+    },
+    "speaker_id": "momw_sft_tt_salesman",
+    "speaker_race": "",
+    "speaker_class": "",
+    "speaker_faction": "",
+    "speaker_cell": "",
+    "player_faction": "",
+    "sound_path": "",
+    "text": "Sure, did you want to trade for some tokens? Once you use them you won't want to walk everywhere again! Ahahaha!",
+    "filters": [
+      {
+        "slot": "Slot0",
+        "filter_type": "Journal",
+        "function": "JournalType",
+        "comparison": "GreaterEqual",
+        "id": "momw_sft_quest",
+        "value": {
+          "type": "Integer",
+          "data": 20
+        }
+      }
+    ],
+    "script_text": "Choice \"Give me one token for one Dwemer coin\" 1 \"Give me ten tokens for ten Dwemer coins\" 2 \"Give me one token for 5000 gold\" 3 \"Give me ten tokens for 50000 gold\" 4 \"No thanks, not right now\" 5"
+  },
+  {
+    "type": "Dialogue",
+    "flags": "",
     "id": "momw_sft_quest",
     "dialogue_type": "Journal"
   },
@@ -273,879 +1147,5 @@
     },
     "filters": [],
     "script_text": ""
-  },
-  {
-    "type": "Dialogue",
-    "flags": "",
-    "id": "Greeting 5",
-    "dialogue_type": "Greeting"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "16784905021402712788",
-    "prev_id": "27518247831477521212",
-    "next_id": "10266514201200066960",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "You see, I was able to divine the recipe to craft a special token.. Using what I believe is a forgotten Dwemer technique, I've been able to create these special Fast Travel Tokens. With these, you'd be able to instantly travel to many previous locations that you've already been to by touching a signpost. I might be willing to part with some, for a cost...",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "Equal",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 0
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "GreaterEqual",
-        "id": "misc_dwrv_coin00",
-        "value": {
-          "type": "Integer",
-          "data": 1
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 2
-        }
-      }
-    ],
-    "script_text": "AddTopic \"Fast Travel Tokens\"\r\nJournal momw_sft_quest 10"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "10266514201200066960",
-    "prev_id": "16784905021402712788",
-    "next_id": "11264526852615315829",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "As you probably guessed, I'm with the Mage's Guild. I'm honestly pretty bored, none of these people seem to have any real magical ability to speak of nor do they have access to any interesting knowledge. I was assigned here, to this pit, and while I was trying to slip away to a quiet place I came across a gem that was unlike anything I've ever seen before. After studying this gem for some time I was able to divine some incredible knowledge from it...",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "Equal",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 0
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "GreaterEqual",
-        "id": "misc_dwrv_coin00",
-        "value": {
-          "type": "Integer",
-          "data": 1
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 1
-        }
-      }
-    ],
-    "script_text": "Choice Continue 2"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "11264526852615315829",
-    "prev_id": "10266514201200066960",
-    "next_id": "323200121739082798",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "You again?! I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Maye you can be useful, maybe we can come to an agreement?",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "Equal",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 0
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "GreaterEqual",
-        "id": "misc_dwrv_coin00",
-        "value": {
-          "type": "Integer",
-          "data": 1
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "TalkedToPc",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 1
-        }
-      }
-    ],
-    "script_text": "Choice Continue 1"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "323200121739082798",
-    "prev_id": "11264526852615315829",
-    "next_id": "14977645236198792681",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "... And who exactly are you? I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Perhaps you can be useful, maybe we can come to an agreement?",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "Equal",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 0
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "GreaterEqual",
-        "id": "misc_dwrv_coin00",
-        "value": {
-          "type": "Integer",
-          "data": 1
-        }
-      }
-    ],
-    "script_text": "Choice Continue 1"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "14977645236198792681",
-    "prev_id": "323200121739082798",
-    "next_id": "",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "... And who exactly are you? I'm not sure why you're up here or if I should be worried that you are.. Just go away, we have nothing to discuss.",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "Equal",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 0
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "Equal",
-        "id": "misc_dwrv_coin00",
-        "value": {
-          "type": "Integer",
-          "data": 0
-        }
-      }
-    ],
-    "script_text": "GoodBye"
-  },
-  {
-    "type": "Dialogue",
-    "flags": "",
-    "id": "Fast Travel Tokens",
-    "dialogue_type": "Topic"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "4153967078973295017",
-    "prev_id": "",
-    "next_id": "11870580646052703776",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "Yes. I am willing to trade you for them. I'll give you one for one Dwemer coin. Don't worry, I've got plenty tokens and can produce more, but I need those Dwemer coins. If you don't have any, I suppose I could part with the tokens for say... 5000 gold for each? I think that's a fair price. I do have to keep a lid on this enterprise somehow, you know. Imagine everyone in Tamriel blinking about by touching a map! Hah! Anyways: just find me here any time. Did you want to trade now?",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "Equal",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 10
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "GreaterEqual",
-        "id": "misc_dwrv_coin00",
-        "value": {
-          "type": "Integer",
-          "data": 1
-        }
-      }
-    ],
-    "script_text": "Journal momw_sft_quest 20\r\nChoice \"Give me one token for one Dwemer coin\" 1 \"Give me ten tokens for ten Dwemer coins\" 2 \"Give me one token for 5000 gold\" 3 \"Give me ten tokens for 50000 gold\" 4 \"No thanks, not right now\" 5"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "11870580646052703776",
-    "prev_id": "4153967078973295017",
-    "next_id": "9634205049713896219",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "Okay then, fine. If you don't mind I was thinking about taking a nap, so just run along. Come by when you want some Fast Travel Tokens and can trade for them.",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "GreaterEqual",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 20
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 5
-        }
-      }
-    ],
-    "script_text": "GoodBye"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "9634205049713896219",
-    "prev_id": "11870580646052703776",
-    "next_id": "15871995330525769422",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "Sure. But come back when you've got something to trade.",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "GreaterEqual",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 20
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "Equal",
-        "id": "misc_dwrv_coin00",
-        "value": {
-          "type": "Integer",
-          "data": 0
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 1
-        }
-      }
-    ],
-    "script_text": "GoodBye"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "15871995330525769422",
-    "prev_id": "9634205049713896219",
-    "next_id": "16755875721298612688",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "Sure. But come back when you've got enough coins to trade.",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "GreaterEqual",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 20
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "Less",
-        "id": "misc_dwrv_coin00",
-        "value": {
-          "type": "Integer",
-          "data": 10
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 2
-        }
-      }
-    ],
-    "script_text": "GoodBye"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "16755875721298612688",
-    "prev_id": "15871995330525769422",
-    "next_id": "9296350147733768029",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "Sure. But come back when you've got something to trade.",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "GreaterEqual",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 20
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 3
-        }
-      },
-      {
-        "slot": "Slot3",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "Less",
-        "id": "Gold_001",
-        "value": {
-          "type": "Integer",
-          "data": 5000
-        }
-      }
-    ],
-    "script_text": "GoodBye"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "9296350147733768029",
-    "prev_id": "16755875721298612688",
-    "next_id": "6781568104691766090",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "Sure. But come back when you've got enough gold to trade.",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "GreaterEqual",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 20
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 4
-        }
-      },
-      {
-        "slot": "Slot3",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "Less",
-        "id": "Gold_001",
-        "value": {
-          "type": "Integer",
-          "data": 50000
-        }
-      }
-    ],
-    "script_text": "GoodBye"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "6781568104691766090",
-    "prev_id": "9296350147733768029",
-    "next_id": "11888140134914224931",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "One Travel Token for one Dwemer coin. Thank you very much.",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "GreaterEqual",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 20
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "Greater",
-        "id": "misc_dwrv_coin00",
-        "value": {
-          "type": "Integer",
-          "data": 0
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 1
-        }
-      }
-    ],
-    "script_text": "Player->RemoveItem misc_dwrv_coin00 1\r\nPlayer->AddItem momw_sft_travel_token 1"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "11888140134914224931",
-    "prev_id": "6781568104691766090",
-    "next_id": "4931086643902559180",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "Ten Travel Tokens for ten Dwemer coin. Thank you very much!",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "GreaterEqual",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 20
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "GreaterEqual",
-        "id": "misc_dwrv_coin00",
-        "value": {
-          "type": "Integer",
-          "data": 10
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 2
-        }
-      }
-    ],
-    "script_text": "Player->RemoveItem misc_dwrv_coin00 10\r\nPlayer->AddItem momw_sft_travel_token 10"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "4931086643902559180",
-    "prev_id": "11888140134914224931",
-    "next_id": "4600985328156200882",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "One Travel Token for 5000 gold. Thank you very much hahaha!",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "GreaterEqual",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 20
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "GreaterEqual",
-        "id": "Gold_001",
-        "value": {
-          "type": "Integer",
-          "data": 5000
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 3
-        }
-      }
-    ],
-    "script_text": "Player->RemoveItem gold_001 5000\r\nPlayer->AddItem momw_sft_travel_token 1"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "4600985328156200882",
-    "prev_id": "4931086643902559180",
-    "next_id": "3637674414576096955",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "Ten Travel Tokens for 50000 gold. Thank you very much hohoho!",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "GreaterEqual",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 20
-        }
-      },
-      {
-        "slot": "Slot1",
-        "filter_type": "Item",
-        "function": "ItemType",
-        "comparison": "GreaterEqual",
-        "id": "Gold_001",
-        "value": {
-          "type": "Integer",
-          "data": 50000
-        }
-      },
-      {
-        "slot": "Slot2",
-        "filter_type": "Function",
-        "function": "Choice",
-        "comparison": "Equal",
-        "id": "",
-        "value": {
-          "type": "Integer",
-          "data": 4
-        }
-      }
-    ],
-    "script_text": "Player->RemoveItem gold_001 50000\r\nPlayer->AddItem momw_sft_travel_token 10"
-  },
-  {
-    "type": "DialogueInfo",
-    "flags": "",
-    "id": "3637674414576096955",
-    "prev_id": "4600985328156200882",
-    "next_id": "",
-    "data": {
-      "dialogue_type": "Topic",
-      "disposition": 0,
-      "speaker_rank": 0,
-      "speaker_sex": "Any",
-      "player_rank": 0
-    },
-    "speaker_id": "momw_sft_tt_salesman",
-    "speaker_race": "",
-    "speaker_class": "",
-    "speaker_faction": "",
-    "speaker_cell": "",
-    "player_faction": "",
-    "sound_path": "",
-    "text": "Sure, did you want to trade for some tokens? Once you use them you won't want to walk everywhere again! Ahahaha!",
-    "filters": [
-      {
-        "slot": "Slot0",
-        "filter_type": "Journal",
-        "function": "JournalType",
-        "comparison": "GreaterEqual",
-        "id": "momw_sft_quest",
-        "value": {
-          "type": "Integer",
-          "data": 20
-        }
-      }
-    ],
-    "script_text": "Choice \"Give me one token for one Dwemer coin\" 1 \"Give me ten tokens for ten Dwemer coins\" 2 \"Give me one token for 5000 gold\" 3 \"Give me ten tokens for 50000 gold\" 4 \"No thanks, not right now\" 5"
   }
 ]
