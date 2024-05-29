@@ -2,6 +2,7 @@
 
 #### 2.13
 
+* Added "Bethesda Mode" which enables the player to pull up the fast travel menu with a keypress (at no token cost)
 * Fixed a gramatical error in the travel message pop up
 * Fixed a dialogue typo
 

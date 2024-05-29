@@ -36,6 +36,33 @@ I.Settings.registerPage {
     description = "description"
 }
 
+input.registerTrigger {
+        l10n = MOD_ID,
+        key = "activateTravelMenu"
+}
+
+I.Settings.registerGroup {
+    key = 'SettingsPlayer' .. MOD_ID,
+    page = MOD_ID,
+    l10n = MOD_ID,
+    name = "playerSettingsTitle",
+    description = "playerSettingsDesc",
+    permanentStorage = false,
+    settings = {
+        {
+            key = "bethesdaModeKey",
+            name = "bethesdaModeKey_name",
+            description = "bethesdaModeKey_desc",
+            default = "unset",
+            renderer = "inputBinding",
+            argument = {
+                type = "trigger",
+                key = "activateTravelMenu"
+            }
+        }
+    }
+}
+
 if AttendMeInstalled then
     print(L("attendMeInstalled"))
 end
@@ -255,10 +282,12 @@ end
 
 local function askForTeleport(data)
     -- Should we do the travel UI?
-    if #types.Player.inventory(self):findAll("momw_sft_travel_token") > 0
+    if
+        data.bethesdaMode == true
+        or #types.Player.inventory(self):findAll("momw_sft_travel_token") > 0
         or not travelSettings:get("menuCostsToken")
     then
-        if playerInCombat() then return end
+        if playerInCombat() or travelMenu then return end
         travelMenu = sftUI.travelMenu(visitedCells)
         return
     end
@@ -314,6 +343,14 @@ local function askForTeleport(data)
         }
     )
 end
+
+-- For Bethesda Mode
+input.registerTriggerHandler(
+    "activateTravelMenu",
+    async:callback(
+        function() askForTeleport({bethesdaMode = true}) end
+    )
+)
 
 local function registerCombat(data)
     if data.done then
