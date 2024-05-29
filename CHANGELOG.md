@@ -2,6 +2,7 @@
 
 #### 2.13
 
+* Fixed a gramatical error in the travel message pop up
 * Fixed a dialogue typo
 
 <!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->

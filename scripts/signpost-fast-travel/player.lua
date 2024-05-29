@@ -224,7 +224,7 @@ local function announceTeleport(data)
     end
 
     if data.token and travelSettings:get("menuCostsToken") and data.hours > 1 then
-        msg = msg .. ", " .. L("consumeToken")
+        msg = msg .. L("consumeToken")
     end
 
     -- Clean up
