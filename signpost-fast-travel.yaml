@@ -212,7 +212,7 @@ records:
         pc_rank: 255
         unknown2: 0
         actor: momw_sft_tt_salesman
-        response: "You again?! I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Maye you can be useful, maybe we can come to an agreement?"
+        response: "You again?! I'm not sure why you're up here or if I should be worried that you are.. but I suppose you'd have attacked me already if you were going to. Maybe you can be useful, maybe we can come to an agreement?"
         result_script: Choice Continue 1
         select_rules:
           - index: 0
