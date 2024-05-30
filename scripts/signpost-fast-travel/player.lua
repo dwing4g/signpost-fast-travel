@@ -30,9 +30,9 @@ local chargenDone = false
 local chargenChecked = false
 
 local questsToWatch = {
-    ["HH_Stronghold"] = {cell = "Odai Plateau", stage = 100},
-    ["HT_Stronghold"] = {cell = "Uvirith's Grave", stage = 100},
-    ["HR_Stronghold"] = {cell = "Bal Isra", stage = 100}
+    ["hh_stronghold"] = {cell = "Odai Plateau", stage = 100},
+    ["ht_stronghold"] = {cell = "Uvirith's Grave", stage = 100},
+    ["hr_stronghold"] = {cell = "Bal Isra", stage = 100}
 }
 
 I.Settings.registerPage {
@@ -388,7 +388,7 @@ local function followerStatus(e)
 end
 
 -- Interface functions
-local function forget(name)
+local function forget(name, quiet)
     -- Make the player "forget" all targets a named cell.
     -- Use it from the console like this:
     -- luap <ENTER>
@@ -396,7 +396,7 @@ local function forget(name)
     if visitedCells[name] then
         visitedCells[name] = nil
         local m = L("forgetFor") .. " " .. name
-        if travelSettings:get("showMsgs") then
+        if quiet == nil and travelSettings:get("showMsgs") then
             ui.showMessage(m)
         end
         print(m)
@@ -656,7 +656,7 @@ time.runRepeatedly(combatCheck, COMBAT_CHECK_INTERVAL)
 local function onQuestUpdate(questId, stage)
     local questData = questsToWatch[questId]
     if questData and questData.stage == stage and visitedCells[questData.cell] then
-        forget(questData.cell)
+        forget(questData.cell, true)
     end
 end
 
