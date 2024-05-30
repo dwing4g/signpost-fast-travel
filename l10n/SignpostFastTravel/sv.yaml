@@ -1,63 +1,51 @@
+# Meta Data
 name: "Signpost Fast Travel (Snabbresor med vägskyltar)"
 description: "Snabbres från en vägskylt till dit skylten pekar om du redan varit där tidigare. Inställningar för följare avaktiveras automatiskt om 'Attend Me' också är installerat."
 
-announceWhere: "Resa till {place}"
+# Mod Messages
+# Error
+needNewerOpenMW: "Signpost Fast Travel kräver OpenMW 0.49.0 eller nyare, vänligen uppdatera!"
+# Info
+attendMeInstalled: "Auto-inaktiverar följarteleporteringfunktioner eftersom 'Attend Me' är installerat!"
 
-announceLength: |-
-  {hours, plural,
-  one {tog {hours} timme}
-  other {tog {hours} timmar}}
+# Settings: Follower
+# Meta
+followerSettingsTitle: "Följare"
+#Settings
+teleportFollowers_name: "Teleportera följare"
+teleportFollowers_desc: "Om aktiverad kommer följare teleporteras till dig om de hamnar för långt bort."
 
-announceCost: "kostade {cost} guld"
-
-inCombat: "Du kan inte resa när du är i strid"
-noMoney: "Du har inget guld"
-notBeen: "Du har inte varit till {name} ännu"
-notEnoughMoney: "Du har inte tillräckligt med guld för att resa; {cost} krävs"
-youreThere: "Du är i {name}"
-
-followerSettingsTitle: "Inställningar för följare"
-travelSettingsTitle: "Inställningar för resor"
-
+# Settings: Travel
+# Meta
+travelSettingsTitle: "Resor"
+# Settings
 footstepVolume_name: "Fotstegsvolym"
-footstepVolume_desc: "Ange noll för att inaktivera helt"
+footstepVolume_desc: |
+  Ange noll för att inaktivera helt.
+
+  Förvalt: 0.1
+  Max: 1
+  Min: 0
 goldPerUnit_name: "Kostnad i guld per reseenhet"
 goldPerUnit_desc: |
-  Ange noll för att inaktiera.
+  Ange noll för att inaktiera. Uträkningen av reseavståndet räknar även in en tidsmultiplikator som gör kostnadsuppskattningen svår. Formeln som används är identisk till den som används för att beräkna resekostnader i originalspelet.
+  
+  Förvalt: 5
   Min: 0
 initialDelay_name: "Initial fördröjning innan scannning"
 initialDelay_desc: |
-  Tid i sekunder att vänta före påbörjan av scanning av celler för uppdateringar, efter att du fått order från Sellus Gravius
+  Avgör hur länge modden väntar efter att du fått order från Sellus Gravius innan den börjar scanna celler efter uppdateringar (enhet: sekunder)
 
   Förvalt: 120
   Max: 240
   Min: 1
-menuCostsToken_name: "Resemenyn kostar en pollett"
-menuCostsToken_desc: "Om aktiv kostar resor via menyn en särskild polett. Om inaktiv får du menyn varje gång du aktiverar en skylt"
-menuShowUsage_name: "Visa användarhjälp i resemenyn"
-travelWhenCombat_name: "Tillåt resor under strid"
-travelWhenCombat_desc: "När den här är aktiverad kan du inte resa under strid"
-scanInterval_name: "Cellscanningsintervall"
-scanInterval_desc: |
-  Hur ofta  ska modden scanna efter cellförändringar?
-
-  Förvalt: 2
-  Max: 10
-  Min: 1
-showMsgs_name: "Visa meddelanden under resa"
-teleportFollowers_name: "Teleportera följare"
-teleportFollowers_desc: "Om aktiverad kommer följare teleporteras till dig om de hamnar för långt bort."
-timePasses_name: "Tid passerar vid resor"
-timePasses_desc: "Inaktivera för att stoppa tiden under resor"
-
 maxPointsPerCell_name: "Max antal punkter per cell"
 maxPointsPerCell_desc: |
-  Maximala antalet resepunkter som samlas per cell.
+  Avgör det maximala antalet resepunkter som ska samlas per cell.
 
   Förvalt: 100
   Max: 500
   Min: 1
-
 maxTriesPerCell_name: "Max antal försök per cell"
 maxTriesPerCell_desc: |
   Maximala antalet försök modden gör för att scanna en cell för att nå maximala antalet punkter per cell.
@@ -67,24 +55,60 @@ maxTriesPerCell_desc: |
   Default: 10
   Max: 50
   Min: 1
+menuCostsToken_name: "Resemenyn kostar en pollett"
+menuCostsToken_desc: "Om aktiv kostar resor via menyn en särskild polett. Om inaktiv får du menyn varje gång du aktiverar en skylt"
+menuShowUsage_name: "Visa användarhjälp i resemenyn"
+scanInterval_name: "Cellscanningsintervall"
+scanInterval_desc: |
+  Avgör hur ofta modden ska scanna en cell efter förändringar (enhet: sekunder)
 
-consumeToken: "din resepollett smulades sönder till stoft"
+  Förvalt: 2
+  Max: 10
+  Min: 1
+showMsgs_name: "Visa meddelanden under resa"
+timePasses_name: "Tid passerar vid resor"
+timePasses_desc: "Inaktivera för att stoppa tiden under resor"
+travelWhenCombat_name: "Tillåt resor under strid"
+travelWhenCombat_desc: "När den här är aktiverad kan du inte resa under strid"
 
+# UI
+# Travel Menu
+menuPrev: "Föreg."
+menuNext: "Nästa"
 menuUsage1: "Kontroll vänster/Höger eller A/D för att byta sidor"
 menuUsage2: "Kontroll upp/ner eller W/S för att flytta markering"
 menuUsage3: "Dubbelklicka eller använd A-knappen för att välja"
-
 menuUsage4: "Resa kommer kosta en resepollett"
 
-menuPrev: "Föreg."
-menuNext: "Nästa"
-
-attendMeInstalled: "Auto-inaktiverar följarteleporteringfunktioner eftersom 'Attend Me' är installerat!"
-
+# In-Game Messages
+# Travel
+announceWhere: "Resa till {place}"
+announceLength: |-
+  {hours, plural,
+  one {tog {hours} timme}
+  other {tog {hours} timmar}}
+announceCost: "kostade {cost} guld"
+consumeToken: "din resepollett smulades sönder till stoft"
+# Console
+consoleTravel: "Konsoll-reste till"
+forgetAll: "Alla resepunkter har glömts bort!"
 forgetFor: "Du har glömt alla resepunkter för"
 noneFor: "Inga resepunkter för"
-forgetAll: "Alla resepunkter har glömts bort!"
 pointsFor: "Punkter för"
-consoleTravel: "Konsollen reste till"
+# Misc
+inCombat: "Du kan inte resa när du är i strid"
+noMoney: "Du har inget guld"
+notBeen: "Du har inte varit till {name} ännu"
+notEnoughMoney: "Du har inte tillräckligt med guld för att resa; {cost} krävs"
+youreThere: "Du är i {name}"
 
-needNewerOpenMW: "Signpost Fast Travel kräver OpenMW 0.49.0 eller nyare, vänligen uppdatera!"
+playerSettingsTitle: "Extra"
+playerSettingsDesc: |
+  Obalanserade och inlevelsesabbande funktioner.
+bethesdaModeKey_name: "Bethesdaläge"
+bethesdaModeKey_desc: |
+  Öppna fast snabbresemenyn gratis med en knapptryckning.
+
+  Likt hur snabbresor ("fast travel") fungerar i senare Bethesdaspel: den här funktionen låter dig öppna och använda snabbresemenyn men en knapptryckning utan att betala någon polett.
+onlyOutside: "Du kan bara snabbresa utomhus!"
+
