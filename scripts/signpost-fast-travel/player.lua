@@ -354,7 +354,13 @@ end
 input.registerTriggerHandler(
     "activateTravelMenu",
     async:callback(
-        function() askForTeleport({bethesdaMode = true}) end
+        function()
+            if self.cell.isExterior then
+                askForTeleport({bethesdaMode = true})
+            else
+                ui.showMessage(L("onlyOutside"))
+            end
+        end
     )
 )
 

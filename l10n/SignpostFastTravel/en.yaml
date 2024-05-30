@@ -110,3 +110,4 @@ bethesdaModeKey_desc: |
   Bring up the fast travel menu for free with a key press.
 
   Reminiscent of how fast travel works in later Bethesda games: this allows you to open and use the fast travel menu with a key press and no token cost.
+onlyOutside: "You can only fast travel while outdoors!"
