@@ -29,6 +29,12 @@ local travelMenu
 local chargenDone = false
 local chargenChecked = false
 
+local questsToWatch = {
+    ["HH_Stronghold"] = {cell = "Odai Plateau", stage = 100},
+    ["HT_Stronghold"] = {cell = "Uvirith's Grave", stage = 100},
+    ["HR_Stronghold"] = {cell = "Bal Isra", stage = 100}
+}
+
 I.Settings.registerPage {
     key = MOD_ID,
     l10n = MOD_ID,
@@ -644,12 +650,23 @@ end
 local COMBAT_CHECK_INTERVAL = 1
 time.runRepeatedly(combatCheck, COMBAT_CHECK_INTERVAL)
 
+-- Some cells might change after a quest update such that any existing points
+-- might place the player inside a static. Avoid this by forgetting any existing
+-- points in those cells.
+local function onQuestUpdate(questId, stage)
+    local questData = questsToWatch[questId]
+    if questData and questData.stage == stage and visitedCells[questData.cell] then
+        forget(questData.cell)
+    end
+end
+
 -- Handoff to the engine
 return {
     engineHandlers = {
         onControllerButtonPress = onControllerButtonPress,
         onKeyPress = onKeyPress,
         onLoad = onLoad,
+        onQuestUpdate = onQuestUpdate,
         onSave = onSave
     },
     eventHandlers = {

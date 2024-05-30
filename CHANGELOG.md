@@ -2,6 +2,9 @@
 
 #### 2.13
 
+* Added a reset-after-quest feature that forgets travel points in cells after a certain point in a given quest
+    * This is useful for the Great House faction stronghold quests, where the cell is basically bare but then has statics placed into it
+    * Unfortunately this means that the location will not be present in the travel menu until it is revisited
 * Added "Bethesda Mode" which enables the player to pull up the fast travel menu with a keypress (at no token cost)
 * Fixed a gramatical error in the travel message pop up
 * Fixed a dialogue typo
