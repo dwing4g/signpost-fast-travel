@@ -98,6 +98,7 @@ Various aspects of this mod are configurable via the script settings menu (ESC >
 * Initial scan delay in seconds (**120 by default**)
 * Max Points Per Cell (**100 by default**)
 * Max Tries Per Cell (**10 by defualt**)
+* Bethesda Mode (**off by default; set the keybind to use it**)
 
 #### Known Issues / Notes
 
