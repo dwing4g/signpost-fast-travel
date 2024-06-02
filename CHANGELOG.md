@@ -9,7 +9,7 @@
 * Fixed a gramatical error in the travel message pop up
 * Fixed a dialogue typo
 
-<!-- [Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/#TODO) -->
+[Download Link](https://gitlab.com/modding-openmw/signpost-fast-travel/-/packages/25987836)
 
 #### 2.12
 
