@@ -277,7 +277,7 @@ local function registerIds(idsTable, ids, quiet)
 end
 
 if core.contentFiles.has("Morrowind.esm") then
-    print("Registering support for Morrowind.esm")
+    print("[SignpostFastTravel]: Registering support for Morrowind.esm")
     registerIds(
         signs,
         {
@@ -331,7 +331,7 @@ if core.contentFiles.has("Morrowind.esm") then
 end
 
 if core.contentFiles.has("Tamriel_Data.esm") then
-    print("Registering support for Tamriel_Data.esm")
+    print("[SignpostFastTravel]: Registering support for Tamriel_Data.esm")
     registerIds(
         signs,
         {
@@ -431,7 +431,7 @@ if core.contentFiles.has("Tamriel_Data.esm") then
 end
 
 if core.contentFiles.has("Sky_Main.esm") then
-    print("Registering support for Sky_Main.esm")
+    print("[SignpostFastTravel]: Registering support for Sky_Main.esm")
     registerIds(
         signs,
         {
