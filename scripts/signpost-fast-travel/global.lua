@@ -27,15 +27,38 @@ local blackList = {
 -- Known "naughty" sign names that aren't exact matches to an exterior cell
 local naughtyList = {
     -- Vanilla Morrowind
-    ["Ald-ruhn (back road)"] = "Ald-ruhn",
-    ["Ald-ruhn (main road)"] = "Ald-ruhn",
-    ["Ald'ruhn"] = "Ald-ruhn",
-    ["Buckmoth Fort (back road)"] = "Buckmoth Legion Fort",
-    ["Buckmoth Fort (main road)"] = "Buckmoth Legion Fort",
-    ["Maar gan (back road)"] = "Maar gan",
-    ["Maar gan (main road)"] = "Maar gan",
-    ["Pelagiad (back road)"] = "Pelagiad",
-    ["Pelagiad (main road)"] = "Pelagiad",
+    ["奥德汝因（小径）"] = "Ald-ruhn",
+    ["奥德汝因（主道）"] = "Ald-ruhn",
+    ["奥德-汝因"] = "Ald-ruhn",
+    ["雄蛾要塞（小径）"] = "Buckmoth Legion Fort",
+    ["雄蛾要塞（主道）"] = "Buckmoth Legion Fort",
+    ["雄蛾军团要塞"] = "Buckmoth Legion Fort",
+    ["玛尔-甘（小径）"] = "Maar Gan",
+    ["玛尔-甘（主道）"] = "Maar Gan",
+    ["玛尔-甘"] = "Maar Gan",
+    ["佩拉吉亚德（小径）"] = "Pelagiad",
+    ["佩拉吉亚德（主道）"] = "Pelagiad",
+    ["佩拉吉亚德"] = "Pelagiad",
+    ["巴尔莫拉"] = "Balmora",
+    ["阿萨恩尼比比山"] = "Mount Assarnibibi",
+    ["奥德-维洛西"] = "Ald Velothi",
+    ["大衮-费尔"] = "Dagon Fel",
+    ["哈拉-奥德"] = "Hla Oad",
+    ["黑檀心"] = "Ebonheart",
+    ["卡尔德拉"] = "Caldera",
+    ["卡尔德拉矿业公司"] = "Caldera Mine",
+    ["坎德山"] = "Mount Kand",
+    ["库尔"] = "Khuul",
+    ["莫拉格-玛尔"] = "Molag Mar",
+    ["纳尔-莫克"] = "Gnaar Mok",
+    ["尼希斯"] = "Gnisis",
+    ["赛达尼恩"] = "Seyda Neen",
+    ["苏兰"] = "Suran",
+    ["泰尔-沃斯"] = "Tel Vos",
+    ["维威克"] = "Vivec",
+    ["沃斯"] = "Vos",
+    ["幽魂之门"] = "Ghostgate",
+    ["月蛾军团要塞"] = "Moonmoth Legion Fort",
     -- Tamriel Rebuilt
     ["Akamora (back road)"] = "Akamora",
     ["Firewatch via Aranyon Pass"] = "Firewatch",
@@ -455,10 +478,11 @@ I.Activation.addHandlerForType(
         if blackList[recordId] then return end
         if signs[recordId] then
             local name = types.Activator.record(obj).name
+            local signName = name
             if naughtyList[name] then
                 name = naughtyList[name]
             end
-            actor:sendEvent("momw_sft_askForTeleport", {signTarget = name})
+            actor:sendEvent("momw_sft_askForTeleport", {signTarget = name, signName = signName})
         end
     end
 )

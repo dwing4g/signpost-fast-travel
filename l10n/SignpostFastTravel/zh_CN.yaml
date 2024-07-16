@@ -1,0 +1,113 @@
+# Meta Data
+name: "路牌快速旅行"
+description: "如果你之前已经去过那里的话，这个mod会允许玩家角色快速前往路牌目标位置。如果同时安装了加入我mod，随从的传送选项将自动失效。"
+
+# Mod Messages
+# Error
+needNewerOpenMW: "路牌快速旅行需要 OpenMW 0.49.0 或最新版本；请更新！"
+# Info
+attendMeInstalled: "由于同时安装了加入我mod，因此自动禁用了随从的传送功能！"
+
+# Settings: Follower
+# Meta
+followerSettingsTitle: "随从"
+# Settings
+teleportFollowers_name: "传送随从"
+teleportFollowers_desc: "如果启用，当随从离你太远时，他们会被传送到你的角色身边。"
+
+# Settings: Travel
+# Meta
+travelSettingsTitle: "旅行"
+# Settings
+footstepVolume_name: "脚步音量"
+footstepVolume_desc: |
+  设置为零则完全禁用。
+
+  默认: 0.1
+  最大值: 1
+  最小值: 0
+goldPerUnit_name: "每次旅行的费用"
+goldPerUnit_desc: |
+  设置为零则禁用此功能。在计算旅行距离时还会考虑时间乘数，因此很难估算实际成本。所使用的公式与原始游戏中计算旅行费用的公式相同。
+
+  默认: 5
+  最小值: 0
+initialDelay_name: "扫描前的初始延迟"
+initialDelay_desc: |
+  决定的是在收到赛鲁斯·加维乌斯的指示后，MOD会等待多久才开始扫描cell以获取更新（单位：秒）。
+
+  默认: 120
+  最大值: 240
+  最小值: 1
+maxPointsPerCell_name: "每个cell的最大行程点数"
+maxPointsPerCell_desc: |
+  确定每个cell收集的最大行程点数。
+
+  默认: 100
+  最大值: 500
+  最小值: 1
+maxTriesPerCell_name: "每个cell最多尝试次数"
+maxTriesPerCell_desc: |
+  确定该mod为达到每个cell的最大点数而尝试扫描cell的最大次数。
+
+  在原版晨风中，至少有一个命名的cell可能根本不会产生任何旅行点。这个设置可以防止该小区和其他类似小区的无限尝试。
+
+  默认: 10
+  最大值: 50
+  最小值: 1
+menuCostsToken_name: "通过菜单旅行需要消耗一个代币"
+menuCostsToken_desc: "如果启用，则通过旅行菜单旅行需要支付特殊代币；如果禁用，则每次激活支持的路牌时都会打开菜单。"
+menuShowUsage_name: "在旅行菜单中显示使用帮助"
+scanInterval_name: "cell的扫描时间间隔"
+scanInterval_desc: |
+  决定mod扫描cell变化的频率（单位：秒）。
+
+  默认: 2
+  最大值: 10
+  最小值: 1
+showMsgs_name: "旅行时显示消息"
+timePasses_name: "旅行中的时间流逝"
+timePasses_desc: "如果启用，旅行所需的游戏时间取决于旅行的长度。"
+travelWhenCombat_name: "战斗时允许旅行"
+travelWhenCombat_desc: "如果启用，您的角色在战斗时也能旅行。"
+
+# UI
+# Travel Menu
+menuPrev: "上一页"
+menuNext: "下一页"
+menuUsage1: "方向键 左/右 或 A/D 键更改页面"
+menuUsage2: "方向键 上/下 或 W/S 键浏览列表"
+menuUsage3: "按 A 键 或 双击选择"
+menuUsage4: "旅行将消耗一个旅行代币。"
+
+# In-Game Messages
+# Travel
+announceWhere: "旅行至 {place}"
+announceLength: |-
+  {hours, plural,
+  one {took one hour}
+  other {took {hours} hours}}
+announceCost: "花费 {cost} 金币."
+consumeToken: "您的旅行代币将化为灰烬。"
+# Console
+consoleTravel: "控制台旅行至"
+forgetAll: "所有的旅行点都被遗忘了。"
+forgetFor: "您忘记了所有的旅行点数"
+noneFor: "没有旅行点数"
+pointsFor: "旅行点数用于"
+# Misc
+inCombat: "战斗时不能旅行！"
+noMoney: "你还未持有金币！"
+notBeen: "你还没有去过 {name} ！"
+notEnoughMoney: "您没有足够的金币旅行；需要 {cost} 金币！"
+youreThere: "你已经在 {name} 了。"
+
+playerSettingsTitle: "附加"
+playerSettingsDesc: |
+  不平衡且破坏沉浸感的功能。
+bethesdaModeKey_name: "贝塞斯达模式"
+bethesdaModeKey_desc: |
+  只需按下一个键，即可免费调出快速旅行菜单。
+
+  这让人想起后来的贝塞斯达游戏中快速旅行的工作原理：只需按下一个键，就能打开并使用快速旅行菜单，而且无需支付代币费用。
+onlyOutside: "您只能在室外进行快速旅行！"

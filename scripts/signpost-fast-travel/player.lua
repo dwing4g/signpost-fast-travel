@@ -99,13 +99,17 @@ local function scanCell()
         or not c.isExterior
         or c:hasTag("QuasiExterior")
     then
+--      print("--- scanCell.1 " .. tostring(c and c.name) .. ", " .. tostring(c and c.isExterior))
         return
     end
 
     -- Don't try to generate points if the player is underwater; this would
     -- cause the 2 attempts we allow to be misspent on bunk origin points.
     -- Also, the player's feet should be on the ground too.
-    if self.position.z < 1 or not types.Player.isOnGround(self) then return end
+    if self.position.z < 1 or not types.Player.isOnGround(self) then
+--      print("--- scanCell.2 " .. tostring(c and c.name) .. ", " .. self.position.z)
+        return
+    end
 
     local count = 0
     local cellName = c.name
@@ -122,10 +126,12 @@ local function scanCell()
 
     -- Retrieve stored data if there is any
     if visitedCells[cellName] == nil then
+--      print("--- visitedCells.new " .. cellName .. ", " .. cellStr)
         -- Never visited, fresh data
         visitedCells[cellName] = {}
         visitedCells[cellName][cellStr] = {count=count, points = {}}
     elseif visitedCells[cellName][cellStr] ~= nil then
+--      print("--- visitedCells.add " .. cellName .. ", " .. cellStr)
         -- Previously visited named cell and X/Y grid
         count = visitedCells[cellName][cellStr].count
         points = visitedCells[cellName][cellStr].points
@@ -300,12 +306,13 @@ local function askForTeleport(data)
 
     local currentCell = self.cell.name
     local targetCell = data.signTarget
+    local signName = data.signName
 
     -- Already there; no travel needed
     -- Special handling for Vivec city
     if currentCell ~= "Vivec" and currentCell == targetCell then
         if travelSettings:get("showMsgs") then
-            ui.showMessage(L("youreThere", {name = targetCell}))
+            ui.showMessage(L("youreThere", {name = signName}))
         end
         return
     end
@@ -316,7 +323,11 @@ local function askForTeleport(data)
     -- Not been there part one
     if not target then
         if travelSettings:get("showMsgs") then
-            ui.showMessage(L("notBeen", {name = targetCell}))
+            local m = L("notBeen", {name = signName})
+--          print("---1: " .. #targetCell .. "/" .. targetCell .. ", " .. #currentCell .. "/" .. currentCell)
+--          print("---11: " .. #m .. "/" .. m)
+            ui.showMessage(m)
+--          print("--- notBeen1: targetCell=" .. targetCell .. ", currentCell=" .. currentCell .. ", signName=" .. data.signName)
         end
         return
     end
@@ -331,7 +342,9 @@ local function askForTeleport(data)
     -- Not been there part two (maybe been there but we have no points)
     if not points then
         if travelSettings:get("showMsgs") then
-            ui.showMessage(L("notBeen", {name = targetCell}))
+            ui.showMessage(L("notBeen", {name = signName}))
+--          print("--- notBeen2: " .. #targetCell .. "/" .. targetCell .. ", " .. #currentCell .. "/" .. currentCell)
+--          print("--- notBeen2: targetCell=" .. targetCell .. ", currentCell=" .. currentCell .. ", signName=" .. data.signName)
         end
         return
     end
